@@ -1,3 +1,3 @@
 <footer class="Footer">
-    @yield('footer')
+    {{ $slot }}
 </footer>

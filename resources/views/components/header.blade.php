@@ -1,3 +1,3 @@
 <header class="Header">
-    @yield('header')
+    {{ $slot }}
 </header>

@@ -1,4 +1,4 @@
-@include('components.html')
+@extends('layouts.default')
 
 @section('content')
     <div class="Middle">

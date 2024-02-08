@@ -3,4 +3,5 @@
 <script src="assets/plg/form/jquery.maskedinput.min.js"></script>
 <script src="assets/plg/range/ion.rangeSlider.min.js"></script>
 <script src="assets/plg/Slider/slick.min.js"></script>
-<script src="assets/js/scripts.js"></script>
+
+@vite('resources/js/app.js')

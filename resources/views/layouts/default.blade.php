@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     @include('layouts.head')
     @yield('head')
-    @vite('resources/css/app.css')
 </head>
 <body class="Site">
     
@@ -17,8 +16,7 @@
     
     @include('components.footer')
 
-    @include('layouts.scripts')x
+    @include('layouts.scripts')
     @yield('scripts')
-    @vite('resources/js/app.js')
 </body>
 </html>

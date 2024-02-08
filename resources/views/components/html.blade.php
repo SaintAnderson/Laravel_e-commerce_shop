@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="{{ $lang }}">
-
+<html lang="@yield('lang', 'ru')">
 <head>
-    <title>{{ $title }}</title>
-    @includeIf('layouts.head')
-    {{ $head }}
+    <title>@yield('title', env('APP_NAME', 'Megano'))</title>
+    <meta name="description" content="@yield('description')">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    @include('layouts.head')
+    @yield('head')
+    @vite('resources/css/app.css')
 </head>
-
 <body class="Site">
+    
+    @include('components.header')
 
-    {{ $slot }}
+    @yield('content')
+    
+    @include('components.footer')
 
-    @includeIf('layouts.scripts')
+    @include('layouts.scripts')x
+    @yield('scripts')
+    @vite('resources/js/app.js')
 </body>
-
 </html>

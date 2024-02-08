@@ -356,7 +356,7 @@
 .Product .Tabs-block-section + .Product .Tabs-block-section {
   margin-top: 70px;
   padding-top: 90px;
-  background: url("../img/bg/lineHeaderSection.png") 0 0 repeat-x;
+  background: url("../../public/assets/img/bg/lineHeaderSection.png") 0 0 repeat-x;
 }
 
 .Cards {
@@ -725,7 +725,7 @@
   right: 14px;
   width: 26px;
   height: 26px;
-  background: url("../img/icons/pin.svg") center center no-repeat;
+  background: url("../../public/assets/img/icons/pin.svg") center center no-repeat;
   background-size: contain;
   z-index: 10;
 }
@@ -748,7 +748,7 @@
 }
 .Card-quote-text,
 .Card-link-text {
-  background: url("../img/icons/quote.svg") center top no-repeat;
+  background: url("../../public/assets/img/icons/quote.svg") center top no-repeat;
   padding-top: 72px;
   font-size: 20px;
   line-height: 1.8em;
@@ -764,7 +764,7 @@
   margin-top: 37px;
 }
 .Card-link-text {
-  background-image: url("../img/icons/link.svg");
+  background-image: url("../../public/assets/img/icons/link.svg");
 }
 .Card-link-go {
   font-weight: 500;
@@ -1798,7 +1798,7 @@ a.Cart-title {
 .Choice-arrow {
   width: 12px;
   height: 8px;
-  background: url("../img/icons/arrowMuted.svg") 0 0 no-repeat;
+  background: url("../../public/assets/img/icons/arrowMuted.svg") 0 0 no-repeat;
   position: absolute;
   right: 0;
   top: 50%;
@@ -1874,7 +1874,7 @@ a.Cart-title {
   border-top: #ebebeb 1px solid;
 }
 .CategoriesButton-link .CategoriesButton-arrow {
-  background: url("../img/icons/arrowMuted.svg") center center no-repeat;
+  background: url("../../public/assets/img/icons/arrowMuted.svg") center center no-repeat;
   transform: translateY(-50%) rotate(-90deg);
 }
 @media screen and (min-width: 990px) {
@@ -1912,7 +1912,7 @@ a.Cart-title {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  background: url("../img/icons/arrowSlide.svg") center center no-repeat;
+  background: url("../../public/assets/img/icons/arrowSlide.svg") center center no-repeat;
   width: 30px;
   height: 30px;
   z-index: 10;
@@ -2216,7 +2216,7 @@ a.Cart-title {
   width: 99px;
   height: 99px;
   border-radius: 100px;
-  background: #0063d1 url("../img/icons/user_icon.svg") center center no-repeat;
+  background: #0063d1 url("../../public/assets/img/icons/user_icon.svg") center center no-repeat;
 }
 .Comment-rating {
   position: absolute;
@@ -3048,7 +3048,7 @@ a.Cart-title {
 
 .Pagination {
   visibility: visible;
-  background: url("../img/bg/lineHeaderSection.png") 0 center repeat-x;
+  background: url("../../public/assets/img/bg/lineHeaderSection.png") 0 center repeat-x;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3390,7 +3390,7 @@ a.Cart-title {
 .ProductCard-cart {
   display: flex;
   padding-top: 37px;
-  background: url("../img/bg/lineHeaderSection.png") left top repeat-x;
+  background: url("../../public/assets/img/bg/lineHeaderSection.png") left top repeat-x;
   margin-top: 38px;
 }
 @media screen and (max-width: 480px) {
@@ -3489,7 +3489,7 @@ a.Cart-title {
 .ProductCard-header {
   margin-top: 4px;
   padding-bottom: 40px;
-  background: url("../img/bg/lineHeaderSection.png") left bottom repeat-x;
+  background: url("../../public/assets/img/bg/lineHeaderSection.png") left bottom repeat-x;
 }
 .ProductCard-info {
   display: flex;
@@ -3517,7 +3517,7 @@ a.Cart-title {
 .ProductCard-footer {
   margin-top: 30px;
   padding-top: 37px;
-  background: url("../img/bg/lineHeaderSection.png") left top repeat-x;
+  background: url("../../public/assets/img/bg/lineHeaderSection.png") left top repeat-x;
   display: flex;
   align-items: center;
 }
@@ -4054,7 +4054,7 @@ a.Cart-title {
   align-items: center;
   margin-bottom: 54px;
   margin-top: 23px;
-  background: url("../img/bg/lineHeaderSection.png") 0 center repeat-x;
+  background: url("../../public/assets/img/bg/lineHeaderSection.png") 0 center repeat-x;
 }
 .Section-header .Section-title {
   margin-right: auto;
@@ -4309,7 +4309,7 @@ a.Cart-title {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 70px;
-  background: url("../img/bg/lineHeaderSection.png") 0 11px repeat-x;
+  background: url("../../public/assets/img/bg/lineHeaderSection.png") 0 11px repeat-x;
 }
 .Sort-title {
   color: #aaa;
@@ -4355,7 +4355,7 @@ a.Cart-title {
   top: 0;
   width: 30px;
   height: 30px;
-  background: url("../img/icons/upArrow.svg") center center no-repeat;
+  background: url("../../public/assets/img/icons/upArrow.svg") center center no-repeat;
   background-size: contain;
 }
 .Sort-sortBy_inc:after {
@@ -5049,7 +5049,7 @@ a.Cart-title {
   padding: 0;
   border: none;
   outline: none;
-  background: url("../img/icons/arrowRightSlider.svg") 0 0 no-repeat;
+  background: url("../../public/assets/img/icons/arrowRightSlider.svg") 0 0 no-repeat;
 }
 .slick-prev:hover,
 .slick-next:hover,

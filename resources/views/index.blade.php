@@ -1,6 +1,8 @@
 @extends('layouts.default')
 
 @section('content')
+    @include('components.slider', $banners)
+
     <div class="Middle">
         <div class="Section">
             <div class="wrap">
@@ -777,5 +779,5 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 @endsection

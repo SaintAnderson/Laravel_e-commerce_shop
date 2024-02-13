@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\CategoryService;
+use App\Services\ProductService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,6 +16,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(CategoryService::class, function () {
             return new CategoryService();
+        });
+        $this->app->bind(ProductService::class, function () {
+            return new ProductService();
         });
     }
 

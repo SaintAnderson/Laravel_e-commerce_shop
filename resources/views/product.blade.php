@@ -24,9 +24,9 @@
             <div class="ProductCard-look">
               <div class="ProductCard-photo">
                 <div class="ProductCard-sale">-15%
-                </div><img src="assets/img/content/home/bigGoods.png" alt="bigGoods.png"/>
+                </div><img src="/assets/img/content/home/bigGoods.png" alt="bigGoods.png"/>
               </div>
-              <div class="ProductCard-picts"><a class="ProductCard-pict ProductCard-pict_ACTIVE" href="assets/img/content/home/bigGoods.png"><img src="assets/img/content/home/bigGoods.png" alt="bigGoods.png"/></a><a class="ProductCard-pict" href="assets/img/content/home/slider.png"><img src="assets/img/content/home/slider.png" alt="slider.png"/></a><a class="ProductCard-pict" href="assets/img/content/home/videoca.png"><img src="assets/img/content/home/videoca.png" alt="videoca.png"/></a>
+              <div class="ProductCard-picts"><a class="ProductCard-pict ProductCard-pict_ACTIVE" href="/assets/img/content/home/bigGoods.png"><img src="/assets/img/content/home/bigGoods.png" alt="bigGoods.png"/></a><a class="ProductCard-pict" href="/assets/img/content/home/slider.png"><img src="/assets/img/content/home/slider.png" alt="slider.png"/></a><a class="ProductCard-pict" href="/assets/img/content/home/videoca.png"><img src="/assets/img/content/home/videoca.png" alt="videoca.png"/></a>
               </div>
             </div>
             <div class="ProductCard-desc">
@@ -40,7 +40,7 @@
                     <div class="ProductCard-priceOld">$115.00
                     </div>
                   </div>
-                  <div class="ProductCard-compare"><a class="btn btn_default" href="#"><img class="btn-icon" src="assets/img/icons/card/change.svg" alt="change.svg"/></a>
+                  <div class="ProductCard-compare"><a class="btn btn_default" href="#"><img class="btn-icon" src="/assets/img/icons/card/change.svg" alt="change.svg"/></a>
                   </div>
                 </div>
               </div>
@@ -64,7 +64,7 @@
                     </button>
                   </div>
                 </div>
-                <div class="ProductCard-cartElement"><a class="btn btn_primary" href="#"><img class="btn-icon" src="assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Add To Cart</span></a>
+                <div class="ProductCard-cartElement"><a class="btn btn_primary" href="#"><img class="btn-icon" src="/assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Add To Cart</span></a>
                 </div>
               </div>
               <div class="ProductCard-footer">
@@ -85,7 +85,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetuer&#32;
                   <strong>adipiscing
                   </strong>&#32;elit doli. Aenean commodo ligula eget dolor. Aenean massa.&#32;<a href="#">Cumtipsu</a>&#32;sociis natoque penatibus et magnis dis parturient montesti, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eutu, pretiumem.
-                </p><img class="pict pict_right" src="assets/img/content/home/bigGoods.png" alt="bigGoods.png"/>
+                </p><img class="pict pict_right" src="/assets/img/content/home/bigGoods.png" alt="bigGoods.png"/>
                 <ul>
                   <li>Lorem ipsum dolor sit amet, consectetuer
                   </li>
@@ -134,7 +134,7 @@
                       <strong>€&#32;40.58
                       </strong>
                     </div>
-                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
+                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="/assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
                     </div>
                   </div>
                   <div class="Categories-row">
@@ -150,7 +150,7 @@
                       <strong>€&#32;69.04
                       </strong>
                     </div>
-                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
+                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="/assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
                     </div>
                   </div>
                   <div class="Categories-row">
@@ -166,7 +166,7 @@
                       <strong>€&#32;112.69
                       </strong>
                     </div>
-                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
+                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="/assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
                     </div>
                   </div>
                   <div class="Categories-row">
@@ -182,7 +182,7 @@
                       <strong>€&#32;197.32
                       </strong>
                     </div>
-                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
+                    <div class="Categories-block Categories-button"><a class="btn btn_primary" href="#"><img class="btn-icon" src="/assets/img/icons/card/cart_white.svg" alt="cart_white.svg"/><span class="btn-content">Купить</span></a>
                     </div>
                   </div>
                 </div>

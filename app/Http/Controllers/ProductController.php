@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return  view('product');    
     }
 
     /**
@@ -35,9 +35,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($slug)
     {
-        //
+            $product = Product::where('slug', $slug)->first();
+           return view('product', $product);
     }
 
     /**

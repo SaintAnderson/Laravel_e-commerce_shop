@@ -18,10 +18,12 @@ class ProductFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'seller_id' => $this->faker->randomNumber(10),
+            'category_id' =>$this->faker->numberBetween(0,100),
+            'seller_id' => $this->faker->numberBetween(0,100),
             'description' => $this->faker->text(),
-            'count' => $this->faker->randomNumber(2),
-            'price' => $this->faker->randomFloat(),
+            'count' => $this->faker->numberBetween(0,100),
+            'price' => $this->faker->randomFloat(1,20,30),
+            'article'=>$this->faker->uuid(),
             'active' => $this->faker->boolean()
 
         ];

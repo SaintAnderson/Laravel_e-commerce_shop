@@ -211,7 +211,7 @@
             </div>
         </div>
     </div>
-    <div class="Header-slider">
+    <!-- <div class="Header-slider">
         <div class="Slider Slider_main">
             <div class="Slider-box">
                 <div class="Slider-item">
@@ -264,5 +264,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </header>

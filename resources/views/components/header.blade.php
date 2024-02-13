@@ -29,8 +29,25 @@
                 </div>
                 <nav class="row-block">
                     <div class="row ControlPanel-rowSplit">
-                        <div class="row-block"><a class="ControlPanel-title" href="account.html">Login /
-                                Register</a>
+                            @auth
+                                <div class="row-block"><a class="ControlPanel-title" href="{{ route('profile.edit') }}">Профиль</a>
+                                <div class="row-block"></div>
+                                <div class="row-block">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+            
+                                        <x-dropdown-link class="ControlPanel-title" :href="route('logout')"
+                                                onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                            {{ __('Выйти') }}
+                                        </x-dropdown-link>
+                                    </form>
+                                </div>
+                            @else
+                                <div class="row-block"><a class="ControlPanel-title" href="{{ route('login') }}">Войти</a>
+                                <div class="row-block"></div>
+                                <div class="row-block"><a class="ControlPanel-title" href="{{ route('register') }}">Зарегистрироваться</a>
+                            @endauth
                         </div>
                     </div>
                 </nav>

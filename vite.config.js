@@ -6,7 +6,9 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/app.js'
+                'resources/css/breeze.css',
+                'resources/js/app.js',
+                'resources/js/breeze.js',
             ],
             refresh: true,
         }),

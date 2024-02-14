@@ -9,19 +9,19 @@
                         <div class="row-block hide_700"><span class="ControlPanel-title">Follow Us</span>
                             <ul class="menu menu_img menu_smallImg ControlPanel-menu">
                                 <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="assets/img/icons/socialHeader/fb.svg" alt="fb.svg"/></a>
+                                            src="/assets/img/icons/socialHeader/fb.svg" alt="fb.svg"/></a>
                                 </li>
                                 <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="assets/img/icons/socialHeader/tw.svg" alt="tw.svg"/></a>
+                                            src="/assets/img/icons/socialHeader/tw.svg" alt="tw.svg"/></a>
                                 </li>
                                 <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="assets/img/icons/socialHeader/in.svg" alt="in.svg"/></a>
+                                            src="/assets/img/icons/socialHeader/in.svg" alt="in.svg"/></a>
                                 </li>
                                 <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="assets/img/icons/socialHeader/pt.svg" alt="pt.svg"/></a>
+                                            src="/assets/img/icons/socialHeader/pt.svg" alt="pt.svg"/></a>
                                 </li>
                                 <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="assets/img/icons/socialHeader/mail.svg" alt="mail.svg"/></a>
+                                            src="/assets/img/icons/socialHeader/mail.svg" alt="mail.svg"/></a>
                                 </li>
                             </ul>
                         </div>
@@ -57,7 +57,7 @@
     <div class="wrap">
         <div class="row Header-rowMain">
             <div class="row-block Header-logo"><a class="logo" href="index.html"><img class="logo-image"
-                                                                                      src="assets/img/logo.png"
+                                                                                      src="/assets/img/logo.png"
                                                                                       alt="logo.png"/></a>
             </div>
             <nav class="row-block row-block_right Header-menu">
@@ -82,10 +82,10 @@
             </nav>
             <div class="row-block">
                 <div class="CartBlock"><a class="CartBlock-block" href="compare.html"><img class="CartBlock-img"
-                                                                                           src="assets/img/icons/exchange.svg"
+                                                                                           src="/assets/img/icons/exchange.svg"
                                                                                            alt="exchange.svg"/><span
                             class="CartBlock-amount">4</span></a><a class="CartBlock-block" href="cart.html"><img
-                            class="CartBlock-img" src="assets/img/icons/cart.svg" alt="cart.svg"/><span
+                            class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/><span
                             class="CartBlock-amount">0</span></a>
                     <div class="CartBlock-block"><span class="CartBlock-price">0.00$</span>
                     </div>
@@ -102,7 +102,7 @@
     <div class="Header-searchWrap">
         <div class="wrap">
             @include('components.category.category-menu')
-            <div class="Header-searchLink"><img src="assets/img/icons/search.svg" alt="search.svg"/>
+            <div class="Header-searchLink"><img src="/assets/img/icons/search.svg" alt="search.svg"/>
             </div>
             <div class="Header-search">
                 <div class="search">
@@ -110,7 +110,7 @@
                         <input class="search-input" id="query" name="query" type="text"
                                placeholder="What are you looking for ..."/>
                         <button class="search-button" type="submit" name="search" id="search"><img
-                                src="assets/img/icons/search.svg" alt="search.svg"/>Search
+                                src="/assets/img/icons/search.svg" alt="search.svg"/>Search
                         </button>
                     </form>
                 </div>

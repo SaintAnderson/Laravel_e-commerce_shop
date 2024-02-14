@@ -3488,8 +3488,7 @@ a.Cart-title {
 }
 .ProductCard-header {
   margin-top: 4px;
-  padding-bottom: 40px;
-  background: url("../../public/assets/img/bg/lineHeaderSection.png") left bottom repeat-x;
+  padding-bottom: 10px;
 }
 .ProductCard-info {
   display: flex;

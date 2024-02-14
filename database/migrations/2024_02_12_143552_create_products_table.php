@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->bigInteger('seller_id')->nullable()->constrained()->nullOnDelete();
-            $table->bigInteger('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('seller_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
             $table->text('article');
             $table->text('description');
             $table->integer('count');

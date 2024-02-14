@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('count');
             $table->float('price');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

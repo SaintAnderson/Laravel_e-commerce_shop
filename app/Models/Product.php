@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
 use App\Models\{Category, Seller};
 
 class Product extends Model
 {
-    use HasFactory, HasSlug, SoftDeletes;
+    use HasFactory, HasSlug;
 
     protected $fillable = [
         'title',
@@ -21,7 +20,7 @@ class Product extends Model
         'description',
         'count',
         'price',
-        'active'
+        'is_active'
     ];
 
     public function getSlugOptions(): SlugOptions

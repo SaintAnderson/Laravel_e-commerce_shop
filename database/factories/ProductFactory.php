@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
+use App\Models\Seller;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,8 +26,7 @@ class ProductFactory extends Factory
             'count' => $this->faker->numberBetween(0,100),
             'price' => $this->faker->randomFloat(1,20,30),
             'article'=>$this->faker->uuid(),
-            'active' => $this->faker->boolean()
-
+            'is_active' => $this->faker->boolean()
         ];
     }
 }

@@ -15,16 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            // $table->foreignId('seller_id')->nullable()->constrained()->nullOnDelete();
-            // $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->bigInteger('seller_id')->nullable()->constrained()->nullOnDelete();
+            $table->bigInteger('category_id')->nullable()->constrained()->nullOnDelete();
             $table->integer('seller_id');
             $table->integer('category_id');
             $table->text('article');
             $table->text('description');
             $table->integer('count');
             $table->float('price');
-            $table->boolean('active');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('seller_id')->on('sellers')->references('id');
+            $table->foreign('category_id')->on('categoryes')->references('id');
         });
     }
 

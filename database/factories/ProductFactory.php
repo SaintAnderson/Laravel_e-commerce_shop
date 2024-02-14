@@ -18,8 +18,8 @@ class ProductFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'category_id' =>$this->faker->numberBetween(0,100),
-            'seller_id' => $this->faker->numberBetween(0,100),
+            'category_id' => Category::inRandomOrder()->first()->getKey(),
+            'seller_id' => Seller::inRandomOrder()->first()->getKey(),
             'description' => $this->faker->text(),
             'count' => $this->faker->numberBetween(0,100),
             'price' => $this->faker->randomFloat(1,20,30),

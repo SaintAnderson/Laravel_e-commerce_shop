@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('slug');
             $table->bigInteger('seller_id')->nullable()->constrained()->nullOnDelete();
             $table->bigInteger('category_id')->nullable()->constrained()->nullOnDelete();
-            $table->integer('seller_id');
-            $table->integer('category_id');
             $table->text('article');
             $table->text('description');
             $table->integer('count');
@@ -27,7 +25,7 @@ return new class extends Migration
             $table->softDeletes();
 
             $table->foreign('seller_id')->on('sellers')->references('id');
-            $table->foreign('category_id')->on('categoryes')->references('id');
+            $table->foreign('category_id')->on('categories')->references('id');
         });
     }
 

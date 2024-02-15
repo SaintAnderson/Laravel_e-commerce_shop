@@ -18,6 +18,7 @@ class Product extends Model
         'article',
         'description',
         'count',
+        'order',
         'price',
         'is_active'
     ];

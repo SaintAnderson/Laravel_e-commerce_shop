@@ -6,7 +6,7 @@ use App\Models\Product;
 
 class ProductService
 {
-    public function getActiveProducts()
+    public function getPaginatedCatalogProducts()
     {
         return Product::where('is_active', true)->where('count', '>', 0)->paginate(8);
     }

@@ -83,6 +83,7 @@
                     </div>
                     <div class="Cards">
                         @foreach($products as $product)
+                            <!--TODO заменить на компонент карточки товара -->
                             <div class="Card"><a class="Card-picture" href="#"><img
                                         src="assets/img/content/home/card.jpg"
                                         alt="card.jpg"/></a>

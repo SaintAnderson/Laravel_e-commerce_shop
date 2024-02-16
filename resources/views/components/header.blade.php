@@ -56,14 +56,14 @@
     </div>
     <div class="wrap">
         <div class="row Header-rowMain">
-            <div class="row-block Header-logo"><a class="logo" href="/"><img class="logo-image"
+            <div class="row-block Header-logo"><a class="logo" href="{{ route('home') }}"><img class="logo-image"
                                                                                       src="/assets/img/logo.png"
                                                                                       alt="logo.png"/></a>
             </div>
             <nav class="row-block row-block_right Header-menu">
                 <div class="menuModal" id="navigate">
                     <ul class="menu menu_main">
-                        <li class="menu-item"><a class="menu-link" href="index.html">Home</a>
+                        <li class="menu-item"><a class="menu-link" href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="menu-item"><span class="menu-label menu-label_danger">New</span><a
                                 class="menu-link" href="shop.html">Shop</a>

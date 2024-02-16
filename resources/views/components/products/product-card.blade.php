@@ -5,7 +5,7 @@
         <div class="Card-description">
             <div class="Card-cost">
                 @if ($sale) <span class="Card-priceOld">${{ $price }}</span> @endif
-                <span class="Card-price">@if ($sale)${{ $pricesale }} @else {{ $price ? '$' . $price : 'Бесплатно' }} @endif</span>
+                <span class="Card-price">{{ $pricesale ? '$' . $pricesale : 'Бесплатно' }}</span>
             </div>
             <div class="Card-category">
                 {{ $category }}

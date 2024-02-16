@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('content')
+@section('body')
     @include('components.slider', $banners)
 
     <div class="Middle">

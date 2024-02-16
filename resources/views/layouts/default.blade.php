@@ -12,7 +12,7 @@
     
     @include('components.header')
 
-    @yield('content')
+    @yield('body')
     
     @include('components.footer')
 

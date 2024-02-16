@@ -5,16 +5,16 @@
         <div class="Card-description">
             <div class="Card-cost">
                 @if ($sale) <span class="Card-priceOld">${{ $price }}</span> @endif
-                <span class="Card-price">@if ($sale)${{ $price - ($price * $sale / 100) }} @else {{ $price ? '$' . $price : 'Бесплатно' }} @endif</span>
+                <span class="Card-price">@if ($sale)${{ $pricesale }} @else {{ $price ? '$' . $price : 'Бесплатно' }} @endif</span>
             </div>
             <div class="Card-category">
                 {{ $category }}
             </div>
             <div class="Card-hover"><a class="Card-btn" href="#"><img
-                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
             </div>
         </div>
     </div>

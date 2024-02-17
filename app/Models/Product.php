@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\{HasOne, BelongsTo, MorphMany};
 use Spatie\Sluggable\{HasSlug, SlugOptions};
 
 class Product extends Model
@@ -34,6 +34,11 @@ class Product extends Model
         return 'slug';
     }
 
+    public function photos(): MorphMany
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
@@ -42,5 +47,10 @@ class Product extends Model
     public function seller(): BelongsTo
     {
         return $this->belongsTo(Seller::class);
+    }
+
+    public function discount(): HasOne
+    {
+        return $this->hasOne(ProductDiscount::class)->where('active_before', '>', date("Y-m-d H:i:s"));
     }
 }

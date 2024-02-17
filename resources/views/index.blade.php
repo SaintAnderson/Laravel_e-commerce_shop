@@ -111,9 +111,9 @@
                         </h2>
                     </header>
                     <div class="Cards">
-                        <x-products.product-card price="123" slug="12312" category="Tester" sale="50" src="/assets/img/content/home/card.jpg">
-                            Комп
-                        </x-products.product-card>
+                        @foreach ($products as $product)
+                            <x-products.product-card :product="$product"/> 
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -22,11 +22,13 @@ class ProductFactory extends Factory
             'title' => $this->faker->sentence(),
             'category_id' => Category::inRandomOrder()->first()->getKey(),
             'seller_id' => Seller::inRandomOrder()->first()->getKey(),
+            'slug' => $this->faker->slug,
             'description' => $this->faker->text(),
             'count' => $this->faker->numberBetween(0,100),
             'price' => $this->faker->randomFloat(1,20,30),
             'article'=>$this->faker->uuid(),
-            'is_active' => $this->faker->boolean()
+            'is_active' => $this->faker->boolean(),
+            'is_limited_edition' => $this->faker->boolean(),
         ];
     }
 }

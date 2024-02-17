@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('role_id')->nullable()->constrained()->nullOnDelete();
+        Schema::table('products', function (Blueprint $table) {
+            $table->boolean('is_limited_edition')->default(false);
         });
     }
 
@@ -21,9 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('role_id');
-            $table->dropColumn('role_id');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('is_limited_edition');
         });
     }
 };

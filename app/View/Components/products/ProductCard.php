@@ -15,8 +15,7 @@ class ProductCard extends Component
     public function __construct(
         public Product $product,
     ) {
-        print_r($product->photos->first());
-        $this->photo = $product->photos ? asset('storage/images/' . optional($product->photos->first())->src) : null;
+        $this->photo = $product->photos->first() ? asset(optional($product->photos->first())->src) : env('IMAGE_PRODUCT_DEFAULT', null);
         $this->sale = $product->discount ? $product->discount->precent : null;
         $this->fullprice = $product->price - ($product->price * $this->sale / 100);
     }

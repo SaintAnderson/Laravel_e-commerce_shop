@@ -6,8 +6,8 @@ use App\Models\Product;
 
 class ProductService
 {
-    function getLimitedEditionProducts()
+    public function getLimitedEditionProducts()
     {
-        return Product::all()->where('is_limited_edition', '=', true)->take(16);
+        return Product::limited()->take(16)->get();
     }
 }

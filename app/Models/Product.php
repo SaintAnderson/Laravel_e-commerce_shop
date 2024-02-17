@@ -54,7 +54,7 @@ class Product extends Model
     }
     public function scopeLimited(Builder $query): Builder
     {
-       return $query->where('is_limited_edition', '==', 'true');
+       return $query->where('is_limited_edition', '=', true);
     }
 
     public function discount(): HasOne

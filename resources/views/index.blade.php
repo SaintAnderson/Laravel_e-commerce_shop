@@ -111,7 +111,7 @@
                     </header>
                     <div class="Cards">
                         @foreach ($products as $product)
-                            <x-products.product-card :product="$product"/> 
+                            @include('layouts.products.product-card', ['product' => $product])
                         @endforeach
                     </div>
                 </div>
@@ -374,8 +374,8 @@
                             </div>
                         </header>
                         <div class="Slider-box Cards">
-                            @foreach ($product_edtions as $product_edtion)
-                                <x-limited-edition-product-slider :product="$product_edtion"/>
+                            @foreach ($limitedEditionProducts as $limitedEditionProduct)
+                                @include('layouts.products.product-limited-edition-slider', ['product' => $limitedEditionProduct])
                             @endforeach
                         </div>
                     </div>

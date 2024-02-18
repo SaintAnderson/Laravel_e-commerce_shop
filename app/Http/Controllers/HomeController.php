@@ -8,15 +8,15 @@ use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    public function index(): View
+    public function index(ProductService $productService): View
     {
         $banners = Banner::inRandomOrder()->take(3)->get();
         $products = Product::all();
-        $product_edtions = (new ProductService())->getLimitedEditionProducts();
+        $limitedEditionProducts = $productService->getLimitedEditionProducts();
         $ctx = [
             'banners' => $banners,
             'products' => $products,
-            'product_edtions' => $product_edtions,
+            'limitedEditionProducts' => $limitedEditionProducts,
         ];
         return view('index', $ctx);
     }

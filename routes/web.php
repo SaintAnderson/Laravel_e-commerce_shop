@@ -12,9 +12,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/account', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/password', [PasswordController::class, 'edit'])->name('password.edit');
-
-    Route::get('/historyorder', [ProfileController::class, 'historyorder'])->name('profile.historyorder');
-    Route::get('/historyview', [ProfileController::class, 'historyview'])->name('profile.historyview');
 });
 
 require __DIR__.'/auth.php';

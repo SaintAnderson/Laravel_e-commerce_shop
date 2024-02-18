@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\{Image, User};
 use Illuminate\Http\{RedirectResponse, Request};
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
@@ -36,29 +35,6 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        if ($request->hasFile('avatar')) {
-            $path = $request->file('avatar')->store(env('PATH_IMAGES', 'public/images'));
-            $name = basename($path);
-            $avatar = [
-                'src' => $name,
-                'imageable_id' => $request->user()->id,
-                'imageable_type' => User::class,
-            ];
-
-            $image = new Image($avatar);
-            $image->save();
-        }
-
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    public function historyorder(): View
-    {
-        return view('profiles.historyorder');
-    }
-
-    public function historyview(): View
-    {
-        return view('profiles.historyview');
     }
 }

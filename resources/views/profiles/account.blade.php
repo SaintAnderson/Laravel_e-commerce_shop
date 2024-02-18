@@ -2,7 +2,7 @@
 
 @section('name', 'Личный кабинет')
 
-@section('content')
+@section('profile')
     <div class="Account">
         <div class="Account-group">
             <div class="Account-column">
@@ -27,7 +27,7 @@
                     </h2>
                 </header>
                 <div class="Cards Cards_account"></div>
-                <div class="Account-editLink Account-editLink_view"><a href="{{ route('profile.historyview') }}">Перейти
+                <div class="Account-editLink Account-editLink_view"><a href="#">Перейти
                         на полный
                         список</a>
                 </div>

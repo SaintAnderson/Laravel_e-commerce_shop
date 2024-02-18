@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('body')
+@section('content')
     @include('components.slider', $banners)
 
     <div class="Middle">
@@ -16,7 +16,7 @@
                                 </div>
                             </div>
                             <div class="BannersHomeBlock-block">
-                                <div class="BannersHomeBlock-img"><img src="assets/img/content/home/videoca.png"
+                                <div class="BannersHomeBlock-img"><img src="/assets/img/content/home/videoca.png"
                                         alt="videoca.png" />
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="BannersHomeBlock-block">
-                                <div class="BannersHomeBlock-img"><img src="assets/img/content/home/videoca.png"
+                                <div class="BannersHomeBlock-img"><img src="/assets/img/content/home/videoca.png"
                                         alt="videoca.png" />
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="BannersHomeBlock-block">
-                                <div class="BannersHomeBlock-img"><img src="assets/img/content/home/videoca.png"
+                                <div class="BannersHomeBlock-img"><img src="/assets/img/content/home/videoca.png"
                                         alt="videoca.png" />
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                             <strong class="Section-columnTitle">Limited Deals
                             </strong>
                         </header>
-                        <div class="Card"><a class="Card-picture" href="#"><img src="assets/img/content/home/card.jpg"
+                        <div class="Card"><a class="Card-picture" href="#"><img src="/assets/img/content/home/card.jpg"
                                     alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White Steel</a>
@@ -111,7 +111,7 @@
                         </h2>
                     </header>
                     <div class="Cards">
-                        <div class="Card"><a class="Card-picture" href="#"><img src="assets/img/content/home/card.jpg"
+                        <div class="Card"><a class="Card-picture" href="#"><img src="/assets/img/content/home/card.jpg"
                                     alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White Steel</a>
@@ -123,17 +123,17 @@
                                     <div class="Card-category">Games / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="Card-sale">-60%
                             </div>
                         </div>
-                        <div class="Card"><a class="Card-picture" href="#"><img src="assets/img/content/home/card.jpg"
+                        <div class="Card"><a class="Card-picture" href="#"><img src="/assets/img/content/home/card.jpg"
                                     alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Barand New Phone Smart Business</a>
@@ -145,17 +145,17 @@
                                     <div class="Card-category">Games / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="Card-sale">-60%
                             </div>
                         </div>
-                        <div class="Card"><a class="Card-picture" href="#"><img src="assets/img/content/home/card.jpg"
+                        <div class="Card"><a class="Card-picture" href="#"><img src="/assets/img/content/home/card.jpg"
                                     alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Mavic PRO Mini Drones Hobby RC Quadcopter</a>
@@ -167,17 +167,17 @@
                                     <div class="Card-category">Digital / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="Card-sale">-60%
                             </div>
                         </div>
-                        <div class="Card"><a class="Card-picture" href="#"><img src="assets/img/content/home/card.jpg"
+                        <div class="Card"><a class="Card-picture" href="#"><img src="/assets/img/content/home/card.jpg"
                                     alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White Steel</a>
@@ -188,10 +188,10 @@
                                     <div class="Card-category">Media / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                             </div>
                         </div>
                         <div class="Card hide_md"><a class="Card-picture" href="#"><img
-                                    src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                    src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White Steel</a>
                                 </strong>
@@ -210,10 +210,10 @@
                                     <div class="Card-category">Games / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -221,7 +221,7 @@
                             </div>
                         </div>
                         <div class="Card hide_md"><a class="Card-picture" href="#"><img
-                                    src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                    src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Barand New Phone Smart Business</a>
                                 </strong>
@@ -232,10 +232,10 @@
                                     <div class="Card-category">Games / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                             </div>
                         </div>
                         <div class="Card hide_md hide_1450"><a class="Card-picture" href="#"><img
-                                    src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                    src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Mavic PRO Mini Drones Hobby RC Quadcopter</a>
                                 </strong>
@@ -254,10 +254,10 @@
                                     <div class="Card-category">Digital / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@
                             </div>
                         </div>
                         <div class="Card hide_md hide_1450"><a class="Card-picture" href="#"><img
-                                    src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                    src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                             <div class="Card-content">
                                 <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White Steel</a>
                                 </strong>
@@ -275,10 +275,10 @@
                                     <div class="Card-category">Media / xbox
                                     </div>
                                     <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
-                                            class="Card-btn" href="#"><img src="assets/img/icons/card/cart.svg"
+                                                src="/assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
+                                            class="Card-btn" href="#"><img src="/assets/img/icons/card/cart.svg"
                                                 alt="cart.svg" /></a><a class="Card-btn" href="compare.html"><img
-                                                src="assets/img/icons/card/change.svg" alt="change.svg" /></a>
+                                                src="/assets/img/icons/card/change.svg" alt="change.svg" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White
                                                     Steel</a>
@@ -317,11 +317,11 @@
                                                 <div class="Card-category">Games / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -334,7 +334,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Barand New Phone Smart Business</a>
                                             </strong>
@@ -345,11 +345,11 @@
                                                 <div class="Card-category">Games / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -362,7 +362,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Mavic PRO Mini Drones Hobby RC
                                                     Quadcopter</a>
@@ -374,11 +374,11 @@
                                                 <div class="Card-category">Digital / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -391,7 +391,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White
                                                     Steel</a>
@@ -403,11 +403,11 @@
                                                 <div class="Card-category">Games / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -420,7 +420,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Barand New Phone Smart Business</a>
                                             </strong>
@@ -431,11 +431,11 @@
                                                 <div class="Card-category">Games / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -448,7 +448,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Mavic PRO Mini Drones Hobby RC
                                                     Quadcopter</a>
@@ -460,11 +460,11 @@
                                                 <div class="Card-category">Digital / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -484,7 +484,7 @@
                 <div class="Section-column">
                     <div class="Section-columnSection Section-columnSection_mark">
                         <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/shipping.svg"
+                            <div class="media-image"><img src="/assets/img/icons/advantages/shipping.svg"
                                     alt="shipping.svg" />
                             </div>
                             <div class="media-content">
@@ -497,7 +497,7 @@
                     </div>
                     <div class="Section-columnSection Section-columnSection_mark">
                         <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/moneyBack.svg"
+                            <div class="media-image"><img src="/assets/img/icons/advantages/moneyBack.svg"
                                     alt="moneyBack.svg" />
                             </div>
                             <div class="media-content">
@@ -510,7 +510,7 @@
                     </div>
                     <div class="Section-columnSection Section-columnSection_mark">
                         <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/support.svg"
+                            <div class="media-image"><img src="/assets/img/icons/advantages/support.svg"
                                     alt="support.svg" />
                             </div>
                             <div class="media-content">
@@ -523,7 +523,7 @@
                     </div>
                     <div class="Section-columnSection Section-columnSection_mark">
                         <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/quality.svg"
+                            <div class="media-image"><img src="/assets/img/icons/advantages/quality.svg"
                                     alt="quality.svg" />
                             </div>
                             <div class="media-content">
@@ -549,7 +549,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White
                                                     Steel</a>
@@ -561,11 +561,11 @@
                                                 <div class="Card-category">Games / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -578,7 +578,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Barand New Phone Smart Business</a>
                                             </strong>
@@ -589,11 +589,11 @@
                                                 <div class="Card-category">Games / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -606,7 +606,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Mavic PRO Mini Drones Hobby RC
                                                     Quadcopter</a>
@@ -618,11 +618,11 @@
                                                 <div class="Card-category">Digital / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -635,7 +635,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White
                                                     Steel</a>
@@ -646,11 +646,11 @@
                                                 <div class="Card-category">Media / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -663,7 +663,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Mavic PRO Mini Drones Hobby RC
                                                     Quadcopter</a>
@@ -675,11 +675,11 @@
                                                 <div class="Card-category">Digital / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -692,7 +692,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White
                                                     Steel</a>
@@ -703,11 +703,11 @@
                                                 <div class="Card-category">Media / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -720,7 +720,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Mavic PRO Mini Drones Hobby RC
                                                     Quadcopter</a>
@@ -732,11 +732,11 @@
                                                 <div class="Card-category">Digital / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>
@@ -749,7 +749,7 @@
                             <div class="Slider-item">
                                 <div class="Slider-content">
                                     <div class="Card"><a class="Card-picture" href="#"><img
-                                                src="assets/img/content/home/card.jpg" alt="card.jpg" /></a>
+                                                src="/assets/img/content/home/card.jpg" alt="card.jpg" /></a>
                                         <div class="Card-content">
                                             <strong class="Card-title"><a href="#">Corsair Carbide Series Arctic White
                                                     Steel</a>
@@ -760,11 +760,11 @@
                                                 <div class="Card-category">Media / xbox
                                                 </div>
                                                 <div class="Card-hover"><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/bookmark.svg"
+                                                            src="/assets/img/icons/card/bookmark.svg"
                                                             alt="bookmark.svg" /></a><a class="Card-btn" href="#"><img
-                                                            src="assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
+                                                            src="/assets/img/icons/card/cart.svg" alt="cart.svg" /></a><a
                                                         class="Card-btn" href="compare.html"><img
-                                                            src="assets/img/icons/card/change.svg"
+                                                            src="/assets/img/icons/card/change.svg"
                                                             alt="change.svg" /></a>
                                                 </div>
                                             </div>

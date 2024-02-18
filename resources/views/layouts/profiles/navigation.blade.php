@@ -16,12 +16,12 @@
                     <x-responsive-nav-link :href="route('password.edit')" :active="request()->routeIs('password.edit')">
                         Сброс пароля
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('profile.historyorder')" :active="request()->routeIs('profile.historyorder')">
+                    {{-- <x-responsive-nav-link :href="route('profile.historyorder')" :active="request()->routeIs('profile.historyorder')">
                         История заказов
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('profile.historyview')" :active="request()->routeIs('profile.historyview')">
                         История просмотра
-                    </x-responsive-nav-link>
+                    </x-responsive-nav-link> --}}
                 </ul>
             </div>
         </div>

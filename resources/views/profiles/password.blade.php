@@ -2,7 +2,7 @@
 
 @section ('name', 'Сброс пароля')
 
-@section('content')
+@section('profile')
 
     <div class="Profile">
         <form class="form Profile-form" method="POST">

@@ -1,6 +1,6 @@
 @extends ('layouts.default')
 
-@section ('body')
+@section ('content')
     <div class="Middle Middle_top">
         <div class="Middle-top">
             <div class="wrap">
@@ -22,7 +22,7 @@
             <div class="wrap">
                 @include('layouts.profiles.navigation')
                 <div class="Section-content">
-                    @yield('content')
+                    @yield('profile')
                 </div>
             </div>
         </div>

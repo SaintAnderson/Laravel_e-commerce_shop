@@ -54,11 +54,6 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function avatar(): MorphOne
-    {
-        return $this->morphOne(Image::class, 'imageable')->latest();
-    }
-
     public function getAvatar()
     {
         return $this->avatar ? asset('storage/images/' . $this->avatar->src) : env('USER_DEFAULT_AVATAR');

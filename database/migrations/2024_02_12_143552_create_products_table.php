@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('count');
             $table->integer('order')->nullable();
             $table->float('price');
-            $table->float('priceOld');
+            $table->float('old_price')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

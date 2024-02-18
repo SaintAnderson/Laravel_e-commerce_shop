@@ -9,7 +9,7 @@ class ProductService
     public function getPopular()
     {
         return Product::query()
-            ->orderBy('order', 'ASC')
+            ->orderBy('order')
             ->limit(8)
             ->get();
     }

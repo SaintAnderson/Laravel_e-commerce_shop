@@ -4,15 +4,16 @@
         </h2>
     </header>
     <div class="Cards">
-        @foreach($popularGoods as $good)
+        @foreach($popularProducts as $product)
             <div class="Card"><a class="Card-picture" href="#"><img src="assets/img/content/home/card.jpg"
                                                                     alt="card.jpg" /></a>
                 <div class="Card-content">
-                    <strong class="Card-title"><a href="#">{{ $good->title }}</a>
+                    <strong class="Card-title"><a href="#">{{ $product->title }}</a>
                     </strong>
                     <div class="Card-description">
-                        <div class="Card-cost"><span class="Card-priceOld">{{ "$" . $good->priceOld }}</span><span
-                                class="Card-price">{{  "$" . $good->price }}</span>
+                        <div class="Card-cost">
+                            @if($product->priceOld)<span class="Card-priceOld">{{ "$" . $product->priceOld }}</span>@endif
+                            <span class="Card-price">{{  "$" . $product->price }}</span>
                         </div>
                         <div class="Card-hover"><a class="Card-btn" href="#"><img
                                     src="assets/img/icons/card/bookmark.svg" alt="bookmark.svg" /></a><a
@@ -33,7 +34,7 @@
 
                         return round($discount, 2);
                         }
-                        echo "-" . calculateDiscountPercentage($good->priceOld, $good->price) . "%"
+                        echo "-" . calculateDiscountPercentage($product->priceOld, $product->price) . "%"
                     @endphp
                 </div>
             </div>

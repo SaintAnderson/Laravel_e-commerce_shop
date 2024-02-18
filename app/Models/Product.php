@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
@@ -20,8 +21,25 @@ class Product extends Model
         'count',
         'order',
         'price',
+        'old_price',
         'is_active'
     ];
+//
+//    protected function discount(): Attribute
+//    {
+//        function calculateDiscountPercentage($oldPrice, $newPrice) {
+//            if ($oldPrice == 0) {
+//                return 0;
+//            }
+//
+//            $discount = (($oldPrice - $newPrice) / $oldPrice) * 100;
+//
+//            return round($discount, 2);
+//        }
+//        return Attribute::make(
+//            get: fn (int $oldPrice, int $newPrice) => calculateDiscountPercentage($oldPrice, $newPrice),
+//        );
+//    }
 
     public function getSlugOptions(): SlugOptions
     {

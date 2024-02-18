@@ -23,20 +23,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="Card-sale">
-                    @php
-                    function calculateDiscountPercentage($oldPrice, $newPrice) {
-                        if ($oldPrice == 0) {
-                        return 0;
-                        }
-
-                        $discount = (($oldPrice - $newPrice) / $oldPrice) * 100;
-
-                        return round($discount, 2);
-                        }
-                        echo "-" . calculateDiscountPercentage($product->priceOld, $product->price) . "%"
-                    @endphp
-                </div>
             </div>
         @endforeach
     </div>

@@ -24,22 +24,6 @@ class Product extends Model
         'old_price',
         'is_active'
     ];
-//
-//    protected function discount(): Attribute
-//    {
-//        function calculateDiscountPercentage($oldPrice, $newPrice) {
-//            if ($oldPrice == 0) {
-//                return 0;
-//            }
-//
-//            $discount = (($oldPrice - $newPrice) / $oldPrice) * 100;
-//
-//            return round($discount, 2);
-//        }
-//        return Attribute::make(
-//            get: fn (int $oldPrice, int $newPrice) => calculateDiscountPercentage($oldPrice, $newPrice),
-//        );
-//    }
 
     public function getSlugOptions(): SlugOptions
     {

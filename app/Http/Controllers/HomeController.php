@@ -13,9 +13,10 @@ class HomeController extends Controller
     {
         $this->productService = $productService;
     }
+
     public function index(): View
     {
-        $popularProducts = $this -> $productService->getPopular();
+        $popularProducts = $this->productService->getPopular();
         $banners = Banner::inRandomOrder()->take(3)->get();
         return view('index', compact('banners', 'popularProducts'));
     }

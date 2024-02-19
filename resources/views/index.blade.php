@@ -105,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                @include('components.popular-products-block', $popularGoods)
+                @include('components.popular-products-block', $popularProducts)
             </div>
         </div>
         <div class="Section Section_dark">

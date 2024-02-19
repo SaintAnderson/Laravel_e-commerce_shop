@@ -1,8 +1,8 @@
-@extends('layouts.profiles.default')
+@extends('layouts.account.default')
 
 @section('name', 'Профиль')
 
-@section('profile')
+@section('account-content')
 
     <div class="Profile">
         <form class="form Profile-form" method="POST" enctype="multipart/form-data">
@@ -14,7 +14,7 @@
                         <label class="form-label" for="avatar">Аватар
                         </label>
                         <div class="Profile-avatar Profile-avatar_noimg">
-                            <div class="Profile-img"><img src="{{ $user->getAvatar() }}" alt="#.png" />
+                            <div class="Profile-img"><img src="#" alt="#.png" />
                             </div>
                             <label class="Profile-fileLabel" for="avatar">Выберите аватар
                             </label>

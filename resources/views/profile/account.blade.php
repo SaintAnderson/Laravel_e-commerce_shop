@@ -1,12 +1,12 @@
-@extends('layouts.profiles.default')
+@extends('layouts.account.default')
 
 @section('name', 'Личный кабинет')
 
-@section('profile')
+@section('account-content')
     <div class="Account">
         <div class="Account-group">
             <div class="Account-column">
-                <div class="Account-avatar"><img src="{{ $user->getAvatar() }}"
+                <div class="Account-avatar"><img src="#"
                         alt="avatar" />
                 </div>
             </div>
@@ -17,7 +17,7 @@
         </div>
         <div class="Account-group">
             <div class="Account-column Account-column_full">
-                <x-order-info id="1" date="20.07.2020" delivery="Обычная доставка" payment="Онлайн картой" oldprice="110" price="100" status="Оплачен" :links="[['name' => 'История заказов', 'href' => route('profile.historyorder')]]"></x-order-info>
+                <x-order-info id="1" date="20.07.2020" delivery="Обычная доставка" payment="Онлайн картой" oldprice="110" price="100" status="Оплачен" :links="[]"></x-order-info>
             </div>
         </div>
         <div class="Account-group">

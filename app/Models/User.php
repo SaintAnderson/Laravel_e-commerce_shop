@@ -53,9 +53,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
-
-    public function getAvatar()
-    {
-        return $this->avatar ? asset('storage/images/' . $this->avatar->src) : env('USER_DEFAULT_AVATAR');
-    }
 }

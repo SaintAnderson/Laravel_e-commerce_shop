@@ -13,8 +13,9 @@ class PasswordController extends Controller
 {
     public function edit(): View
     {
-        return view('profiles.password');
+        return view('profile.password');
     }
+    
     public function update(Request $request): RedirectResponse
     {
         $validated = $request->validate([

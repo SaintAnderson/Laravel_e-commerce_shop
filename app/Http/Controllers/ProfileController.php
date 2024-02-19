@@ -11,18 +11,15 @@ class ProfileController extends Controller
 {
     public function show(Request $request): View
     {
-        $user = $request->user();
-        $ctx = [
-            'user' => $user,
-        ];
-        return view('profiles.account', $ctx);
+        return view('profile.account', [
+            'user' => $request->user(),
+        ]);
     }
     public function edit(Request $request): View
     {
-        $ctx = [
+        return view('profile.profile', [
             'user' => $request->user(),
-        ];
-        return view('profiles.profile', $ctx);
+        ]);
     }
 
     public function update(ProfileUpdateRequest $request): RedirectResponse

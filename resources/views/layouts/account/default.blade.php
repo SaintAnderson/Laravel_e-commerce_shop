@@ -20,9 +20,9 @@
         </div>
         <div class="Section Section_column Section_columnLeft">
             <div class="wrap">
-                @include('layouts.profiles.navigation')
+                @include('layouts.account.navigation')
                 <div class="Section-content">
-                    @yield('profile')
+                    @yield('account-content')
                 </div>
             </div>
         </div>

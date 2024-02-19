@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\{Builder, Model};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
 
@@ -26,7 +24,7 @@ class Product extends Model
         'order',
         'price',
         'is_active',
-        'is_limited_edition'
+        'is_limited_edition',
         'old_price',
     ];
 
@@ -51,7 +49,7 @@ class Product extends Model
     {
         return $this->belongsTo(Seller::class);
     }
-    
+
     public function scopeLimited(Builder $query): Builder
     {
        return $query->where('is_limited_edition', true);

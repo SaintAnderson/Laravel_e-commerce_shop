@@ -529,9 +529,7 @@
                     </div>
                 </div>
             </div>
-            <div class="Section-content">
-                @include('components.products.limited-edition-products-slider', ['products' => $limitedEditionProducts])
-            </div>
+            @include('components.products.limited-edition-products-slider', ['products' => $limitedEditionProducts])
         </div>
     </div>
 </div>

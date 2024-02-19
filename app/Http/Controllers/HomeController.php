@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 class HomeController extends Controller
 {
     private ProductService $productService;
+    
     public function __construct(ProductService $productService)
     {
         $this->productService = $productService;
@@ -16,11 +17,10 @@ class HomeController extends Controller
     public function index(): View
     {
         $banners = Banner::inRandomOrder()->take(3)->get();
-        $ctx = [
+        return view('index', [
             'banners' => $banners,
             'limitedEditionProducts' => $this->productService->getLimitedEditionProducts(),
-        ];
-        return view('index', $ctx);
+        ]);
     }
 
 }

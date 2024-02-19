@@ -13,7 +13,7 @@ class PasswordController extends Controller
 {
     public function edit(): View
     {
-        return view('profile.password');
+        return view('profile.password-reset');
     }
     
     public function update(Request $request): RedirectResponse

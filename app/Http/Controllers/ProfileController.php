@@ -11,13 +11,13 @@ class ProfileController extends Controller
 {
     public function show(Request $request): View
     {
-        return view('profile.account', [
+        return view('profile.show', [
             'user' => $request->user(),
         ]);
     }
     public function edit(Request $request): View
     {
-        return view('profile.profile', [
+        return view('profile.edit', [
             'user' => $request->user(),
         ]);
     }

@@ -47,8 +47,9 @@ class Product extends Model
     {
         return $this->belongsTo(Seller::class);
     }
+    
     public function scopeLimited(Builder $query): Builder
     {
-       return $query->where('is_limited_edition', '=', true);
+       return $query->where('is_limited_edition', true);
     }
 }

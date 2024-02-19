@@ -13,6 +13,24 @@ class Category extends Model
     use HasFactory;
     use Sluggable;
 
+    protected $fillable = [
+        'parent_id',
+        'name',
+        'slug',
+        'is_active',
+        'order',
+        'is_pinned'
+    ];
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopePinned($query)
+    {
+        return $query->where('is_pinned', true);
+    }
+
     /**
      * @return HasMany
      */

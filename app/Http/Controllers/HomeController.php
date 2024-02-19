@@ -3,20 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Services\CategoryService;
 use App\Services\ProductService;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    protected $productService;
-    public function __construct(ProductService $productService)
+    protected CategoryService $categoryService;
+    protected ProductService $productService;
+    
+    public function __construct(CategoryService $categoryService, ProductService $productService)
     {
         $this->productService = $productService;
+        $this->categoryService = $categoryService;
     }
+    
     public function index(): View
     {
         $popularProducts = $this -> $productService->getPopular();
         $banners = Banner::inRandomOrder()->take(3)->get();
-        return view('index', compact('banners', 'popularProducts'));
+        $pinnedCategories = $this->categoryService->getPinnedCategories();
+        return view('index', [
+            'banners' => $banners,
+            'pinnedCategories' => $pinnedCategories,
+            'popularProducts' => $popularProducts,
+            'limitedEditionProducts' => $this->productService->getLimitedEditionProducts(),
+        ]);
     }
+
 }

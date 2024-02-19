@@ -17,18 +17,11 @@ class ProductService
         return Product::limited()->take(16)->get();
     }
 
-    /**
-     * @param $userId
-     * @param $productId
-     * @return void
-     */
     public static function addToViewed($userId, $productId)
     {
-        ProductView::upsert([
-            ['user_id' => $userId, 'product_id' => $productId]
-        ],
-            ['user_id', 'product_id'],
-            ['viewed_at']
+        ProductView::updateOrCreate(
+            ['user_id' => $userId, 'product_id' => $productId],
+            ['viewed_at' => date('Y-m-d h:i:s', time())]
         );
     }
 }

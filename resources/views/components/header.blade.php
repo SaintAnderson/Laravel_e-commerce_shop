@@ -35,7 +35,7 @@
                                 <div class="row-block">
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-            
+
                                         <x-dropdown-link class="ControlPanel-title" :href="route('logout')"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
@@ -63,7 +63,7 @@
             <nav class="row-block row-block_right Header-menu">
                 <div class="menuModal" id="navigate">
                     <ul class="menu menu_main">
-                        <li class="menu-item"><a class="menu-link" href="{{ route('home') }}">Home</a>
+                        <li class="menu-item"><a class="menu-link" href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="menu-item"><span class="menu-label menu-label_danger">New</span><a
                                 class="menu-link" href="shop.html">Shop</a>
@@ -75,7 +75,7 @@
                         </li>
                         <li class="menu-item"><a class="menu-link" href="contacts.html">Contacts</a>
                         </li>
-                        <li class="menu-item"><a class="menu-link" href="catalog.html">Purchase</a>
+                        <li class="menu-item"><a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
                         </li>
                     </ul>
                 </div>

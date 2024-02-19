@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\{Builder, Model};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
 
+/**
+ * @method static limited()
+ */
 class Product extends Model
 {
     use HasFactory, HasSlug;
@@ -21,8 +25,9 @@ class Product extends Model
         'count',
         'order',
         'price',
+        'is_active',
+        'is_limited_edition'
         'old_price',
-        'is_active'
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -45,5 +50,10 @@ class Product extends Model
     public function seller(): BelongsTo
     {
         return $this->belongsTo(Seller::class);
+    }
+    
+    public function scopeLimited(Builder $query): Builder
+    {
+       return $query->where('is_limited_edition', true);
     }
 }

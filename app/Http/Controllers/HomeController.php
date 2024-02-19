@@ -11,20 +11,22 @@ class HomeController extends Controller
 {
     protected CategoryService $categoryService;
     protected ProductService $productService;
-    
+
     public function __construct(CategoryService $categoryService, ProductService $productService)
     {
         $this->productService = $productService;
         $this->categoryService = $categoryService;
     }
-    
+
     public function index(): View
     {
+        $popularProducts = $this->productService->getPopular();
         $banners = Banner::inRandomOrder()->take(3)->get();
         $pinnedCategories = $this->categoryService->getPinnedCategories();
         return view('index', [
             'banners' => $banners,
             'pinnedCategories' => $pinnedCategories,
+            'popularProducts' => $popularProducts,
             'limitedEditionProducts' => $this->productService->getLimitedEditionProducts(),
         ]);
     }

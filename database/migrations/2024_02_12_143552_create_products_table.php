@@ -20,7 +20,9 @@ return new class extends Migration
             $table->text('article');
             $table->text('description');
             $table->integer('count');
+            $table->integer('order')->nullable();
             $table->float('price');
+            $table->float('old_price')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

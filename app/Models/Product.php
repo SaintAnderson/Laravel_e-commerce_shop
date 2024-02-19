@@ -21,9 +21,11 @@ class Product extends Model
         'article',
         'description',
         'count',
+        'order',
         'price',
         'is_active',
-        'is_limited_edition'
+        'is_limited_edition',
+        'old_price',
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -47,7 +49,7 @@ class Product extends Model
     {
         return $this->belongsTo(Seller::class);
     }
-    
+
     public function scopeLimited(Builder $query): Builder
     {
        return $query->where('is_limited_edition', true);

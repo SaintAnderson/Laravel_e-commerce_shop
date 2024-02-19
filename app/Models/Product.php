@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\{Builder, Model};
+use Illuminate\Database\Eloquent\{Builder, Model, Relations\HasMany};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
@@ -47,9 +47,17 @@ class Product extends Model
     {
         return $this->belongsTo(Seller::class);
     }
-    
+
     public function scopeLimited(Builder $query): Builder
     {
        return $query->where('is_limited_edition', true);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function productView(): HasMany
+    {
+        return $this->hasMany(ProductView::class);
     }
 }

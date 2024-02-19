@@ -15,4 +15,12 @@ class ProductService
     {
         return Product::limited()->take(16)->get();
     }
+    
+    public function getPopular()
+    {
+        return Product::query()
+            ->orderBy('order')
+            ->limit(8)
+            ->get();
+    }
 }

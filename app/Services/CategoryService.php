@@ -20,4 +20,12 @@ class CategoryService implements CategoryServiceInterface
             ->orderBy('order')
             ->get();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPinnedCategories()
+    {
+        return Category::pinned()->limit(3)->get();
+    }
 }

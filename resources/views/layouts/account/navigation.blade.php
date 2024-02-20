@@ -18,10 +18,10 @@
                     </x-responsive-nav-link>
                     {{-- <x-responsive-nav-link :href="route('profile.historyorder')" :active="request()->routeIs('profile.historyorder')">
                         История заказов
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('profile.historyview')" :active="request()->routeIs('profile.historyview')">
+                    </x-responsive-nav-link>--}}
+                    <x-responsive-nav-link :href="route('profile.viewed-products')" :active="request()->routeIs('profile.viewed-products')">
                         История просмотра
-                    </x-responsive-nav-link> --}}
+                    </x-responsive-nav-link>
                 </ul>
             </div>
         </div>

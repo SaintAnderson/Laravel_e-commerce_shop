@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Models\ProductView;
+use Illuminate\Support\Carbon;
 
 class ProductService
 {
@@ -17,11 +18,11 @@ class ProductService
         return Product::limited()->take(16)->get();
     }
 
-    public static function addToViewed($userId, $productId)
+    public static function addToViewed($userId, $productId): void
     {
         ProductView::updateOrCreate(
             ['user_id' => $userId, 'product_id' => $productId],
-            ['viewed_at' => date('Y-m-d h:i:s', time())]
+            ['viewed_at' => Carbon::now()]
         );
     }
 

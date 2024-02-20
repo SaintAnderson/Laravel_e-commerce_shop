@@ -52,13 +52,13 @@ class Product extends Model
 
     public function scopeLimited(Builder $query): Builder
     {
-       return $query->where('is_limited_edition', true);
+        return $query->where('is_limited_edition', true);
     }
 
     /**
      * @return HasMany
      */
-    public function productView(): HasMany
+    public function productViews(): HasMany
     {
         return $this->hasMany(ProductView::class);
     }

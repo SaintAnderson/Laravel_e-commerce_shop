@@ -26,8 +26,12 @@
                     <h2 class="Section-title">История просмотров
                     </h2>
                 </header>
-                <div class="Cards Cards_account"></div>
-                <div class="Account-editLink Account-editLink_view"><a href="#">Перейти
+                <div class="Cards Cards_account">
+                    @foreach($viewedProducts as $viewedProduct)
+                        @include('components.products.product-card', ['product' => $viewedProduct->product])
+                    @endforeach
+                </div>
+                <div class="Account-editLink Account-editLink_view"><a href="{{ route('profile.viewed-products') }}">Перейти
                         на полный
                         список</a>
                 </div>

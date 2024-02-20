@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property int $product_id
+ * @property string $viewed_at
+ *
+ * @method static updateOrCreate(array $array, array $array1)
+ * @method static where(string $string, mixed $id)
+ */
 class ProductView extends Model
 {
-    use HasFactory;
-
-    const UPDATED_AT = 'viewed_at';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -26,7 +30,7 @@ class ProductView extends Model
     /**
      * @return BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -34,7 +38,7 @@ class ProductView extends Model
     /**
      * @return BelongsTo
      */
-    public function product()
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }

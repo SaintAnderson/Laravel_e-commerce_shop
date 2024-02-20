@@ -14,6 +14,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile/password-reset', [PasswordController::class, 'edit'])->name('password.edit');
+    Route::get('/profile/viewed-products', [ProfileController::class, 'viewedProducts'])->name('profile.viewed-products');
 });
 
 require __DIR__.'/auth.php';

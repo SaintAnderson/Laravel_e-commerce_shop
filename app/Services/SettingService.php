@@ -13,10 +13,7 @@ class SettingService
 
     public function set($key, $value)
     {
-        $setting = Setting::firstOrCreate(['key' => $key], ['value' => $value]);
-        $setting->save();
-
-        return $setting;
+        return Setting::firstOrCreate(['key' => $key], ['value' => $value]);
     }
 
 }

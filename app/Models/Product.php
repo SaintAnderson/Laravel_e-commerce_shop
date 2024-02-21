@@ -12,7 +12,7 @@ use Spatie\Sluggable\{HasSlug, SlugOptions};
  */
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     protected $fillable = [
         'title',

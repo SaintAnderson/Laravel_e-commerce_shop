@@ -19,6 +19,7 @@ class CategoryFactory extends Factory
             'name' => $this->faker->sentence,
             'order' => $this->faker->randomNumber(1),
             'is_active' => $this->faker->randomElement([0, 1]),
+            'is_pinned' => $this->faker->randomElement([0,1]),
         ];
     }
 }

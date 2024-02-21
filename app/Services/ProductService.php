@@ -18,7 +18,12 @@ class ProductService
         return Product::limited()->take(16)->get();
     }
 
-    public static function addToViewed($userId, $productId): void
+    /**
+     * @param int $userId
+     * @param int $productId
+     * @return void
+     */
+    public function addToViewed(int $userId, int $productId): void
     {
         ProductView::updateOrCreate(
             ['user_id' => $userId, 'product_id' => $productId],

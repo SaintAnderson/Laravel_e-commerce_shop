@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\{HomeController, ProductController, ProfileController};
+use App\Http\Controllers\{AboutController, HomeController, ProductController, ProfileController};
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\CatalogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
 
 Route::middleware('auth')->group(function () {

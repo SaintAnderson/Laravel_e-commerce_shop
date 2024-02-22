@@ -3,7 +3,8 @@
         <img src="{{ asset('assets/img/content/home/card.jpg') }}" alt="card.jpg"/>
     </a>
     <div class="Card-content">
-        <strong class="Card-title"><a href="#">{{ $product->title }}</a>
+        <strong class="Card-title">
+            <a href="{{ route('products.show', $product) }}">{{ $product->title }}</a>
         </strong>
         <div class="Card-description">
             <div class="Card-cost">
@@ -12,11 +13,12 @@
                 @endif
                 <span class="Card-price">{{  "$" . $product->price }}</span>
             </div>
+            <div class="Card-category">&nbsp;</div>
             <div class="Card-hover">
-                <a class="Card-btn" href="#">
+                <a class="Card-btn" href="{{route('products.show', $product)}}">
                     <img src="{{ asset('assets/img/icons/card/bookmark.svg') }}" alt="bookmark.svg"/>
                 </a>
-                <a class="Card-btn" href="#">
+                <a class="Card-btn" href="{{route('cart.add', $product)}}">
                     <img src="{{ asset('assets/img/icons/card/cart.svg') }}" alt="cart.svg"/>
                 </a>
                 <a class="Card-btn" href="compare.html">

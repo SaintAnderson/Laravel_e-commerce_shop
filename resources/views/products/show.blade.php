@@ -6,13 +6,24 @@
     <div class="Middle-top">
         <div class="wrap">
             <div class="Middle-header">
-                <h1 class="Middle-title">Megano Product
+                 @if(strlen($product->title) <= 40)
+                 <h1 class="Middle-title"> {{$product->title}}
                 </h1>
+                 @else
+                 <h1 class="Middle-title"> {{ substr($product->title,0,40)."..." }}
+                </h1>
+                 @endif
+               
                 <ul class="breadcrumbs Middle-breadcrumbs">
-                    <li class="breadcrumbs-item"><a href="index.html">home</a>
+                    <li class="breadcrumbs-item"><a href="{{route('home')}}">Главая</a>
                     </li>
-                    <li class="breadcrumbs-item breadcrumbs-item_current"><span>Product</span>
+                    @if(strlen($product->slug) <= 40)
+                    <li class="breadcrumbs-item breadcrumbs-item_current"><span>{{$product->slug}}</span>
                     </li>
+                    @else
+                    <li class="breadcrumbs-item breadcrumbs-item_current"><span>{{substr($product->slug,0,40)."..."}}</span>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -37,13 +48,13 @@
                     </div>
                     <div class="ProductCard-desc">
                         <div class="ProductCard-header">
-                            <h2 class="ProductCard-title">Barand New Phone Smart Busines
+                            <h2 class="ProductCard-title">{{$product->title}}
                             </h2>
                             <div class="ProductCard-info">
                                 <div class="ProductCard-cost">
-                                    <div class="ProductCard-price">$55.00
+                                    <div class="ProductCard-price">${{$product->price}}
                                     </div>
-                                    <div class="ProductCard-priceOld">$115.00
+                                    <div class="ProductCard-priceOld">${{$product->old_price}}
                                     </div>
                                 </div>
                                 <div class="ProductCard-compare"><a class="btn btn_default" href="#"><img
@@ -51,16 +62,6 @@
                                             alt="change.svg" /></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="ProductCard-text">
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod
-                                </li>
-                                <li>tempor incididunt ut labore et dolore magna aliqua. Lorem
-                                </li>
-                                <li>ipsum dolor sit ameabore et dolore magna aliqua. Lorem ipsum
-                                </li>
-                            </ul>
                         </div>
                         <div class="ProductCard-cart">
                             <div class="ProductCard-cartElement ProductCard-cartElement_amount">
@@ -72,7 +73,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="ProductCard-cartElement"><a class="btn btn_primary" href="#"><img
+                            <div class="ProductCard-cartElement"><a class="btn btn_primary" href="{{route('cart.add', $product)}}"><img
                                         class="btn-icon" src="/assets/img/icons/card/cart_white.svg"
                                         alt="cart_white.svg" /><span class="btn-content">Add To
                                         Cart</span></a>
@@ -90,36 +91,16 @@
                 <div class="Tabs Tabs_default">
                     <div class="Tabs-links"><a class="Tabs-link_ACTIVE Tabs-link"
                             href="#description"><span>Описание</span></a><a class="Tabs-link"
-                            href="#sellers"><span>Продавцы</span></a><a class="Tabs-link" href="#addit"><span>AdditionaL
-                                Info</span></a><a class="Tabs-link" href="#reviews"><span>Reviews
+                            href="#sellers"><span>Продавцы</span></a></span></a><a class="Tabs-link" href="#reviews"><span>Reviews
                                 (3)</span></a>
                     </div>
                     <div class="Tabs-wrap">
                         <div class="Tabs-block" id="description">
-                            <h2>Megano Store Hystory
+                            <h2>{{$product->title}}
                             </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer&#32;
-                                <strong>adipiscing
-                                </strong>&#32;elit doli. Aenean commodo ligula eget dolor. Aenean massa.&#32;<a
-                                    href="#">Cumtipsu</a>&#32;sociis natoque penatibus et magnis dis parturient
-                                montesti, nascetur
-                                ridiculus mus. Donec quam felis, ultricies nec, pellentesque eutu, pretiumem.
+                            <p>{{$product->description}}
                             </p><img class="pict pict_right" src="/assets/img/content/home/bigGoods.png"
                                 alt="bigGoods.png" />
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetuer
-                                </li>
-                                <li>adipiscing elit doli.&#32;<em>Aenean</em>&#32;commodo ligula
-                                </li>
-                                <li>eget dolor. Aenean massa. Cumtipsu sociis
-                                </li>
-                                <li>natoque penatibus et magnis dis parturient
-                                </li>
-                                <li>montesti, nascetur ridiculus mus. Donec
-                                </li>
-                                <li>quam felis, ultricies nec, pellentesque eutu
-                                </li>
-                            </ul>
                             <div class="clearfix">
                             </div>
                             <div class="table">
@@ -131,10 +112,21 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <td>ываыв
+                                        <td>Артикул
                                         </td>
-                                        <td>llslssl
+                                        <td>{{$product->article}}
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Лимитированный
+                                        </td>
+                                        @if($product->is_limited_edition)
+                                        <td>да
+                                        </td>
+                                        @else
+                                        <td>нет
+                                        </td>
+                                        @endif
                                     </tr>
                                 </table>
                             </div>
@@ -215,26 +207,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="Tabs-block" id="addit">
-                            <div class="Product-props">
-                                <div class="Product-prop">
-                                    <strong>Lorem
-                                    </strong><span> Pfizer</span>
-                                </div>
-                                <div class="Product-prop">
-                                    <strong>ipsum
-                                    </strong><span> Lorem ipsum dolor sit</span>
-                                </div>
-                                <div class="Product-prop">
-                                    <strong>dolor sit
-                                    </strong><span> 5 ans</span>
-                                </div>
-                                <div class="Product-prop">
-                                    <strong>psum dolo
-                                    </strong><span> 2–3 jours</span>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="Tabs-block" id="reviews">
                             <header class="Section-header">
                                 <h3 class="Section-title">2 Reviews

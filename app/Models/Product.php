@@ -9,6 +9,7 @@ use Spatie\Sluggable\{HasSlug, SlugOptions};
 
 /**
  * @method static limited()
+ * @method static where(string $string, string $slug)
  */
 class Product extends Model
 {

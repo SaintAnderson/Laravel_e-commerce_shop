@@ -88,24 +88,29 @@
                     </div>
                 </div>
                 <div class="Tabs Tabs_default">
-                    <div class="Tabs-links"><a class="Tabs-link_ACTIVE Tabs-link"
-                            href="#description"><span>Описание</span></a><a class="Tabs-link"
-                            href="#sellers"><span>Продавцы</span></a><a class="Tabs-link" href="#addit"><span>AdditionaL
-                                Info</span></a><a class="Tabs-link" href="#reviews"><span>Reviews
-                                (3)</span></a>
+                    <div class="Tabs-links">
+                        <a class="Tabs-link_ACTIVE Tabs-link" href="#description">
+                            <span>Описание</span></a>
+                        <a class="Tabs-link" href="#sellers">
+                            <span>Продавцы</span></a>
+                        <a class="Tabs-link" href="#addit">
+                            <span>Дополнительная информация</span></a>
+                        <a class="Tabs-link" href="#reviews">
+                            <span>Отзывы ({{ $reviewCount }})</span>
+                        </a>
                     </div>
                     <div class="Tabs-wrap">
                         <div class="Tabs-block" id="description">
                             <h2>Megano Store Hystory
                             </h2>
                             <p>Lorem ipsum dolor sit amet, consectetuer&#32;
-                                <strong>adipiscing
-                                </strong>&#32;elit doli. Aenean commodo ligula eget dolor. Aenean massa.&#32;<a
-                                    href="#">Cumtipsu</a>&#32;sociis natoque penatibus et magnis dis parturient
-                                montesti, nascetur
+                                <strong>adipiscing</strong>
+                                &#32;elit doli. Aenean commodo ligula eget dolor. Aenean massa.&#32;
+                                <a href="#">Cumtipsu</a>
+                                &#32;sociis natoque penatibus et magnis dis parturient montesti, nascetur
                                 ridiculus mus. Donec quam felis, ultricies nec, pellentesque eutu, pretiumem.
-                            </p><img class="pict pict_right" src="/assets/img/content/home/bigGoods.png"
-                                alt="bigGoods.png" />
+                            </p>
+                            <img class="pict pict_right" src="/assets/img/content/home/bigGoods.png" alt="bigGoods.png" />
                             <ul>
                                 <li>Lorem ipsum dolor sit amet, consectetuer
                                 </li>
@@ -235,77 +240,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="Tabs-block" id="reviews">
-                            <header class="Section-header">
-                                <h3 class="Section-title">2 Reviews
-                                </h3>
-                            </header>
-                            <div class="Comments">
-                                <div class="Comment">
-                                    <div class="Comment-column Comment-column_pict">
-                                        <div class="Comment-avatar">
-                                        </div>
-                                    </div>
-                                    <div class="Comment-column">
-                                        <header class="Comment-header">
-                                            <div>
-                                                <strong class="Comment-title">Alexandra Brownie
-                                                </strong><span class="Comment-date">December
-                                                    25&#32;&#32;/&#32;&#32;2017&#32;&#32;/&#32;&#32;22:50</span>
-                                            </div>
-                                        </header>
-                                        <div class="Comment-content">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                            elit doli. Aenean
-                                            commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque penatibus
-                                            et magnis dis
-                                            parturient montesti, nascetur ridiculus mus. Donec quam felis, ultricies
-                                            nec, pellentesque eutu,
-                                            pretiumem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
-                                            aliquet nec,
-                                            vulputate eget, arcu. In enim justotuio, rhoncus ut loret, imperdiet a,
-                                            venenatis vitae, justo.
-                                            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-                                            Vivamus element
-                                            semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor
-                                            eu, consequat vitae.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <header class="Section-header Section-header_product">
-                                <h3 class="Section-title">Add Review
-                                </h3>
-                            </header>
-                            <div class="Tabs-addComment">
-                                <form class="form" action="#" method="post">
-                                    <div class="form-group">
-                                        <textarea class="form-textarea" name="review" id="review"
-                                            placeholder="Review"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="row-block">
-                                                <input class="form-input" id="name" name="name" type="text"
-                                                    placeholder="Name" />
-                                            </div>
-                                            <div class="row-block">
-                                                <input class="form-input" id="email" name="email" type="text"
-                                                    placeholder="Email" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn_muted" type="submit">Submit Review
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        @include('components.reviews.product-review-block')
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 @endsection

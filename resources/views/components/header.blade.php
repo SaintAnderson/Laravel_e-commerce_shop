@@ -89,10 +89,18 @@
                     </a>
                     <a class="CartBlock-block" href="{{ route('cart') }}">
                         <img class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/>
-                        <span class="CartBlock-amount">{{\Cart::getTotalQuantity()}}</span>
+                        @auth
+                            <span class="CartBlock-amount">{{\Cart::session(auth()->user()->id)->getTotalQuantity()}}</span>
+                        @else
+                            <span class="CartBlock-amount">{{\Cart::session(Session::getId())->getTotalQuantity()}}</span>
+                        @endauth
                     </a>
                     <div class="CartBlock-block">
-                        <span class="CartBlock-price">{{\Cart::getSubTotal()}}$</span>
+                        @auth
+                            <span class="CartBlock-price">{{\Cart::session(auth()->user()->id)->getSubTotal()}}$</span>
+                        @else
+                            <span class="CartBlock-price">{{\Cart::session(Session::getId())->getSubTotal()}}$</span>
+                        @endauth
                     </div>
                 </div>
             </div>

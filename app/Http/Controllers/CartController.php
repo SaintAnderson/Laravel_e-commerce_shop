@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Services\CartService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -25,7 +27,12 @@ class CartController extends Controller
      */
     public function index(): View
     {
-        $products = $this->cartService->list();
+        if (Auth::check()) {
+            $sessionId = auth()->user()->id;
+        } else {
+            $sessionId = Session::getId();
+        }
+        $products = $this->cartService->list($sessionId);
         return view('cart', compact('products'));
     }
 
@@ -35,7 +42,12 @@ class CartController extends Controller
      */
     public function add(Product $product): RedirectResponse
     {
-        $this->cartService->add($product);
+        if (Auth::check()) {
+            $sessionId = auth()->user()->id;
+        } else {
+            $sessionId = Session::getId();
+        }
+        $this->cartService->add($sessionId, $product);
         return redirect()->back();
     }
 
@@ -45,7 +57,12 @@ class CartController extends Controller
      */
     public function remove(Product $product): RedirectResponse
     {
-        $this->cartService->remove($product);
+        if (Auth::check()) {
+            $sessionId = auth()->user()->id;
+        } else {
+            $sessionId = Session::getId();
+        }
+        $this->cartService->remove($sessionId, $product);
         return redirect()->back();
     }
 }

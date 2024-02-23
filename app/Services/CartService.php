@@ -6,9 +6,9 @@ use App\Models\Product;
 
 class CartService
 {
-    public function add(Product $product)
+    public function add(string $sessionId, Product $product)
     {
-        \Cart::add([
+        \Cart::session($sessionId)->add([
             'id' => $product->id,
             'name' => $product->title,
             'price' => $product->price,
@@ -21,13 +21,13 @@ class CartService
         ]);
     }
 
-    public function remove(Product $product)
+    public function remove(string $sessionId, Product $product)
     {
-        \Cart::remove($product->id);
+        \Cart::session($sessionId)->remove($product->id);
     }
 
-    public function list()
+    public function list(string $sessionId)
     {
-        return \Cart::getContent();
+        return \Cart::session($sessionId)->getContent();
     }
 }

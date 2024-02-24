@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\{Builder, Model, Relations\HasMany};
+use Illuminate\Database\Eloquent\{Builder, Model, Relations\BelongsToMany, Relations\HasMany};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
@@ -61,5 +61,13 @@ class Product extends Model
     public function productViews(): HasMany
     {
         return $this->hasMany(ProductView::class);
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function specification(): BelongsToMany
+    {
+        return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
     }
 }

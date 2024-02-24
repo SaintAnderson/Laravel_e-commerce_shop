@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Models\ProductView;
+use App\Models\Specification;
 use Illuminate\Support\Carbon;
 
 class ProductService
@@ -37,5 +38,15 @@ class ProductService
             ->orderBy('order')
             ->limit(8)
             ->get();
+    }
+
+    /**
+     * @param Product $product
+     * @param Specification $specification
+     * @return void
+     */
+    public function addSpecification(Product $product, Specification $specification): void
+    {
+        $product->specification()->attach($specification);
     }
 }

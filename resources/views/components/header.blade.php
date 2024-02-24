@@ -57,9 +57,8 @@
     </div>
     <div class="wrap">
         <div class="row Header-rowMain">
-            <div class="row-block Header-logo"><a class="logo" href="{{ route('home') }}"><img class="logo-image"
-                                                                                               src="/assets/img/logo.png"
-                                                                                               alt="logo.png"/></a>
+            <div class="row-block Header-logo"><a class="logo" href="{{ route('home') }}">
+                    <img class="logo-image" src="/assets/img/logo.png" alt="logo.png"/></a>
             </div>
             <nav class="row-block row-block_right Header-menu">
                 <div class="menuModal" id="navigate">
@@ -90,9 +89,11 @@
                     <a class="CartBlock-block" href="{{ route('cart') }}">
                         <img class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/>
                         @auth
-                            <span class="CartBlock-amount">{{\Cart::session(auth()->user()->id)->getTotalQuantity()}}</span>
+                            <span
+                                class="CartBlock-amount">{{\Cart::session(auth()->user()->id)->getTotalQuantity()}}</span>
                         @else
-                            <span class="CartBlock-amount">{{\Cart::session(Session::getId())->getTotalQuantity()}}</span>
+                            <span
+                                class="CartBlock-amount">{{\Cart::session(Session::getId())->getTotalQuantity()}}</span>
                         @endauth
                     </a>
                     <div class="CartBlock-block">

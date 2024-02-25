@@ -34,15 +34,12 @@
             @endforeach
         </div>
     @endif
-
-    @if (auth()->check())
+    @auth()
         <header class="Section-header Section-header_product">
             <h3 class="Section-title">Добавить отзыв</h3>
         </header>
         @include('components.reviews.product-review-form')
-    @endif
-
-    @if (auth()->guest())
+    @else()
         <p>Чтобы оставить отзыв, пожалуйста, <a href="{{ route('login') }}">войдите</a> или <a href="{{ route('register') }}">зарегистрируйтесь</a>.</p>
-    @endif
+    @endauth
 </div>

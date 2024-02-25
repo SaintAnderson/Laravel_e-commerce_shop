@@ -7,7 +7,6 @@
         </ul>
     </div>
 @endif
-
 <div class="Tabs-addComment">
     <form class="form" action="{{ route('reviews.store', ['slug' => $product->slug]) }}" method="post">
         @csrf
@@ -25,9 +24,9 @@
                 <input type="radio" id="star-1" name="rating" value="1">
                 <label for="star-1" title="Оценка «1»"></label>
             </div>
-            <input type="hidden" name="product_id" value="{{ $product->id }}">
-            <input type="hidden" name="user_id" value="{{ $user->id }}">
         </div>
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        <input type="hidden" name="user_id" value="{{ $user->id }}">
         <div class="form-group">
             <textarea class="form-textarea" name="comment" id="comment" placeholder="Отзыв"></textarea>
         </div>

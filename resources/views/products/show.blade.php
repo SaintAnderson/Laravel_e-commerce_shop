@@ -1,5 +1,7 @@
 @extends('layouts.default')
-
+@section('head')
+    @vite('resources/css/rating.css')
+@endsectionq
 @section('content')
 
 <div class="Middle Middle_top">

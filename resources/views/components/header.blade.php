@@ -29,27 +29,28 @@
                 </div>
                 <nav class="row-block">
                     <div class="row ControlPanel-rowSplit">
-                            @auth
-                                <div class="row-block"><a class="ControlPanel-title" href="{{ route('profile.edit') }}">Профиль</a>
+                        @auth
+                            <div class="row-block"><a class="ControlPanel-title" href="{{ route('profile.edit') }}">Профиль</a>
                                 <div class="row-block"></div>
                                 <div class="row-block">
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
 
                                         <x-dropdown-link class="ControlPanel-title" :href="route('logout')"
-                                                onclick="event.preventDefault();
+                                                         onclick="event.preventDefault();
                                                             this.closest('form').submit();">
                                             {{ __('Выйти') }}
                                         </x-dropdown-link>
                                     </form>
                                 </div>
-                            @else
-                                <div class="row-block"><a class="ControlPanel-title" href="{{ route('login') }}">Войти</a>
-                                <div class="row-block"></div>
-                                <div class="row-block"><a class="ControlPanel-title" href="{{ route('register') }}">Зарегистрироваться</a>
-                            @endauth
-                        </div>
-                    </div>
+                                @else
+                                    <div class="row-block"><a class="ControlPanel-title" href="{{ route('login') }}">Войти</a>
+                                        <div class="row-block"></div>
+                                        <div class="row-block"><a class="ControlPanel-title"
+                                                                  href="{{ route('register') }}">Зарегистрироваться</a>
+                                            @endauth
+                                        </div>
+                                    </div>
                 </nav>
             </div>
         </div>
@@ -57,8 +58,8 @@
     <div class="wrap">
         <div class="row Header-rowMain">
             <div class="row-block Header-logo"><a class="logo" href="{{ route('home') }}"><img class="logo-image"
-                                                                                      src="/assets/img/logo.png"
-                                                                                      alt="logo.png"/></a>
+                                                                                               src="/assets/img/logo.png"
+                                                                                               alt="logo.png"/></a>
             </div>
             <nav class="row-block row-block_right Header-menu">
                 <div class="menuModal" id="navigate">
@@ -81,12 +82,15 @@
                 </div>
             </nav>
             <div class="row-block">
-                <div class="CartBlock"><a class="CartBlock-block" href="compare.html"><img class="CartBlock-img"
-                                                                                           src="/assets/img/icons/exchange.svg"
-                                                                                           alt="exchange.svg"/><span
-                            class="CartBlock-amount">4</span></a><a class="CartBlock-block" href="cart.html"><img
-                            class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/><span
-                            class="CartBlock-amount">0</span></a>
+                <div class="CartBlock">
+                    <a class="CartBlock-block" href="{{ url('compare') }}">
+                        <img class="CartBlock-img" src="/assets/img/icons/exchange.svg" alt="exchange.svg"/>
+                        <span class="CartBlock-amount">{{ count(session()->get('products_in_comparison')) }}</span>
+                    </a>
+                    <a class="CartBlock-block" href="#">
+                        <img class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/>
+                        <span class="CartBlock-amount">0</span>
+                    </a>
                     <div class="CartBlock-block"><span class="CartBlock-price">0.00$</span>
                     </div>
                 </div>

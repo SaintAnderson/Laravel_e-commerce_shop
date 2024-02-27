@@ -9,6 +9,7 @@ use Spatie\Sluggable\{HasSlug, SlugOptions};
 
 /**
  * @method static limited()
+ * @method static whereIn()
  */
 class Product extends Model
 {

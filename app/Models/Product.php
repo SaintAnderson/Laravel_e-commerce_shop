@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\{Builder, Model, Relations\HasMany};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
+use Spatie\QueryBuilder\AllowedFilter;
 
 /**
  * @method static limited()
@@ -61,5 +62,44 @@ class Product extends Model
     public function productViews(): HasMany
     {
         return $this->hasMany(ProductView::class);
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getAllowedSorts(): array
+    {
+        return [
+            'price',
+            'updated_at',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getAllowedFilters(): array
+    {
+        return [
+            AllowedFilter::scope('price_from_to'),
+            'title',
+            AllowedFilter::scope('seller'),
+            AllowedFilter::scope('in_stock'),
+        ];
+    }
+
+    public function scopePriceFromTo(Builder $builder, $from, $to): Builder
+    {
+        return $builder->whereBetween('price', [$from, $to]);
+    }
+
+    public function scopeSeller(Builder $builder, $id): Builder
+    {
+        return $builder->where('seller_id', $id);
+    }
+
+    public function scopeInStock(Builder $builder): Builder
+    {
+        return $builder->where('count', '>', 0);
     }
 }

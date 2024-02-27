@@ -25,10 +25,12 @@
                             </strong>
                         </header>
                         <div class="Section-columnContent">
-                            <form class="form" action="#" method="post">
+                            <form class="form" action="#" method="get">
+                                @csrf
                                 <div class="form-group">
                                     <div class="range Section-columnRange">
-                                        <input class="range-line" id="price" name="price" type="text" data-type="double"
+                                        <input class="range-line" id="price" name="filter['price_from_to']" type="text"
+                                               data-type="double"
                                                data-min="7" data-max="50" data-from="7" data-to="27"/>
                                         <div class="range-price">Цена:&#32;
                                             <div class="rangePrice">
@@ -37,35 +39,39 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input form-input_full" id="title" name="title" type="text"
+                                    <input class="form-input form-input_full" id="title" name="filter['title']"
+                                           type="text"
                                            placeholder="Название"/>
                                 </div>
                                 <div class="form-group">
                                     <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
-                                    <select class="form-select">
+                                    <select class="form-select" name="filter['seller']">
                                         <option value="seller" selected="selected" disabled="disabled">Продавец
                                         </option>
-                                        <option value="kkk">Kkkk
+                                        <option value="kkk_id">Kkkk
                                         </option>
-                                        <option value="sdfsdf">sdfsdf
+                                        <option value="sdfsdf_id">sdfsdf
                                         </option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label class="toggle">
-                                        <input type="checkbox"/><span class="toggle-box"></span><span
+                                        <input type="checkbox" name="filter['in_stock']"/><span
+                                            class="toggle-box"></span><span
                                             class="toggle-text">Только товары в наличии</span>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label class="toggle">
-                                        <input type="checkbox"/><span class="toggle-box"></span><span
+                                        <input type="checkbox" name="filter['free_delivery']"/><span
+                                            class="toggle-box"></span><span
                                             class="toggle-text">С бесплатной доставкой</span>
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <div class="buttons"><a class="btn btn_square btn_dark btn_narrow"
-                                                            href="#">Найти</a>
+                                    <div class="buttons">
+                                        <input type="button" class="btn btn_square btn_dark btn_narrow" name="submit_filter" value="Найти">
+{{--                                        <a class="btn btn_square btn_dark btn_narrow" href="#">Найти</a>--}}
                                     </div>
                                 </div>
                             </form>
@@ -76,9 +82,11 @@
                     <div class="Sort">
                         <div class="Sort-title">Сортировать по:
                         </div>
-                        <div class="Sort-variants"><a class="Sort-sortBy Sort-sortBy_dec" href="#">Популярности</a><a
-                                class="Sort-sortBy" href="#">Цене</a><a class="Sort-sortBy" href="#">Отзывам</a><a
-                                class="Sort-sortBy Sort-sortBy_inc" href="#">Новизне</a>
+                        <div class="Sort-variants">
+                            <a class="Sort-sortBy " href="#">Популярности</a>
+                            <a class="Sort-sortBy Sort-sortBy_dec" href="/products?sort=price">Цене</a>
+                            <a class="Sort-sortBy" href="#">Отзывам</a>
+                            <a class="Sort-sortBy Sort-sortBy_inc" href="/products?sort=-updated_at">Новизне</a>
                         </div>
                     </div>
                     <div class="Cards">

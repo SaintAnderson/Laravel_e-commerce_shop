@@ -4,13 +4,22 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Models\ProductView;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class ProductService
 {
-    public function getPaginatedCatalogProducts()
+    /**
+     * @return LengthAwarePaginator
+     */
+    public function getPaginatedCatalogProducts(): LengthAwarePaginator
     {
-        return Product::where('is_active', true)->where('count', '>', 0)->paginate(8);
+        return QueryBuilder::for(Product::class)
+            ->allowedFilters(Product::getAllowedFilters())
+            ->allowedSorts(Product::getAllowedSorts())
+            ->paginate(8);
+//        return Product::where('is_active', true)->where('count', '>', 0)->paginate(8);
     }
 
     public function getLimitedEditionProducts()

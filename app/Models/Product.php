@@ -67,7 +67,7 @@ class Product extends Model
     /**
      * @return BelongsToMany
      */
-    public function specification(): BelongsToMany
+    public function specifications(): BelongsToMany
     {
         return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
     }

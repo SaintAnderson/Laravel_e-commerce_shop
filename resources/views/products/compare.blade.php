@@ -25,67 +25,64 @@
                         активом требуют определения и уточнения соответствующий условий активизации.
                     </p>
                 </article>
-                <div class="Compare">
-                    @foreach($productByCategory as $category_id => $products)
+                @foreach($productByCategory as $category_id => $products)
+                    <div class="Compare">
                         <div class="Compare-header">
                             <h3>{{ $products->first()->category->name }}</h3>
                         </div>
                         <div class="Compare-row">
                             @foreach($products as $product)
-                                @if(!empty($product->specification))
-                                    <div class="Compare-title Compare-title_blank"></div>
-                                    <div class="Compare-products">
-                                        <div class="Compare-product">
-                                            <div class="Compare-nameProduct Compare-nameProduct_main"></div>
-                                            <div class="Compare-feature">
-                                                <img class="Compare-pict"
-                                                     src="{{ asset('assets/img/content/home/card.jpg') }}"
-                                                     alt="card.jpg"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                        <div class="Compare-row">
-                            @foreach($products as $product)
-                                @if(!empty($product->specification))
-                                    <div class="Compare-title Compare-title_blank"></div>
-                                    <div class="Compare-products">
-                                        <div class="Compare-product">
-                                            <div class="Compare-nameProduct">{{ $product->title }}</div>
-                                            <div class="Compare-feature">
-                                                <a class="Compare-btn" href="#">
-                                                    <img src="{{ asset('assets/img/icons/card/cart.svg') }}"
-                                                         alt="cart.svg"/>
-                                                </a>
-                                                <a class="Compare-btn delete" data-id="{{ $product->id }}" href="#">
-                                                    <img src="{{ asset('assets/img/icons/card/delete.svg') }}"
-                                                         alt="delete.svg"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                        @foreach($products as $product)
-                            @foreach($product->specification as $specification)
-                                <div class="Compare-row">
-                                    <div class="Compare-title">{{ $specification->name }}</div>
-                                    <div class="Compare-products">
-                                        <div class="Compare-product">
-                                            <div class="Compare-nameProduct">{{ $product->title }}</div>
-                                            <div class="Compare-feature">
-                                                {{ sprintf('%s %s', $specification->pivot->value, $specification->measure) }}
-                                            </div>
+                                <div class="Compare-title Compare-title_blank"></div>
+                                <div class="Compare-products">
+                                    <div class="Compare-product">
+                                        <div class="Compare-nameProduct Compare-nameProduct_main"></div>
+                                        <div class="Compare-feature">
+                                            <img class="Compare-pict"
+                                                 src="{{ asset('assets/img/content/home/card.jpg') }}"
+                                                 alt="card.jpg"/>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-                        @endforeach
-                    @endforeach
-                </div>
+                        </div>
+                        <div class="Compare-row">
+                            @foreach($products as $product)
+                                <div class="Compare-title Compare-title_blank"></div>
+                                <div class="Compare-products">
+                                    <div class="Compare-product">
+                                        <div class="Compare-nameProduct">{{ $product->title }}</div>
+                                        <div class="Compare-feature">
+                                            <a class="Compare-btn" href="#">
+                                                <img src="{{ asset('assets/img/icons/card/cart.svg') }}"
+                                                     alt="cart.svg"/>
+                                            </a>
+                                            <a class="Compare-btn delete" data-id="{{ $product->id }}" href="#">
+                                                <img src="{{ asset('assets/img/icons/card/delete.svg') }}"
+                                                     alt="delete.svg"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="Compare-row">
+                            @foreach($specifications->get($category_id) as $specification)
+                                <div>{{ $specification->name }}</div>
+                                @foreach($products as $product)
+                                        <div class="Compare-products">
+                                            <div class="Compare-product">
+                                                <div class="Compare-nameProduct">{{ $product->title }}</div>
+                                                <div class="Compare-feature">
+{{--                                                    todo проверка на наличие характ--}}
+                                                    {{ sprintf('%s', $specification->products->where('id', $product->id)->first()?->pivot->value) }}
+                                                </div>
+                                            </div>
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

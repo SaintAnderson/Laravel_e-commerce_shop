@@ -68,18 +68,26 @@
                             </div>
                             <div class="ProductCard-cart">
                                 <div class="ProductCard-cartElement ProductCard-cartElement_amount">
-                                    <div class="Amount Amount_product">
-                                        <button class="Amount-remove" type="button"></button>
-                                        <input class="Amount-input form-input" name="amount" type="text" value="1"/>
-                                        <button class="Amount-add" type="button"></button>
-                                    </div>
+                                    @if(!\Cart::session($sessionId)->get($product->id))
+                                        <div class="Amount Amount_product">
+                                            <button class="Amount-remove" type="button"></button>
+                                            <input class="Amount-input form-input" name="amount" type="text" value="1"/>
+                                            <button class="Amount-add" type="button"></button>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="ProductCard-cartElement">
-                                    <a class="btn btn_primary" href="{{route('cart.add', $product)}}">
-                                        <img class="btn-icon" src="/assets/img/icons/card/cart_white.svg"
-                                             alt="cart_white.svg"/>
-                                        <span class="btn-content">В корзину</span>
-                                    </a>
+                                    @if(\Cart::session($sessionId)->get($product->id))
+                                        <a class="btn btn_primary" href="{{route('cart')}}">
+                                            <span class="btn-content">В корзине</span>
+                                        </a>
+                                    @else
+                                        <a class="btn btn_primary" href="{{route('cart.add', $product)}}">
+                                            <img class="btn-icon" src="/assets/img/icons/card/cart_white.svg"
+                                                 alt="cart_white.svg"/>
+                                            <span class="btn-content">В корзину</span>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="ProductCard-footer">

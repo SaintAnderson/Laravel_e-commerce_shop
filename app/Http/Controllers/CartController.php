@@ -27,11 +27,7 @@ class CartController extends Controller
      */
     public function index(): View
     {
-        if (Auth::check()) {
-            $sessionId = auth()->user()->id;
-        } else {
-            $sessionId = Session::getId();
-        }
+        $sessionId = Auth::check() ? auth()->user()->id : Session::getId();
         $products = $this->cartService->list($sessionId);
         return view('cart', compact('products'));
     }
@@ -42,11 +38,7 @@ class CartController extends Controller
      */
     public function add(Product $product): RedirectResponse
     {
-        if (Auth::check()) {
-            $sessionId = auth()->user()->id;
-        } else {
-            $sessionId = Session::getId();
-        }
+        $sessionId = Auth::check() ? auth()->user()->id : Session::getId();
         $this->cartService->add($sessionId, $product);
         return redirect()->back();
     }
@@ -57,11 +49,7 @@ class CartController extends Controller
      */
     public function remove(Product $product): RedirectResponse
     {
-        if (Auth::check()) {
-            $sessionId = auth()->user()->id;
-        } else {
-            $sessionId = Session::getId();
-        }
+        $sessionId = Auth::check() ? auth()->user()->id : Session::getId();
         $this->cartService->remove($sessionId, $product);
         return redirect()->back();
     }

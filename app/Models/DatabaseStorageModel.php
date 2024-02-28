@@ -17,12 +17,12 @@ class DatabaseStorageModel extends Model
 
     public function setCartDataAttribute($value)
     {
-        $this->attributes['cart_data'] = serialize($value);
+        $this->attributes['cart_data'] = base64_encode(serialize($value));
     }
 
 
     public function getCartDataAttribute($value)
     {
-        return unserialize($value);
+        return unserialize(base64_decode($value));
     }
 }

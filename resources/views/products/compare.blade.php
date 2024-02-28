@@ -65,10 +65,10 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="Compare-row">
-                            @foreach($specifications->get($category_id) as $specification)
-                                <div>{{ $specification->name }}</div>
-                                @foreach($products as $product)
+                        @foreach($specifications->get($category_id) as $specification)
+                            <div class="Compare-row">
+                                    <div class="Compare-title">{{ $specification->name }}</div>
+                                    @foreach($products as $product)
                                         <div class="Compare-products">
                                             <div class="Compare-product">
                                                 <div class="Compare-nameProduct">{{ $product->title }}</div>
@@ -80,10 +80,10 @@
                                                     }}
                                                 </div>
                                             </div>
-                                    </div>
+                                        </div>
                                 @endforeach
-                            @endforeach
-                        </div>
+                            </div>
+                        @endforeach
                     </div>
                 @endforeach
             </div>

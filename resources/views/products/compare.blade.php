@@ -73,8 +73,11 @@
                                             <div class="Compare-product">
                                                 <div class="Compare-nameProduct">{{ $product->title }}</div>
                                                 <div class="Compare-feature">
-{{--                                                    todo проверка на наличие характ--}}
-                                                    {{ sprintf('%s', $specification->products->where('id', $product->id)->first()?->pivot->value) }}
+                                                    {{
+                                                        $specification->products->where('id', $product->id)->first()?->pivot->value
+                                                        ? sprintf('%s %s', $specification->products->where('id', $product->id)->first()?->pivot->value, $specification->measure)
+                                                        : '-'
+                                                    }}
                                                 </div>
                                             </div>
                                     </div>

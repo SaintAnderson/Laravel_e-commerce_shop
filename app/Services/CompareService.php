@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\Product;
+use App\Models\Specification;
+use Illuminate\Support\Collection;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -39,5 +42,21 @@ class CompareService
         unset($productIds[$index]);
 
         session()->put(self::KEY_SESSION, $productIds);
+    }
+
+    /**
+     * @param Collection $products
+     * @return Collection
+     */
+    public function getSpecificationsByCategory(Collection $products): Collection
+    {
+        return Specification::query()
+            ->whereHas('products', function ($builder) use ($products) {
+                $builder->whereIn('product_id', $products->pluck('id'));
+            })
+            ->with('products', function ($builder) use ($products) {
+                $builder->whereIn('product_id', $products->pluck('id'));
+            })
+            ->get();
     }
 }

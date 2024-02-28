@@ -38,15 +38,7 @@ class CompareController extends Controller
         $specifications = collect([]);
         foreach ($productByCategory->keys() as $category_id) {
             $products = $productByCategory->get($category_id);
-            $specificationsForCategory = Specification::query()
-                ->whereHas('products', function ($builder) use ($products) {
-                    $builder->whereIn('product_id', $products->pluck('id'));
-                })
-                ->with('products', function ($builder) use ($products) {
-                    $builder->whereIn('product_id', $products->pluck('id'));
-                })
-                ->get();
-            $specifications->put($category_id, $specificationsForCategory);
+            $specifications->put($category_id, $this->service->getSpecificationsByCategory($products));
         }
 
         return view('products.compare', compact('productByCategory', 'specifications'));

@@ -3,11 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReviewStoreRequest;
-use App\Models\Review;
+use App\Services\ReviewService;
 use Illuminate\Http\RedirectResponse;
 
 class ReviewController extends Controller
 {
+    /**
+     * @var ReviewService
+     */
+    private $reviewService;
+
+    /**
+     * @param ReviewService $reviewService
+     */
+    public function __construct(ReviewService $reviewService)
+    {
+        $this->reviewService = $reviewService;
+    }
 
     /**
      * @param ReviewStoreRequest $request
@@ -18,13 +30,7 @@ class ReviewController extends Controller
         if (!auth()->check()) {
             return redirect()->back()->with('error', 'Чтобы оставить отзыв, вам нужно авторизоваться.');
         }
-        $review = new Review();
-        $review->product_id = $request->product_id;
-        $review->user_id = auth()->id();
-        $review->rating = $request->rating;
-        $review->comment = $request->comment;
-        $review->save();
+        $this->reviewService->createFromRequest($request);
         return redirect()->back()->with('success', 'Отзыв успешно добавлен.');
     }
 }
-

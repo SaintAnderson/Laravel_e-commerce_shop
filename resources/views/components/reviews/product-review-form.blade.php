@@ -25,13 +25,13 @@
                 <label for="star-1" title="Оценка «1»"></label>
             </div>
         </div>
-        <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <input type="hidden" name="user_id" value="{{ $user->id }}">
         <div class="form-group">
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <input type="hidden" name="user_id" value="{{ $user->id }}">
             <textarea class="form-textarea" name="comment" id="comment" placeholder="Отзыв"></textarea>
         </div>
         <div class="form-group">
-            <button class="btn btn_muted" type="submit">Отправить</button>
+            <button class="btn btn_primary" type="submit">Отправить</button>
         </div>
     </form>
 </div>

@@ -8,20 +8,22 @@
 @vite('resources/js/app.js')
 
 <script type="application/javascript">
-    $(document).on('click', '.change', function () {
-        let id = $(this).data('id');
-        let url = '/compare/add/';
-        ajaxRequest(url, id);
+    $(function() {
+        $(document).on('click', '.change', function () {
+            let id = $(this).data('id');
+            let url = '/compare/add/';
+            ajaxRequest(url, id);
 
-        location.reload();
-    });
+            location.reload();
+        });
 
-    $(document).on('click', '.delete', function () {
-        let id = $(this).data('id');
-        let url = '/compare/remove'
-        ajaxRequest(url, id);
+        $(document).on('click', '.delete', function () {
+            let id = $(this).data('id');
+            let url = '/compare/remove'
+            ajaxRequest(url, id);
 
-        location.reload();
+            location.reload();
+        });
     });
 
     function ajaxRequest(url, id) {

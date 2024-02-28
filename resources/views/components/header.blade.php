@@ -85,7 +85,7 @@
                 <div class="CartBlock">
                     <a class="CartBlock-block" href="{{ url('compare') }}">
                         <img class="CartBlock-img" src="/assets/img/icons/exchange.svg" alt="exchange.svg"/>
-                        <span class="CartBlock-amount">{{ count(session()->get('products_in_comparison')) }}</span>
+                        <span class="CartBlock-amount">{{ session()->get('products_in_comparison') ? count(session()->get('products_in_comparison')) : 0 }}</span>
                     </a>
                     <a class="CartBlock-block" href="#">
                         <img class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/>

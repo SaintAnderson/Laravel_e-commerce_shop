@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Services\CompareService;
 use Illuminate\Contracts\View\Factory;
@@ -25,10 +26,9 @@ class CompareController extends Controller
     public function index(): View
     {
         $productsIds = session()->get(CompareService::KEY_SESSION) ?? [];
-        $products = Product::whereIn('id', $productsIds)->get();
-        $productByCategory = $products->groupBy('category_id');
+        $productByCategory = Product::whereIn('id', $productsIds)->get()->groupBy('category_id');
 
-        return view('products.compare', compact('products', 'productByCategory'));
+        return view('products.compare', compact('productByCategory'));
     }
 
     public function add(Request $request) {

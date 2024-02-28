@@ -21,7 +21,7 @@
                     <img src="{{ asset('assets/img/icons/card/cart.svg') }}" alt="cart.svg"/>
                 </a>
 
-                @if(in_array($product->id, session()->get('products_in_comparison')))
+                @if(session()->get('products_in_comparison') && in_array($product->id, session()->get('products_in_comparison')))
                     <a class="Card-btn delete" data-id="{{ $product->id }}" href="#">
                         <img src="{{ asset('assets/img/icons/card/delete.svg') }}" alt="delete.svg"/>
                     </a>

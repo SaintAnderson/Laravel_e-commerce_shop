@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Collection;
 
-class CategoryService implements CategoryServiceInterface
+class CategoryService
 {
     /**
      * @return Collection
@@ -24,7 +24,7 @@ class CategoryService implements CategoryServiceInterface
     /**
      * @return mixed
      */
-    public function getPinnedCategories()
+    public function getPinnedCategories(): mixed
     {
         return Category::pinned()->limit(3)->get();
     }

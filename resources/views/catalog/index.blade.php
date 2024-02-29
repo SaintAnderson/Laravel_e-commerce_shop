@@ -8,7 +8,7 @@
                     <h1 class="Middle-title">Каталог товаров
                     </h1>
                     <ul class="breadcrumbs Middle-breadcrumbs">
-                        <li class="breadcrumbs-item"><a href="/">Главная</a>
+                        <li class="breadcrumbs-item"><a href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="breadcrumbs-item breadcrumbs-item_current"><span>Каталог</span>
                         </li>

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{CartController, CatalogController, HomeController, ProductController, ProfileController, AboutController};
+use App\Http\Controllers\{CartController, CatalogController, HomeController, ProductController, ProfileController, AboutController, ReviewController};
 use App\Http\Controllers\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,6 +8,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
+Route::post('/products/{slug}', [ReviewController::class, 'store'])->name('reviews.store');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');

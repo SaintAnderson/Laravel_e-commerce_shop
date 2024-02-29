@@ -100,29 +100,22 @@
                                     </div>
                                 </div>
                                 <div class="row-block">
-                                    <h2>{{ $title }} Store History
+                                    <h2>{{ $title }}
                                     </h2>
                                     <p>{{ $description }}
                                     </p>
-                                    <ul>
-                                        <li>Lorem ipsum dolor sit amet, consectetuer
-                                        </li>
-                                        <li>adipiscing elit doli. Aenean commodo ligula
-                                        </li>
-                                        <li>eget dolor. Aenean massa. Cumtipsu sociis
-                                        </li>
-                                        <li>natoque penatibus et magnis dis parturient
-                                        </li>
-                                        <li>montesti, nascetur ridiculus mus. Donec
-                                        </li>
-                                        <li>quam felis, ultricies nec, pellentesque eutu
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    @include('components.popular-products-block')
+                    <div>
+                        <header class="Section-header">
+                            <h2 class="Section-title">
+                                Popular products
+                            </h2>
+                        </header>
+                        @include('components.popular-products-block')
+                    </div>
                 </div>
             </div>
         </div>

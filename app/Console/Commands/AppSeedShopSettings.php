@@ -12,7 +12,7 @@ class AppSeedShopSettings extends Command
      *
      * @var string
      */
-    protected $signature = 'app:app-seed-shop-settings';
+    protected $signature = 'app:seed-shop-settings';
 
     /**
      * The console command description.

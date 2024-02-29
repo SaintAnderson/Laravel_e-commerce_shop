@@ -48,7 +48,14 @@
                         </div>
                     </div>
                 </div>
+            <div class="Section-content">
+                <header class="Section-header">
+                    <h2 class="Section-title">
+                        Popular products
+                    </h2>
+                </header>
                 @include('components.popular-products-block', $popularProducts)
+            </div>
             </div>
         </div>
     </div>

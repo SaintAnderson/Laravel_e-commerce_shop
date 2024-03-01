@@ -1,6 +1,13 @@
 <?php
 
-use App\Http\Controllers\{CartController, CatalogController, HomeController, ProductController, ProfileController, AboutController, ReviewController};
+use App\Http\Controllers\{CartController,
+    CatalogController,
+    ContactsController,
+    HomeController,
+    ProductController,
+    ProfileController,
+    AboutController,
+    ReviewController};
 use App\Http\Controllers\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +20,7 @@ Route::post('/products/{slug}', [ReviewController::class, 'store'])->name('revie
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

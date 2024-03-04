@@ -39,12 +39,15 @@ class ProductCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
-
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        CRUD::column('title')->type('text')->label('Название продукта'); 
+        CRUD::column('seller_id')->type('number')->label('ID продавца');
+        CRUD::column('category_id')->type('number')->label('ID категории');
+        CRUD::column('article')->type('text')->label('Артикл');
+        CRUD::column('description')->type('text')->label('Описание');
+        CRUD::column('count')->type('number')->label('Количество');
+        CRUD::column('price')->type('number')->label('Цена');
+        CRUD::column('is_active')->type('checkbox')->label('Активный');
+        CRUD::column('is_limited_edition')->type('checkbox')->label('Лимитированный');
     }
 
     /**
@@ -56,12 +59,16 @@ class ProductCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(ProductRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
-
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field('title')->type('text')->label('Название продукта')->attributes(['required'=>'required']);
+        CRUD::field('seller_id')->type('number')->label('ID продавца');
+        CRUD::field('category_id')->type('number')->label('ID категории');
+        CRUD::field('article')->type('text')->label('Артикл');
+        CRUD::field('description')->type('text')->label('Описание');
+        CRUD::field('count')->type('number')->label('Количество');
+        CRUD::field('price')->type('number')->label('Цена');
+        CRUD::field('is_active')->type('checkbox')->label('Активный');
+        CRUD::field('is_limited_edition')->type('checkbox')->label('Лимитированный');
+        
     }
 
     /**

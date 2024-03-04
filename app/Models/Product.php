@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\{Builder, Model, Relations\HasMany};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,7 +14,7 @@ use Spatie\Sluggable\{HasSlug, SlugOptions};
  */
 class Product extends Model
 {
-    use HasFactory, HasSlug;
+    use CrudTrait, HasFactory, HasSlug;
 
     protected $fillable = [
         'title',

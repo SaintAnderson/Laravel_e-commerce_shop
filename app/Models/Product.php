@@ -65,41 +65,50 @@ class Product extends Model
     }
 
     /**
+     * Список полей для получения отсортированных данных по запросу GET /products?sort=price или /products?sort=updated_at
+     * или в обратном порядке GET /products?sort=-price или /products?sort=-updated_at
      * @return string[]
      */
     public static function getAllowedSorts(): array
     {
         return [
             'price',
-            'updated_at',
+            'updated_at'
         ];
     }
 
     /**
+     * Список полей для фильтрации по диапазону цены, названию и продавцу.
+     * Пример запрос: GET /products?filter[price_from_to]=8,26&filter[title]=smartphone&filter[seller]=dns
      * @return array
      */
     public static function getAllowedFilters(): array
     {
         return [
             AllowedFilter::scope('price_from_to'),
+            AllowedFilter::scope('products_in_stock'),
             'title',
-            AllowedFilter::scope('seller'),
-            AllowedFilter::scope('in_stock'),
+            'seller_id',
         ];
     }
 
+    /**
+     * @param Builder $builder
+     * @param $from
+     * @param $to
+     * @return Builder
+     */
     public function scopePriceFromTo(Builder $builder, $from, $to): Builder
     {
         return $builder->whereBetween('price', [$from, $to]);
     }
 
-    public function scopeSeller(Builder $builder, $id): Builder
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeProductsInStock(Builder $query): Builder
     {
-        return $builder->where('seller_id', $id);
-    }
-
-    public function scopeInStock(Builder $builder): Builder
-    {
-        return $builder->where('count', '>', 0);
+        return $query->where('count', '>', 0);
     }
 }

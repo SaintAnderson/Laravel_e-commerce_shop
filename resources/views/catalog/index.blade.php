@@ -1,3 +1,10 @@
+<?php
+/**  @var $products */
+/**  @var $request */
+/**  @var $sellers */
+/**  @var $foundProductsMinPrice */
+/**  @var $foundProductsMaxPrice */
+?>
 @extends('layouts.default')
 
 @section('content')
@@ -25,68 +32,107 @@
                             </strong>
                         </header>
                         <div class="Section-columnContent">
-                            <form class="form" action="#" method="get">
+                            <form name="find-users" id="find-users" method="get" action="{{url('catalog')}}">
                                 @csrf
-                                <div class="form-group">
-                                    <div class="range Section-columnRange">
-                                        <input class="range-line" id="price" name="filter['price_from_to']" type="text"
-                                               data-type="double"
-                                               data-min="7" data-max="50" data-from="7" data-to="27"/>
-                                        <div class="range-price">Цена:&#32;
-                                            <div class="rangePrice">
-                                            </div>
-                                        </div>
+                                <div class="form-group row">
+                                    <div class="">
+                                        <label for="price_from">Цена от:</label>
+                                        <input type="text" id="price_from" name="filter[price_from_to][]"
+                                               class="form-control"
+                                               value="{{$request->filter['price_from_to'][0] ?? $foundProductsMinPrice }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="">
+                                        <label for="price_to">и до:</label>
+                                        <input type="text" id="price_to" name="filter[price_from_to][]"
+                                               class="form-control"
+                                               value="{{$request->filter['price_from_to'][1] ?? $foundProductsMaxPrice }}">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input form-input_full" id="title" name="filter['title']"
-                                           type="text"
-                                           placeholder="Название"/>
+                                    <label for="title">Название: </label>
+                                    <input type="text" id="title" name="filter[title]" class="form-control"
+                                           value="{{$request->filter['title'] ?? ''}}">
                                 </div>
-                                <div class="form-group">
-                                    <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
-                                    <select class="form-select" name="filter['seller']">
-                                        <option value="seller" selected="selected" disabled="disabled">Продавец
-                                        </option>
-                                        <option value="kkk_id">Kkkk
-                                        </option>
-                                        <option value="sdfsdf_id">sdfsdf
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="toggle">
-                                        <input type="checkbox" name="filter['in_stock']"/><span
-                                            class="toggle-box"></span><span
-                                            class="toggle-text">Только товары в наличии</span>
+                                <div class="form-section">
+                                    <label for="genre">Продавец:
+                                        <select class="form-select" name="filter[seller_id]" id="seller">
+                                            <option value="">--Выберите продавца--</option>
+                                            @foreach($sellers as $seller)
+                                                <option value={{$seller->id}}
+                                @if(isset($request->filter['seller_id']) && ($request->filter['seller_id'] == $seller->id))
+                                    selected
+                                                    @endif
+                                                >{{$seller->title}}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </label>
                                 </div>
-                                <div class="form-group">
-                                    <label class="toggle">
-                                        <input type="checkbox" name="filter['free_delivery']"/><span
-                                            class="toggle-box"></span><span
-                                            class="toggle-text">С бесплатной доставкой</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <div class="buttons">
-                                        <input type="button" class="btn btn_square btn_dark btn_narrow" name="submit_filter" value="Найти">
-{{--                                        <a class="btn btn_square btn_dark btn_narrow" href="#">Найти</a>--}}
+                                <br>
+                                <div class="row">
+                                    <div class="form-section col-6">
+                                        <label for="products_in_stock">
+                                            <input type="checkbox" name="filter[products_in_stock]" value="1"
+                                                   id="products_in_stock"
+                                                   @if($request->filter['products_in_stock'] ?? 0)
+                                                       checked
+                                                @endif
+                                            ><span class="toggle-box"></span>
+                                            <span class="toggle-text"> Только товары в наличии. </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-section col-6">
+                                        <label for="free_delivery">
+                                            <input type="checkbox"
+                                                   disabled
+                                                {{--                               name="filter[free_delivery]"--}}
+                                                {{--                               value="1"--}}
+                                                {{--                                @if($request->filter['free_delivery'] ?? 0)--}}
+                                                {{--                                   checked--}}
+                                                {{--                                @endif--}}
+                                            ><span class="toggle-box"></span>
+                                            <span class="toggle-text"> С бесплатной доставкой. </span>
+                                        </label>
                                     </div>
                                 </div>
+                                <br>
+                                <button type="submit" class="btn btn_square btn_dark btn_narrow">Найти</button>
                             </form>
+                            <br>
+                            <a href="/public/catalog">
+                                <button class="btn btn_square btn_dark btn_narrow" value="">Очистить фильтр поиска
+                                </button>
+                            </a>
+
                         </div>
                     </div>
                 </div>
                 <div class="Section-content">
                     <div class="Sort">
-                        <div class="Sort-title">Сортировать по:
-                        </div>
-                        <div class="Sort-variants">
-                            <a class="Sort-sortBy " href="#">Популярности</a>
-                            <a class="Sort-sortBy Sort-sortBy_dec" href="/products?sort=price">Цене</a>
-                            <a class="Sort-sortBy" href="#">Отзывам</a>
-                            <a class="Sort-sortBy Sort-sortBy_inc" href="/products?sort=-updated_at">Новизне</a>
+                        <strong class="Sort-title">Сортировка:</strong>
+                        <div class="Sort-variants row">
+                            <div class="col-sm-6 col-md-3">
+                                <b>По цене</b>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?sort=price"></a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?sort=-price"></a>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <b>По новизне</b>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?sort=updated_at"></a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?sort=-updated_at"></a>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <b>По популярности</b>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?"></a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?"></a>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <b>По отзывам</b>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?"></a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="Cards">

@@ -19,7 +19,7 @@ class ProductService
             ->allowedFilters(Product::getAllowedFilters())
             ->allowedSorts(Product::getAllowedSorts())
             ->paginate(8);
-//        return Product::where('is_active', true)->where('count', '>', 0)->paginate(8);
+//        return Product::where('is_active', true)->where('count', '>', 0)->paginate(8); // Old
     }
 
     public function getLimitedEditionProducts()

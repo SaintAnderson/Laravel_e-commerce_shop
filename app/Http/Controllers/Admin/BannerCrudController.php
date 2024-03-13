@@ -21,7 +21,6 @@ class BannerCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
      * @return void
      */
     public function setup()
@@ -33,23 +32,21 @@ class BannerCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
         CRUD::setFromDb(); // set columns from db columns.
-
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        CRUD::column('title')->type('text')->label('Название');
+        CRUD::column('description')->type('textarea')->label('Описание');
+        CRUD::column('price')->type('number')->label('Цена');
     }
 
     /**
-     * Define what happens when the Create operation is loaded.
-     * 
+     * Define what happens when the Create operation is loaded
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -57,16 +54,15 @@ class BannerCrudController extends CrudController
     {
         CRUD::setValidation(BannerRequest::class);
         CRUD::setFromDb(); // set fields from db columns.
-
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field('title')->type('text')->label('Название')->attributes(['required' => 'required']);
+        CRUD::field('description')->type('textarea')->label('Описание');
+        CRUD::field('price')->type('number')->label('Цена');
     }
+
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

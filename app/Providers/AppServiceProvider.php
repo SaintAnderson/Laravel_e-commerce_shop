@@ -7,6 +7,7 @@ use App\Services\ProductService;
 use App\Services\CartService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use App\Services\SettingService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,5 +35,12 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable('categories')) {
             view()->share('categoryMenuItems', app(CategoryService::class)->getActiveCategoriesWithActiveChildren());
         }
+        view()->share([
+            'shopPhone' => app(SettingService::class)->get('shop_phone'),
+            'shopAddress' => app(SettingService::class)->get('shop_address'),
+            'shopEmail' => app(SettingService::class)->get('shop_email'),
+            'shopTitle' => app(SettingService::class)->get('shop_title'),
+            'shopDescription'=> app(SettingService::class)->get('shop_description'),
+        ]);
     }
 }

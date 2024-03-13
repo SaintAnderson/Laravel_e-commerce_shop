@@ -57,25 +57,20 @@
     </div>
     <div class="wrap">
         <div class="row Header-rowMain">
-            <div class="row-block Header-logo"><a class="logo" href="{{ route('home') }}">
-                    <img class="logo-image" src="/assets/img/logo.png" alt="logo.png"/></a>
+            <div class="row-block Header-logo">
+                <a class="logo" href="{{ route('home') }}"><img class="logo-image" src="/assets/img/logo.png" alt="logo.png"/></a>
             </div>
             <nav class="row-block row-block_right Header-menu">
                 <div class="menuModal" id="navigate">
                     <ul class="menu menu_main">
-                        <li class="menu-item"><a class="menu-link" href="{{ route('home') }}">Главная</a>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('home') }}">Главная</a>
                         </li>
-                        <li class="menu-item"><span class="menu-label menu-label_danger">New</span><a
-                                class="menu-link" href="shop.html">Магазин</a>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{route('contacts')}}">Контакты</a>
                         </li>
-                        <li class="menu-item"><a class="menu-link" href="sale.html">Блог</a>
-                        </li>
-                        <li class="menu-item"><span class="menu-label menu-label_success">Hot</span><a
-                                class="menu-link" href="product.html">Галерея</a>
-                        </li>
-                        <li class="menu-item"><a class="menu-link" href="contacts.html">Контакты</a>
-                        </li>
-                        <li class="menu-item"><a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
                         </li>
                     </ul>
                 </div>

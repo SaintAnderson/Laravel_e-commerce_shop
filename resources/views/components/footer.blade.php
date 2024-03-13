@@ -62,13 +62,14 @@
                 </ul>
             </div>
             <div class="row-block">
-                <strong class="Footer-title">Contacts
-                </strong>
-                <p>Phone: 8.800.200.600<br>Email: Support@ninzio.com<br>Skype: techno<br>Address: New York,
-                    north<br>Avenue
-                    26/7<br>0057
+                <strong class="Footer-title">Контакты</strong>
+                <p>
+                    Телефон: {{ $shopPhone }}<br>
+                    Email: {{ $shopEmail }}<br>
+                    Адрес: {{ $shopAddress }}
                 </p>
             </div>
+
         </div>
     </div>
     <div class="Footer-copy">

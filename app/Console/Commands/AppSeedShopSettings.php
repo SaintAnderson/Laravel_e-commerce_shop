@@ -26,8 +26,17 @@ class AppSeedShopSettings extends Command
      */
     public function handle()
     {
-        Setting::updateOrCreate(['key' => 'shop_title'], ['value' => 'Team 5 shop']);
-        Setting::updateOrCreate(['key' => 'shop_description'], ['value' => 'Тут будет будущее описание магазина Team 5 shop']);
+        $newSettings = [
+            ['key' => 'shop_title', 'value' => 'Team 5 shop'],
+            ['key' => 'shop_description', 'value' => 'Тут будет будущее описание магазина Team 5 shop'],
+            ['key' => 'shop_address', 'value' => 'г.Москва, ул. Тверская, дом 1'],
+            ['key' => 'shop_phone', 'value' => '+7 (999) 000-00-00'],
+            ['key' => 'shop_email', 'value' => 'shop@example.com'],
+        ];
+
+        foreach ($newSettings as $setting) {
+            Setting::updateOrCreate(['key' => $setting['key']], ['value' => $setting['value']]);
+        }
 
         $this->info('Shop settings have been added successfully.');
 

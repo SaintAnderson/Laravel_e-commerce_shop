@@ -57,9 +57,8 @@
     </div>
     <div class="wrap">
         <div class="row Header-rowMain">
-            <div class="row-block Header-logo"><a class="logo" href="{{ route('home') }}"><img class="logo-image"
-                                                                                               src="/assets/img/logo.png"
-                                                                                               alt="logo.png"/></a>
+            <div class="row-block Header-logo"><a class="logo" href="{{ route('home') }}">
+                    <img class="logo-image" src="/assets/img/logo.png" alt="logo.png"/></a>
             </div>
             <nav class="row-block row-block_right Header-menu">
                 <div class="menuModal" id="navigate">
@@ -67,14 +66,14 @@
                         <li class="menu-item"><a class="menu-link" href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="menu-item"><span class="menu-label menu-label_danger">New</span><a
-                                class="menu-link" href="shop.html">Shop</a>
+                                class="menu-link" href="shop.html">Магазин</a>
                         </li>
-                        <li class="menu-item"><a class="menu-link" href="sale.html">Blog</a>
+                        <li class="menu-item"><a class="menu-link" href="sale.html">Блог</a>
                         </li>
                         <li class="menu-item"><span class="menu-label menu-label_success">Hot</span><a
-                                class="menu-link" href="product.html">Gallery</a>
+                                class="menu-link" href="product.html">Галерея</a>
                         </li>
-                        <li class="menu-item"><a class="menu-link" href="contacts.html">Contacts</a>
+                        <li class="menu-item"><a class="menu-link" href="contacts.html">Контакты</a>
                         </li>
                         <li class="menu-item"><a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
                         </li>
@@ -87,11 +86,22 @@
                         <img class="CartBlock-img" src="/assets/img/icons/exchange.svg" alt="exchange.svg"/>
                         <span class="CartBlock-amount">{{ session()->get('products_in_comparison') ? count(session()->get('products_in_comparison')) : 0 }}</span>
                     </a>
-                    <a class="CartBlock-block" href="#">
+                    <a class="CartBlock-block" href="{{ route('cart') }}">
                         <img class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/>
-                        <span class="CartBlock-amount">0</span>
+                        @auth
+                            <span
+                                class="CartBlock-amount">{{\Cart::session(auth()->user()->id)->getTotalQuantity()}}</span>
+                        @else
+                            <span
+                                class="CartBlock-amount">{{\Cart::session(Session::getId())->getTotalQuantity()}}</span>
+                        @endauth
                     </a>
-                    <div class="CartBlock-block"><span class="CartBlock-price">0.00$</span>
+                    <div class="CartBlock-block">
+                        @auth
+                            <span class="CartBlock-price">{{\Cart::session(auth()->user()->id)->getSubTotal()}}$</span>
+                        @else
+                            <span class="CartBlock-price">{{\Cart::session(Session::getId())->getSubTotal()}}$</span>
+                        @endauth
                     </div>
                 </div>
             </div>

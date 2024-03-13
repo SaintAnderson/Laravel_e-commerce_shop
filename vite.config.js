@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/breeze.css',
                 'resources/js/app.js',
                 'resources/js/breeze.js',
+                'resources/css/rating.css'
             ],
             refresh: true,
         }),

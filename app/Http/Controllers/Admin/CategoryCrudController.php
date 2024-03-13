@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
+use App\Services\CategoryService;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
  * Class CategoryCrudController
  * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class CategoryCrudController extends CrudController
 {
@@ -19,57 +19,51 @@ class CategoryCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
+
     public function setup()
     {
-        CRUD::setModel(\App\Models\Category::class);
+        CRUD::setModel(Category::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/category');
-        CRUD::setEntityNameStrings('category', 'categories');
+        CRUD::setEntityNameStrings('category', 'Категории');
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     * 
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
-
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        CRUD::column('id')->type('number')->label('ID');
+        CRUD::column('parent_id')->type('select')->entity('parentCategory')->name('parent_id')->label('Родительская категория');
+        CRUD::column('name')->type('text')->label('Название');
+        CRUD::column('order')->type('number')->label('Позиция');
+        CRUD::column('is_active')->type('checkbox')->label('Активна');
+        CRUD::column('is_pinned')->type('checkbox')->label('Закреплена');
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(CategoryRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
+        CRUD::setValidation([
+            'name' => 'required|min:2',
+        ]);
 
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field([
+            'label' => "Родительская категория",
+            'type' => 'select',
+            'name' => 'parentCategory', // the method that defines the relationship in your Model
+            'entity' => 'parentCategory', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
+        ]);
+
+        CRUD::field('name')->type('text')->label('Название')->attributes(['required' => 'required']);
+        CRUD::field('order')->type('number')->label('Позиция');
+        CRUD::field('is_active')->type('checkbox')->label('Активна');
+        CRUD::field('is_pinned')->type('checkbox')->label('Закрепить');
     }
 
-    /**
-     * Define what happens when the Update operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-update
-     * @return void
-     */
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

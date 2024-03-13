@@ -7,7 +7,7 @@ use App\Http\Controllers\{CartController,
     ProductController,
     ProfileController,
     AboutController,
-    ReviewController
+    ReviewController,
     CompareController};
 use App\Http\Controllers\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;

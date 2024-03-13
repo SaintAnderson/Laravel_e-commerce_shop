@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\{Builder, Model, Relations\HasMany};
+use Illuminate\Database\Eloquent\{Builder, Model, Relations\BelongsToMany, Relations\HasMany};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
@@ -11,6 +11,7 @@ use Spatie\Sluggable\{HasSlug, SlugOptions};
 /**
  * @method static limited()
  * @method static where(string $string, string $slug)
+ * @method static whereIn()
  */
 class Product extends Model
 {
@@ -63,5 +64,13 @@ class Product extends Model
     public function productViews(): HasMany
     {
         return $this->hasMany(ProductView::class);
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function specifications(): BelongsToMany
+    {
+        return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
     }
 }

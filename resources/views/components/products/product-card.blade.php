@@ -16,7 +16,7 @@
                 @endif
                 <span class="Card-price">{{  "$" . $product->price }} {{$product->id}}</span>
             </div>
-            <div class="Card-category">&nbsp;</div>
+            <div class="Card-category">{{ $product->category->name }}</div>
             <div class="Card-hover">
                 <a class="Card-btn" href="{{route('products.show', $product)}}">
                     <img src="{{ asset('assets/img/icons/card/bookmark.svg') }}" alt="bookmark.svg"/>
@@ -26,9 +26,16 @@
                         <img src="{{ asset('assets/img/icons/card/cart.svg') }}" alt="cart.svg"/>
                     </a>
                 @endif
-                <a class="Card-btn" href="compare.html">
-                    <img src="{{ asset('assets/img/icons/card/change.svg') }}" alt="change.svg"/>
-                </a>
+
+                @if(session()->get('products_in_comparison') && in_array($product->id, session()->get('products_in_comparison')))
+                    <a class="Card-btn delete" data-id="{{ $product->id }}" href="#">
+                        <img src="{{ asset('assets/img/icons/card/delete.svg') }}" alt="delete.svg"/>
+                    </a>
+                @else
+                    <a class="Card-btn change" href="#" data-id="{{ $product->id  }}">
+                        <img src="{{ asset('assets/img/icons/card/change.svg') }}" alt="change.svg"/>
+                    </a>
+                @endif
             </div>
         </div>
     </div>

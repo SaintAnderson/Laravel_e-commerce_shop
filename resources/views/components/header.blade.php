@@ -77,9 +77,9 @@
             </nav>
             <div class="row-block">
                 <div class="CartBlock">
-                    <a class="CartBlock-block" href="compare.html">
+                    <a class="CartBlock-block" href="{{ url('compare') }}">
                         <img class="CartBlock-img" src="/assets/img/icons/exchange.svg" alt="exchange.svg"/>
-                        <span class="CartBlock-amount">4</span>
+                        <span class="CartBlock-amount">{{ session()->get('products_in_comparison') ? count(session()->get('products_in_comparison')) : 0 }}</span>
                     </a>
                     <a class="CartBlock-block" href="{{ route('cart') }}">
                         <img class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/>

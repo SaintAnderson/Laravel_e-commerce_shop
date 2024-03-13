@@ -5,12 +5,12 @@
         <div class="Middle-top">
             <div class="wrap">
                 <div class="Middle-header">
-                    <h1 class="Middle-title">Contact Megano
+                    <h1 class="Middle-title">{{$shopTitle}}
                     </h1>
                     <ul class="breadcrumbs Middle-breadcrumbs">
                         <li class="breadcrumbs-item"><a href="index.html">home</a>
                         </li>
-                        <li class="breadcrumbs-item breadcrumbs-item_current"><span>Contact</span>
+                        <li class="breadcrumbs-item breadcrumbs-item_current"><span>Контакты</span>
                         </li>
                     </ul>
                 </div>
@@ -99,7 +99,7 @@
                             <div class="media">
                                 <div class="media-image"><img src="assets/img/icons/contacts/phone.svg" alt="phone.svg"/>
                                 </div>
-                                <div class="media-content">Phone: +8 (200) 800-2000-600<br>Mobile: +8 (200) 800-2000-650
+                                <div class="media-content">{{$shopPhone}}
                                 </div>
                             </div>
                         </div>
@@ -108,9 +108,7 @@
                                 <div class="media-image"><img src="assets/img/icons/contacts/address.svg" alt="address.svg"/>
                                 </div>
                                 <div class="media-content">
-                                    Megano Business Center,
-                                    0012 United States, Los Angeles
-                                    Creative Street 15/4
+                                    {{$shopAddress}}
                                 </div>
                             </div>
                         </div>
@@ -118,7 +116,7 @@
                             <div class="media">
                                 <div class="media-image"><img src="assets/img/icons/contacts/mail.svg" alt="mail.svg"/>
                                 </div>
-                                <div class="media-content">General: hello@ninzio.com<br>Editor: editor@ninzio.com
+                                <div class="media-content">{{$shopEmail}}
                                 </div>
                             </div>
                         </div>

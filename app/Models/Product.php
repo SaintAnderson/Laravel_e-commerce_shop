@@ -65,7 +65,14 @@ class Product extends Model
     {
         return $this->hasMany(ProductView::class);
     }
-
+    public function parentId(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'id');
+    }
+    public function parentCategory(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'category_id');
+    }
     /**
      * @return BelongsToMany
      */

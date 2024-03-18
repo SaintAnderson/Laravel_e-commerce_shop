@@ -11,3 +11,16 @@
 <x-backpack::menu-item title="Продавцы" icon="la la-question" :link="backpack_url('seller')" />
 <x-backpack::menu-item title="Настройки" icon="la la-question" :link="backpack_url('setting')" />
 <x-backpack::menu-item title="Пользователи" icon="la la-question" :link="backpack_url('user')" />
+
+<x-backpack::menu-item title="Banners" icon="la la-question" :link="backpack_url('banner')" />
+<x-backpack::menu-item title="Categories" icon="la la-question" :link="backpack_url('category')" />
+<x-backpack::menu-item title="Database storage models" icon="la la-question" :link="backpack_url('database-storage-model')" />
+<x-backpack::menu-item title="Products" icon="la la-question" :link="backpack_url('product')" />
+<x-backpack::menu-item title="Product views" icon="la la-question" :link="backpack_url('product-view')" />
+<x-backpack::menu-item title="Reviews" icon="la la-question" :link="backpack_url('review')" />
+<x-backpack::menu-item title="Roles" icon="la la-question" :link="backpack_url('role')" />
+<x-backpack::menu-item title="Sellers" icon="la la-question" :link="backpack_url('seller')" />
+<x-backpack::menu-item title="Settings" icon="la la-question" :link="backpack_url('setting')" />
+<x-backpack::menu-item title="Specifications" icon="la la-question" :link="backpack_url('specification')" />
+<x-backpack::menu-item title="Users" icon="la la-question" :link="backpack_url('user')" />
+<x-backpack::menu-item title="Imports" icon="la la-question" :link="backpack_url('import')" />

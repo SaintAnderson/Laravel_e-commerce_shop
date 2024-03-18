@@ -72,7 +72,7 @@
                                 <!--<span class="Cart-price_old hidden">250.99$</span> TODO добавить когда сделаем скидки-->
                             </div>
                             <div class="Cart-block">
-                                <a class="btn btn_success btn_lg" href="order.html">Оформить заказ</a>
+                                <a class="btn btn_success btn_lg" href="{{ route('checkout') }}">Оформить заказ</a>
                             </div>
                         </div>
                     </form>

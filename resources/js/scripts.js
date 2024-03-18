@@ -888,5 +888,12 @@ Categories().init();
 
     });
 
+$('#self-method').on('click', function () {
+    $('#delivery-address').hide();
+});
+
+$('#delivery-method').on('click', function () {
+    $('#delivery-address').show();
+});
 
 })(jQuery);

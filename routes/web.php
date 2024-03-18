@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{CartController,
     CatalogController,
+    CheckoutController,
     ContactsController,
     HomeController,
     ProductController,
@@ -33,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile/password-reset', [PasswordController::class, 'edit'])->name('password.edit');
     Route::get('/profile/viewed-products', [ProfileController::class, 'viewedProducts'])->name('profile.viewed-products');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::get('/checkout/payment', [CheckoutController::class, 'payment'])->name('checkout.payment');
 });
 
 require __DIR__ . '/auth.php';

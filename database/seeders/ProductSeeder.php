@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
     {
         Product::factory(10)->create()->each(function ($product) {
             $specifications = Specification::inRandomOrder()->take(rand(1, 3))->pluck('id');
-            $product->specification()->attach($specifications);
+            $product->specifications()->attach($specifications);
         });
         ;
     }

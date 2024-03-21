@@ -71,7 +71,7 @@ class Product extends Model
     }
     public function parentCategory(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'category_id');
+        return $this->belongsTo(Category::class, 'parent_id');
     }
     /**
      * @return BelongsToMany

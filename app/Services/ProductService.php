@@ -47,6 +47,6 @@ class ProductService
      */
     public function addSpecification(Product $product, Specification $specification): void
     {
-        $product->specification()->attach($specification);
+        $product->specifications()->attach($specification);
     }
 }

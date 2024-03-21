@@ -53,7 +53,9 @@ class RegisterController extends Controller
         $user = new $user_model_fqn();
 
         return $user->create([
-            'name' => $data['first_name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'middle_name' => $data['middle_name'],
             backpack_authentication_column() => $data[backpack_authentication_column()],
             'password' => bcrypt($data['password']),
         ]);

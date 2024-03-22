@@ -72,6 +72,9 @@
                         <li class="menu-item">
                             <a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
                         </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('about') }}">О нас</a>
+                        </li>
                     </ul>
                 </div>
             </nav>

@@ -6,7 +6,7 @@
         <div class="Middle-top">
             <div class="wrap">
                 <div class="Middle-header">
-                    <h1 class="Middle-title">About {{ $title }}
+                    <h1 class="Middle-title">О {{ $title }}
                     </h1>
                     <ul class="breadcrumbs Middle-breadcrumbs">
                         <li class="breadcrumbs-item"><a href="index.html">home</a>
@@ -68,28 +68,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="Section-columnSection">
-                        <header class="Section-header">
-                            <strong class="Section-title">Follow Us
-                            </strong>
-                        </header>
-                        <div class="Section-columnContent">
-                            <div class="Footer-payments Footer-payments_column">
-                                <div><img src="assets/img/icons/socialContent/fb.png" alt="fb.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/tw.png" alt="tw.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/gg.png" alt="gg.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/in.png" alt="in.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/pt.png" alt="pt.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/ml.png" alt="ml.png"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="Section-content">
                     <article class="Article">
@@ -111,7 +89,7 @@
                     <div>
                         <header class="Section-header">
                             <h2 class="Section-title">
-                                Popular products
+                                Популярное
                             </h2>
                         </header>
                         @include('components.popular-products-block')

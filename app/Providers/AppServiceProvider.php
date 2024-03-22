@@ -37,6 +37,8 @@ class AppServiceProvider extends ServiceProvider
         }
         view()->share([
             'shopPhone' => app(SettingService::class)->get('shop_phone'),
+            'shop_title' => app(SettingService::class)->get('shop_title'),
+            'shop_description' => app(SettingService::class)->get('shop_description'),
             'shopAddress' => app(SettingService::class)->get('shop_address'),
             'shopEmail' => app(SettingService::class)->get('shop_email'),
             'shopTitle' => app(SettingService::class)->get('shop_title'),

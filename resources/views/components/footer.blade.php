@@ -3,7 +3,7 @@
         <div class="row Footer-main">
             <div class="row-block"><a class="logo Footer-logo" href="index.html"><img class="logo-image"
                         src="/assets/img/logo_footer.png" alt="logo_footer.png" /></a>
-                <p>{{ $shop_description  }}
+                <p>{{ $shopDescription  }}
                 </p>
             </div>
             <div class="row-block">
@@ -20,7 +20,7 @@
     <div class="Footer-copy">
         <div class="wrap">
             <div class="row row_space">
-                <div class="row-block">© Copyright&#32;<a href="#">{{ $shop_title }}.</a>&#32;All rights reserved.
+                <div class="row-block">© Copyright&#32;<a href="#">{{ $shopTitle }}.</a>&#32;All rights reserved.
                 </div>
                 <div class="row-block"><span>Мы принимаем</span>
                     <div class="Footer-payments">

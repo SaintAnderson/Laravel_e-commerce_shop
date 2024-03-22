@@ -2,8 +2,8 @@
     $sessionId = \Auth::check() ? auth()->user()->id : \Session::getId();
 @endphp
 <div class="Card">
-    <a class="Card-picture" href="#">
-        <img src="{{ asset('assets/img/content/home/card.jpg') }}" alt="card.jpg"/>
+    <a class="Card-picture" href="{{ route('products.show', $product) }}">
+        <img src="{{ $product->image_url }}"/>
     </a>
     <div class="Card-content">
         <strong class="Card-title">

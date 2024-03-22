@@ -29,6 +29,7 @@ class ProductFactory extends Factory
             'article'=>$this->faker->uuid(),
             'is_active' => $this->faker->boolean(),
             'is_limited_edition' => $this->faker->boolean(),
+            'image_url' => $this->faker->imageUrl(300, 300, 'product'),
         ];
     }
 }

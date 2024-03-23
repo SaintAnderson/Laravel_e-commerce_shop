@@ -1,11 +1,6 @@
 @extends('layouts.default')
 
-<!-- @section('head')
-    @vite('resources/css/rating.css')
-@endsection -->
-
 @section('content')
-
 <div class="Middle Middle_top">
     <div class="Middle-top">
         <div class="wrap">
@@ -59,6 +54,4 @@
 
 </div>
 </div>
-
-
 @endsection

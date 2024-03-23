@@ -72,6 +72,9 @@
                         <li class="menu-item">
                             <a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
                         </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('articles.index') }}">Блог</a>
+                        </li>
                     </ul>
                 </div>
             </nav>

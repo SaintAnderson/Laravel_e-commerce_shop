@@ -35,7 +35,8 @@
                     </div>
                 </div>
                 <div class="Section-content">
-                    <form class="form" action="#" method="post">
+                    <form class="form" action="{{ route('checkout.delivery') }}" method="post">
+                        @csrf
                         <div class="Order-block Order-block_OPEN" id="step1">
                             @include('components.checkout.step_registration', ['user' => $user])
                         </div>

@@ -26,6 +26,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
+Route::get('/catalog/{slug}', [CatalogController::class, 'indexByCategory'])->name('catalog.category');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

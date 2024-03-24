@@ -11,4 +11,4 @@
 <x-backpack::menu-item title="Продавцы" icon="la la-question" :link="backpack_url('seller')" />
 <x-backpack::menu-item title="Настройки" icon="la la-question" :link="backpack_url('setting')" />
 <x-backpack::menu-item title="Пользователи" icon="la la-question" :link="backpack_url('user')" />
-<x-backpack::menu-item title="Блог" icon="la la-question" :link="backpack_url('article')" />
+<x-backpack::menu-item title="Блог" icon="la la-list-alt" :link="backpack_url('article')" />

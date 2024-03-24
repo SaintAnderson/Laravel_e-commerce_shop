@@ -24,8 +24,7 @@ class ArticleController extends Controller
 
     public function show(string $slug): View
     {
-        $article = Article::where('slug', $slug)->first();
-        $user = auth()->user();
-        return view('articles.show', compact('article', 'user'));
+        $article = Article::where('slug', $slug)->firstOrFail();
+        return view('articles.show', compact('article'));
     }
 }

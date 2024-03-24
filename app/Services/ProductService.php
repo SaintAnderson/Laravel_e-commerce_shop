@@ -51,9 +51,9 @@ class ProductService
         $product->specifications()->attach($specification);
     }
 
-    public function getPaginatedCatalogCategoryProducts(int $id)
+    public function getPaginatedCatalogCategoryProducts(Category $category)
     {
        
-        return Product::where('is_active', true)->where('category_id', $id)->where('count', '>', 0)->paginate(8);
+        return Product::where('is_active', true)->where('category_id', $category->id)->where('count', '>', 0)->paginate(8);
     }
 }

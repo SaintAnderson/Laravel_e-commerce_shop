@@ -37,8 +37,8 @@ class CatalogController extends Controller
      */
     public function indexByCategory(string $slug): View
     {
-        $category = Category::where('slug', $slug)->first();
-        $products = $this->productService->getPaginatedCatalogCategoryProducts($category->id);
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $products = $this->productService->getPaginatedCatalogCategoryProducts($category);
         return view('catalog.category', compact('products', 'category'));
     }
 }

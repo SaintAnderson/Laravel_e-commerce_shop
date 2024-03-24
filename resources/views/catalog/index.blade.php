@@ -4,6 +4,7 @@
 /**  @var $sellers */
 /**  @var $foundProductsMinPrice */
 /**  @var $foundProductsMaxPrice */
+/**  @var $allFoundProducts */
 ?>
 @extends('layouts.default')
 
@@ -33,22 +34,15 @@
                         </header>
                         <div class="Section-columnContent">
                             <form name="find-users" id="find-users" method="get" action="{{url('catalog')}}">
-                                @csrf
                                 <div class="form-group row">
-                                    <div class="">
-                                        <label for="price_from">Цена от:</label>
-                                        <input type="text" id="price_from" name="filter[price_from_to][]"
-                                               class="form-control"
-                                               value="{{$request->filter['price_from_to'][0] ?? $foundProductsMinPrice }}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="">
-                                        <label for="price_to">и до:</label>
-                                        <input type="text" id="price_to" name="filter[price_from_to][]"
-                                               class="form-control"
-                                               value="{{$request->filter['price_from_to'][1] ?? $foundProductsMaxPrice }}">
-                                    </div>
+                                    <label for="price_from">Цена от:</label>
+                                    <input type="number" id="price_from" name="filter[price_from_to][]"
+                                           class="price"
+                                           value="{{$request->filter['price_from_to'][0] ?? $foundProductsMinPrice }}">
+                                    <label for="price_to">и до:</label>
+                                    <input type="number" id="price_to" name="filter[price_from_to][]"
+                                           class="price"
+                                           value="{{$request->filter['price_from_to'][1] ?? $foundProductsMaxPrice }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Название: </label>
@@ -61,8 +55,8 @@
                                             <option value="">--Выберите продавца--</option>
                                             @foreach($sellers as $seller)
                                                 <option value={{$seller->id}}
-                                @if(isset($request->filter['seller_id']) && ($request->filter['seller_id'] == $seller->id))
-                                    selected
+                                                @if(isset($request->filter['seller_id']) && ($request->filter['seller_id'] == $seller->id))
+                                                    selected
                                                     @endif
                                                 >{{$seller->title}}
                                                 </option>
@@ -84,28 +78,27 @@
                                         </label>
                                     </div>
                                     <div class="form-section col-6">
-                                        <label for="free_delivery">
-                                            <input type="checkbox"
-                                                   disabled
-                                                {{--                               name="filter[free_delivery]"--}}
-                                                {{--                               value="1"--}}
-                                                {{--                                @if($request->filter['free_delivery'] ?? 0)--}}
-                                                {{--                                   checked--}}
-                                                {{--                                @endif--}}
-                                            ><span class="toggle-box"></span>
-                                            <span class="toggle-text"> С бесплатной доставкой. </span>
-                                        </label>
+                                        {{--                                        <label for="free_delivery">--}}
+                                        {{--                                            <input type="checkbox"--}}
+                                        {{--                                                   disabled--}}
+                                        {{--                               name="filter[free_delivery]"--}}
+                                        {{--                               value="1"--}}
+                                        {{--                                @if($request->filter['free_delivery'] ?? 0)--}}
+                                        {{--                                   checked--}}
+                                        {{--                                @endif--}}
+                                        {{--                                            ><span class="toggle-box"></span>--}}
+                                        {{--                                            <span class="toggle-text"> С бесплатной доставкой. </span>--}}
+                                        {{--                                        </label>--}}
                                     </div>
                                 </div>
                                 <br>
-                                <button type="submit" class="btn btn_square btn_dark btn_narrow">Найти</button>
+                                <button type="submit" class="btn btn_square btn_blue btn_narrow">Найти</button>
                             </form>
                             <br>
-                            <a href="/public/catalog">
+                            <a href="{{route('catalog')}}">
                                 <button class="btn btn_square btn_dark btn_narrow" value="">Очистить фильтр поиска
                                 </button>
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -115,23 +108,51 @@
                         <div class="Sort-variants row">
                             <div class="col-sm-6 col-md-3">
                                 <b>По цене</b>
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?sort=price"></a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?sort=-price"></a>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?sort=price
+                                    <?= isset($request->filter['price_from_to'][0]) ? ("&filter[price_from_to][]=" . $request->filter['price_from_to'][0]) : ''?>
+                                    <?= isset($request->filter['price_from_to'][1]) ? ("&filter[price_from_to][]=" . $request->filter['price_from_to'][1]) : ''?>
+                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
+                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
+                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
+                                    ">
+                                </a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?sort=-price
+                                    <?= isset($request->filter['price_from_to'][0]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][0] : ''?>
+                                    <?= isset($request->filter['price_from_to'][1]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][1] : ''?>
+                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
+                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
+                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
+                                    ">
+                                </a>
                             </div>
                             <div class="col-sm-6 col-md-3">
                                 <b>По новизне</b>
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?sort=updated_at"></a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?sort=-updated_at"></a>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?sort=updated_at
+                                <?= isset($request->filter['price_from_to'][0]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][0] : ''?>
+                                    <?= isset($request->filter['price_from_to'][1]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][1] : ''?>
+                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
+                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
+                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
+                                    ">
+                                </a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?sort=-updated_at
+                                <?= isset($request->filter['price_from_to'][0]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][0] : ''?>
+                                    <?= isset($request->filter['price_from_to'][1]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][1] : ''?>
+                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
+                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
+                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
+                                    ">
+                                </a>
                             </div>
                             <div class="col-sm-6 col-md-3">
-                                <b>По популярности</b>
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?"></a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?"></a>
+                                {{--                                <b>По популярности</b>--}}
+                                {{--                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?"></a>--}}
+                                {{--                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}"></a>--}}
                             </div>
                             <div class="col-sm-6 col-md-3">
-                                <b>По отзывам</b>
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="/public/catalog?"></a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="/public/catalog?"></a>
+                                {{--                                <b>По отзывам</b>--}}
+                                {{--                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?"></a>--}}
+                                {{--                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?"></a>--}}
                             </div>
                         </div>
                     </div>

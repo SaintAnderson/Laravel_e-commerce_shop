@@ -7,6 +7,7 @@ use App\Models\Seller;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class CatalogController extends Controller
 {
@@ -34,8 +35,14 @@ class CatalogController extends Controller
             $allProductsPrices[] = $product->price;
         }
         $products = $this->productService->getPaginatedCatalogProducts();
+
+        $allFoundProducts = QueryBuilder::for(Product::class)
+            ->allowedFilters(Product::getAllowedFilters())
+            ->allowedSorts(Product::getAllowedSorts())
+            ->get();
+
         $foundProductsPrices = [];
-        foreach ($products as $product) {
+        foreach ($allFoundProducts as $product) {
             $foundProductsPrices[] = $product->price;
         }
         $foundProductsMaxPrice = $foundProductsPrices ? max($foundProductsPrices) : max($allProductsPrices);
@@ -46,7 +53,9 @@ class CatalogController extends Controller
                 'sellers',
                 'foundProductsMaxPrice',
                 'foundProductsMinPrice',
-                'request')
+                'request',
+                'allFoundProducts'
+            )
         );
     }
 }

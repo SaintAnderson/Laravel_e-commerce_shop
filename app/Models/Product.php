@@ -85,10 +85,10 @@ class Product extends Model
     public static function getAllowedFilters(): array
     {
         return [
+            'title',
             AllowedFilter::scope('price_from_to'),
             AllowedFilter::scope('products_in_stock'),
-            'title',
-            'seller_id',
+            AllowedFilter::exact('seller_id'),
         ];
     }
 

@@ -6,6 +6,7 @@ use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Models\Category;
+use App\Models\Seller;
 
 class CatalogController extends Controller
 {
@@ -30,11 +31,14 @@ class CatalogController extends Controller
         return view('catalog.index', compact('products'));
     }
 
-    public function indexByCategory(string $slug)
+     /**
+     * @param string $slug
+     * @return View
+     */
+    public function indexByCategory(string $slug): View
     {
         $category = Category::where('slug', $slug)->first();
         $products = $this->productService->getPaginatedCatalogCategoryProducts($category->id);
         return view('catalog.category', compact('products', 'category'));
-        // return $category;
     }
 }

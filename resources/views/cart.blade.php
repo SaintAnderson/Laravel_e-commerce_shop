@@ -25,10 +25,8 @@
                             <div class="Cart-product">
                                 <div class="Cart-block Cart-block_row">
                                     <div class="Cart-block Cart-block_pict">
-                                        <a class="Cart-pict"
-                                           href="{{ route('products.show', $product->attributes->slug) }}">
-                                            <img class="Cart-img" src="{{ asset('assets/img/content/home/card.jpg') }}"
-                                                 alt="card.jpg"/>
+                                        <a class="Cart-pict" href="{{ route('products.show', $product->attributes->slug) }}">
+                                            <img class="Cart-img" src="{{ asset($product->attributes->image_url) }}" alt=""/>
                                         </a>
                                     </div>
                                     <div class="Cart-block Cart-block_info">

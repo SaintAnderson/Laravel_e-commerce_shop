@@ -41,7 +41,7 @@
                             <div class="ProductCard-photo">
                                 <div class="ProductCard-sale">-15%
                                 </div>
-                                <img src="{{$product->image_url}}"/>
+                                <img src="{{ asset($product->image_url)}}" alt=""/>
                             </div>
                         </div>
                         <div class="ProductCard-desc">

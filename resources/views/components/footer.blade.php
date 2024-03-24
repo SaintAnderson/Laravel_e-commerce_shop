@@ -1,12 +1,11 @@
 <footer class="Footer">
     <div class="wrap">
         <div class="row Footer-main">
-            <div class="row-block"><a class="logo Footer-logo" href="index.html"><img class="logo-image"
-                        src="/assets/img/logo_footer.png" alt="logo_footer.png" /></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid
-                    unt ut
-                    laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-                </p>
+            <div class="row-block">
+                <a class="logo Footer-logo" href="{{route('home')}}">
+                    <img class="logo-image" src="/assets/img/logo_footer.png" alt="logo_footer.png" />
+                </a>
+                <p>{{ $shopDescription }}</p>
                 <ul class="menu menu_img menu_smallImg Footer-menuSoc">
                     <li class="menu-item"><a class="menu-link" href="#"><img
                                 src="/assets/img/icons/socialFooter/fb.svg" alt="fb.svg" /></a>

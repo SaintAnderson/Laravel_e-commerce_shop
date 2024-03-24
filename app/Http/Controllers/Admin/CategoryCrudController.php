@@ -24,7 +24,7 @@ class CategoryCrudController extends CrudController
     {
         CRUD::setModel(Category::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/category');
-        CRUD::setEntityNameStrings('category', 'Категории');
+        CRUD::setEntityNameStrings('Категория', 'Категории');
     }
 
     protected function setupListOperation()

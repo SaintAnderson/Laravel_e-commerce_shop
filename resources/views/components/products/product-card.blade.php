@@ -14,7 +14,7 @@
                 @if($product->old_price)
                     <span class="Card-priceOld">{{ "$" . $product->old_price }}</span>
                 @endif
-                <span class="Card-price">{{  "$" . $product->price }} {{$product->id}}</span>
+                <span class="Card-price">{{  "$" . $product->price }}</span>
             </div>
             <div class="Card-category">{{ $product->category->name }}</div>
             <div class="Card-hover">

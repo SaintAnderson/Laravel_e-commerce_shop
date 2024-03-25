@@ -27,6 +27,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
+Route::get('/catalog/{slug}', [CatalogController::class, 'indexByCategory'])->name('catalog.category');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');

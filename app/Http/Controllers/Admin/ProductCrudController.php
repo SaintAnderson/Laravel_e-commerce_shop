@@ -45,11 +45,11 @@ class ProductCrudController extends CrudController
      CRUD::column('category_id')->type('number')->label('ID категории');
      CRUD::column('article')->type('text')->label('Артикл');
      CRUD::column('description')->type('text')->label('Описание');
+     CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
      CRUD::column('count')->type('number')->label('Количество');
      CRUD::column('price')->type('number')->label('Цена');
      CRUD::column('is_active')->type('checkbox')->label('Активный');
      CRUD::column('is_limited_edition')->type('checkbox')->label('Лимитированный');
-     //todo загрузить картинку
     }
 
     /**
@@ -66,11 +66,11 @@ class ProductCrudController extends CrudController
         CRUD::field('category_id')->type('number')->label('ID категории');
         CRUD::field('article')->type('text')->label('Артикл');
         CRUD::field('description')->type('text')->label('Описание');
+        CRUD::field('image_url')->type('text')->label('Ссылка на картинку');
         CRUD::field('count')->type('number')->label('Количество');
         CRUD::field('price')->type('number')->label('Цена');
         CRUD::field('is_active')->type('checkbox')->label('Активный');
         CRUD::field('is_limited_edition')->type('checkbox')->label('Лимитированный');
-
     }
 
     /**

@@ -20,6 +20,7 @@ class CategoryFactory extends Factory
             'order' => $this->faker->randomNumber(1),
             'is_active' => $this->faker->randomElement([0, 1]),
             'is_pinned' => $this->faker->randomElement([0, 1]),
+            'image_url' => $this->faker->imageUrl(300, 300, 'category'),
         ];
     }
 }

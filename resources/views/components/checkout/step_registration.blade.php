@@ -12,7 +12,7 @@
         <div class="form-group">
             <label class="form-label" for="name">Фамилия
             </label>
-            <input class="form-input" id="name" name="middle_name" type="text" value="{{ $user->last_name }}"/>
+            <input class="form-input" id="name" name="last_name" type="text" value="{{ $user->last_name }}"/>
         </div>
         <div class="form-group">
             <label class="form-label" for="name">Отчество

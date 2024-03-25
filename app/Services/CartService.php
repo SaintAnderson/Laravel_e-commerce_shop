@@ -50,4 +50,14 @@ class CartService
     {
         return Cart::session($sessionId)->getContent();
     }
+
+    public function prices(string $sessionId): float
+    {
+        $count = 0;
+        $products = $this->list($sessionId);
+        foreach ($products as $product) {
+            $count += $product->price;
+        }
+        return $count;
+    }
 }

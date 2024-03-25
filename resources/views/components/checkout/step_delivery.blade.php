@@ -6,7 +6,7 @@
     @foreach($deliveryMethods as $deliveryMethod)
         <div>
             <label class="toggle">
-                <input id="{{ $deliveryMethod->id == 1 ? 'self-method' : 'delivery-method' }}" type="radio" name="delivery_cost" value="{{ $deliveryMethod->price }}" {{ $deliveryMethod->id == 1 ? 'checked="checked"' : '' }}/>
+                <input id="{{ $deliveryMethod->id == 1 ? 'self-method' : 'delivery-method' }}" type="radio" name="delivery_id" value="{{ $deliveryMethod->id }}" {{ $deliveryMethod->id == 1 ? 'checked="checked"' : '' }}/>
                 <span class="toggle-box"></span><span class="toggle-text">{{ $deliveryMethod->name }} {{ !empty($deliveryMethod->price) ? sprintf('(+%s рублей)', $deliveryMethod->price) : '' }} </span>
             </label>
         </div>
@@ -18,5 +18,5 @@
     <textarea class="form-textarea" name="address" id="address"></textarea>
 </div>
 <div class="Order-footer">
-    <button class="btn btn_success" id="choose_delivery">Дальше</button>
+    <a class="btn btn_success Order-next" href="#step3">Дальше</a>
 </div>

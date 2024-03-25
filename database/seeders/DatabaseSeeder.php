@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Order;
 use App\Models\Specification;
 use Illuminate\Database\Seeder;
 
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SpecificationSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(ReviewSeeder::class);
+        $this->call(OrdersSeeder::class);
     }
 }

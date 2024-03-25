@@ -53,4 +53,11 @@ class ProfileController extends Controller
 
         return view('profile.viewed-products', compact('viewedProducts'));
     }
+    public function historyListOrders(Request $request)
+    {
+        $user = $request->user();
+        $orders = $user->orders;
+
+        return view('profile.history-list-orders', compact('orders'));
+    }
 }

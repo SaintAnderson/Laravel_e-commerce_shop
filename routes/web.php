@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::post('/checkout/payment', [CheckoutController::class, 'payment'])->name('checkout.payment');
     Route::post('/checkout/delivery', [CheckoutController::class, 'delivery'])->name('checkout.delivery');
+    Route::get('/profile/history-list-orders', [ProfileController::class, 'historyListOrders'])->name('profile.history-list-orders');
 });
 
 require __DIR__ . '/auth.php';

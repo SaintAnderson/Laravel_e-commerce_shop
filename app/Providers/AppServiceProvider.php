@@ -46,10 +46,8 @@ class AppServiceProvider extends ServiceProvider
                 'shopAddress' => app(SettingService::class)->get('shop_address'),
                 'shopEmail' => app(SettingService::class)->get('shop_email'),
                 'shopTitle' => app(SettingService::class)->get('shop_title'),
-                'shopDescription' => app(SettingService::class)->get('shop_description'),
+                'shopDescription'=> app(SettingService::class)->get('shop_description'),
             ]);
         }
-
-
     }
 }

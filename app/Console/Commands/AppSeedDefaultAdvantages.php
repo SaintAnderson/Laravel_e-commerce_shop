@@ -26,9 +26,13 @@ class AppSeedDefaultAdvantages extends Command
 
         foreach ($advantages as $one) {
             Advantage::updateOrCreate(
-                ['title' => $one['title']],
-                ['image_url' => $one['image_url']],
-                ['description' => $one['description']],
+                [
+                    'title' => $one['title']
+                ],
+                [
+                    'image_url' => $one['image_url'],
+                    'description' => $one['description']
+                ],
             );
         }
 

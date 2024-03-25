@@ -12,3 +12,4 @@
 <x-backpack::menu-item title="Преимущества" icon="las la-burn" :link="backpack_url('advantage')" />
 <x-backpack::menu-item title="Роли" icon="las la-user-lock" :link="backpack_url('role')" />
 <x-backpack::menu-item title="Пользователи" icon="las la-user" :link="backpack_url('user')" />
+<x-backpack::menu-item title="Блог" icon="la la-list-alt" :link="backpack_url('article')" />

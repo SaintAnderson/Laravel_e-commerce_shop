@@ -21,7 +21,8 @@ class Category extends Model
         'slug',
         'is_active',
         'order',
-        'is_pinned'
+        'is_pinned',
+        'image_url'
     ];
 
     /**

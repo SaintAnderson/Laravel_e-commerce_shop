@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
-use App\Services\CategoryService;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -35,6 +34,7 @@ class CategoryCrudController extends CrudController
         CRUD::column('order')->type('number')->label('Позиция');
         CRUD::column('is_active')->type('checkbox')->label('Активна');
         CRUD::column('is_pinned')->type('checkbox')->label('Закреплена');
+        //todo загрузить картинку
     }
 
     /**

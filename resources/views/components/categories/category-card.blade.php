@@ -11,8 +11,8 @@
             </div>
         </div>
         <div class="BannersHomeBlock-block">
-            <div class="BannersHomeBlock-img"><img src="assets/img/content/home/videoca.png"
-                                                   alt="videoca.png" />
+            <div class="BannersHomeBlock-img">
+                <img src="{{ asset($category->image_url) }}" alt=""/>
             </div>
         </div>
     </div>

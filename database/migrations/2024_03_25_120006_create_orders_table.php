@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('mail');
             $table->string('address')->nullable();
-            $table->foreignId('coupon_id')->nullable()->constrained();
             $table->boolean('pay');
             $table->float('fullprice');
             $table->foreignId('delivery_id')->constrained('delivery_methods');

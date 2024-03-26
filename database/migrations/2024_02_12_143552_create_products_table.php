@@ -24,6 +24,7 @@ return new class extends Migration
             $table->float('price');
             $table->float('old_price')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->boolean('is_limited_edition')->default(false);
             $table->timestamps();
         });
     }

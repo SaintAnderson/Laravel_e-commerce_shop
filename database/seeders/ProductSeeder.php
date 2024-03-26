@@ -17,6 +17,5 @@ class ProductSeeder extends Seeder
             $specifications = Specification::inRandomOrder()->take(rand(1, 3))->pluck('id');
             $product->specifications()->attach($specifications);
         });
-        ;
     }
 }

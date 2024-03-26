@@ -10,21 +10,6 @@
             @method('PATCH')
             <div class="row">
                 <div class="row-block">
-                    <div class="form-group">
-                        <label class="form-label" for="avatar">Аватар
-                        </label>
-                        <div class="Profile-avatar Profile-avatar_noimg">
-                            <div class="Profile-img"><img src="#" alt="#.png" />
-                            </div>
-                            <label class="Profile-fileLabel" for="avatar">Выберите аватар
-                            </label>
-                            <input class="Profile-file form-input" id="avatar" name="avatar" type="file"
-                                data-validate="onlyImgAvatar" />
-                        </div>
-                        @error('avatar')
-                            <x-input-error :messages="$message" class="mt-2" />
-                        @enderror
-                    </div>
                     <x-form-group label="E-mail" id="email" name='email' required>
                         {{ old('email', $user->email) }}
                     </x-form-group>

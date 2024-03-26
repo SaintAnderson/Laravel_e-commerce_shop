@@ -27,10 +27,6 @@
                         <div class="Article-section">
                             <div class="row row_verticalCenter row_maxHalf">
                                 <div class="row-block">
-                                        <div class="pict"><img src="assets/img/content/home/bigGoods.png" alt="bigGoods.png"/>
-                                    </div>
-                                </div>
-                                <div class="row-block">
                                     <h2>{{ $title }}
                                     </h2>
                                     <p>{{ $description }}

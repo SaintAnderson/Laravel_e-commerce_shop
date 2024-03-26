@@ -53,6 +53,7 @@ class CheckoutController extends Controller
         $order->coupon_id = $coupon ? $coupon->id : null;
         $order->pay = $request->pay == 'someone';
         $order->fullprice = $price;
+        $order->user_id = auth()->user()->id;
         $order->save();
 
         $products = $this->cartService->list($sessionId);
@@ -65,7 +66,7 @@ class CheckoutController extends Controller
             $productOrder->save();
             $this->cartService->remove($sessionId, Product::find($product->id));
         }
-        return redirect('profile.show');
+        return redirect(route('profile.show'));
     }
 
     /**

@@ -2,6 +2,9 @@
 @section('name', 'История заказов')
 @section('account-content')
     <div class="Orders">
+        @if(empty($orders))
+            <span>История заказов пустая</span>
+        @endif
         @foreach($orders as $order)
             <div class="Order Order_anons">
                 <div class="Order-personal">
@@ -10,6 +13,8 @@
                                 <a class="Order-title" href="oneorder.html">
                                     Заказ&#32;<span class="Order-numberOrder">№ {{ $order->id }}</span>
                                 </a>
+                                <div class="Order-infoType">Адрес:</div>
+                                <div class="Order-infoContent">{{ $order->address }}</div>
                             </div>
                             <div class="row-block">
                                 <div class="Order-info Order-info_delivery">
@@ -28,10 +33,21 @@
                                 <div class="Order-info Order-info_status">
                                     <div class="Order-infoType">Статус:</div>
                                     <div class="Order-infoContent">{{ $order->pay ?'Оплачен' : 'Не оплачен' }}</div>
-                                    @if(!$order->pay)
-                                        <div class="Order-infoContent"><a href="{{ route('checkout.payment') }}">Оплатить</a></div>
-                                    @endif
                                 </div>
+                                @if(!$order->pay)
+                                        <form class="form-payment" method="post" action="{{ route('checkout.payment') }}">
+                                            @csrf
+                                            <input type="hidden" name="first_name" value="{{ $order->first_name }}">
+                                            <input type="hidden" name="middle_name" value="{{ $order->middle_name }}">
+                                            <input type="hidden" name="last_name" value="{{ $order->last_name }}">
+                                            <input type="hidden" name="mail" value="{{ $order->mail }}">
+                                            <input type="hidden" name="address" value="{{ $order->address }}">
+                                            <input type="hidden" name="pay" value="{{ $order->pay }}">
+                                            <input type="hidden" name="delivery_id" value="{{ $order->delivery_id }}">
+
+                                            <button class="Order-infoContent">Оплатить</button>
+                                        </form>
+                                @endif
                             </div>
                         </div>
                     </div>

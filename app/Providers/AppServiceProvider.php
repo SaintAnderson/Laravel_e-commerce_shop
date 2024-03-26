@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\AdvantageService;
 use App\Services\CategoryService;
 use App\Services\ProductService;
 use App\Services\CartService;
@@ -32,6 +33,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (Schema::hasTable('advantages')) {
+            view()->share('advantages', app(AdvantageService::class)->getAll());
+        }
+
         if (Schema::hasTable('categories')) {
             view()->share('categoryMenuItems', app(CategoryService::class)->getActiveCategoriesWithActiveChildren());
         }

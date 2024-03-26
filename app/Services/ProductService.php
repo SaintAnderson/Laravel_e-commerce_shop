@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductView;
 use App\Models\Specification;
@@ -47,6 +48,12 @@ class ProductService
      */
     public function addSpecification(Product $product, Specification $specification): void
     {
-        $product->specification()->attach($specification);
+        $product->specifications()->attach($specification);
+    }
+
+    public function getPaginatedCatalogCategoryProducts(Category $category)
+    {
+       
+        return Product::where('is_active', true)->where('category_id', $category->id)->where('count', '>', 0)->paginate(8);
     }
 }

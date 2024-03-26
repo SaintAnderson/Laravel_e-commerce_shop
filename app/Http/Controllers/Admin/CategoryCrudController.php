@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
-use App\Services\CategoryService;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -24,7 +23,7 @@ class CategoryCrudController extends CrudController
     {
         CRUD::setModel(Category::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/category');
-        CRUD::setEntityNameStrings('category', 'Категории');
+        CRUD::setEntityNameStrings('Категория', 'Категории');
     }
 
     protected function setupListOperation()
@@ -32,6 +31,7 @@ class CategoryCrudController extends CrudController
         CRUD::column('id')->type('number')->label('ID');
         CRUD::column('parent_id')->type('select')->entity('parentCategory')->name('parent_id')->label('Родительская категория');
         CRUD::column('name')->type('text')->label('Название');
+        CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
         CRUD::column('order')->type('number')->label('Позиция');
         CRUD::column('is_active')->type('checkbox')->label('Активна');
         CRUD::column('is_pinned')->type('checkbox')->label('Закреплена');
@@ -59,6 +59,7 @@ class CategoryCrudController extends CrudController
         ]);
 
         CRUD::field('name')->type('text')->label('Название')->attributes(['required' => 'required']);
+        CRUD::field('image_url')->type('text')->label('Ссылка на картинку');
         CRUD::field('order')->type('number')->label('Позиция');
         CRUD::field('is_active')->type('checkbox')->label('Активна');
         CRUD::field('is_pinned')->type('checkbox')->label('Закрепить');

@@ -14,7 +14,7 @@ class CartService
             'price' => $product->price,
             'quantity' => 1,
             'attributes' => [
-                //'image' => ''//TODO добавить ссылку на картинку
+                'image_url' => $product->image_url,
                 'slug' => $product->slug,
                 'description' => $product->description,
             ],

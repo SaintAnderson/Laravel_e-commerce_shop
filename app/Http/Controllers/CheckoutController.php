@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\CouponFacade;
+use App\Facades\PayFacade;
 use App\Models\Coupon;
 use App\Models\DeliveryMethods;
 use App\Models\Order;
@@ -33,26 +35,16 @@ class CheckoutController extends Controller
     public function payment(Request $request)
     {
         $sessionId = Auth::check() ? auth()->user()->id : Session::getId();
-        $coupon = Coupon::where('code', '=', $request->coupon)->where('is_active', '=', '1')->first();
-        if ($coupon) {
-            $coupon->update(['is_active' => false]);
-        }
+
         $delivery = DeliveryMethods::find($request->delivery_id);
-        $price = $this->cartService->prices($sessionId) + $delivery->price;
-        switch ($coupon->type ?? null) {
-            case 'precent':
-                $price = $price - $price / $coupon->amount;
-                break;
-            case 'sum':
-                $price = $price - $coupon->amount;
-                break;
-            default:
-                break;
-        }
+        PayFacade::addPrice($this->cartService->prices($sessionId));
+        PayFacade::addPrice($delivery->price);
+        $coupon = CouponFacade::coupon($request->coupon)->activate()->get();
+        PayFacade::coupon($coupon);
+
         $order = new Order($request->all());
-        $order->coupon_id = $coupon ? $coupon->id : null;
         $order->pay = $request->pay == 'someone';
-        $order->fullprice = $price;
+        $order->fullprice = PayFacade::getPrice();
         $order->save();
 
         $products = $this->cartService->list($sessionId);

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('is_limited_edition')->default(false);
+        Schema::table('categories', function (Blueprint $table) {
+            $table->string('image_url')->nullable()->after('is_pinned');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('is_limited_edition');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('image_url');
         });
     }
 };

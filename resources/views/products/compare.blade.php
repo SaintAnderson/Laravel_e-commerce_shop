@@ -38,8 +38,7 @@
                                         <div class="Compare-nameProduct Compare-nameProduct_main"></div>
                                         <div class="Compare-feature">
                                             <img class="Compare-pict"
-                                                 src="{{ asset('assets/img/content/home/card.jpg') }}"
-                                                 alt="card.jpg"/>
+                                                 src="{{ $product->image_url }}"/>
                                         </div>
                                     </div>
                                 </div>

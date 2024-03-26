@@ -22,7 +22,7 @@ class ProductCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -34,17 +34,18 @@ class ProductCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-     CRUD::column('title')->type('text')->label('Название продукта'); 
+     CRUD::column('title')->type('text')->label('Название продукта');
      CRUD::column('seller_id')->type('number')->label('ID продавца');
      CRUD::column('category_id')->type('number')->label('ID категории');
      CRUD::column('article')->type('text')->label('Артикл');
      CRUD::column('description')->type('text')->label('Описание');
+     CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
      CRUD::column('count')->type('number')->label('Количество');
      CRUD::column('price')->type('number')->label('Цена');
      CRUD::column('is_active')->type('checkbox')->label('Активный');
@@ -53,7 +54,7 @@ class ProductCrudController extends CrudController
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -65,16 +66,16 @@ class ProductCrudController extends CrudController
         CRUD::field('category_id')->type('number')->label('ID категории');
         CRUD::field('article')->type('text')->label('Артикл');
         CRUD::field('description')->type('text')->label('Описание');
+        CRUD::field('image_url')->type('text')->label('Ссылка на картинку');
         CRUD::field('count')->type('number')->label('Количество');
         CRUD::field('price')->type('number')->label('Цена');
         CRUD::field('is_active')->type('checkbox')->label('Активный');
         CRUD::field('is_limited_edition')->type('checkbox')->label('Лимитированный');
-        
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

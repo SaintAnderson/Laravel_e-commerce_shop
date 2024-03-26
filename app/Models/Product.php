@@ -30,6 +30,7 @@ class Product extends Model
         'is_active',
         'is_limited_edition',
         'old_price',
+        'image_url',
     ];
 
     public function getSlugOptions(): SlugOptions

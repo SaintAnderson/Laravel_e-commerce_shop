@@ -41,15 +41,7 @@
                             <div class="ProductCard-photo">
                                 <div class="ProductCard-sale">-15%
                                 </div>
-                                <img src="/assets/img/content/home/bigGoods.png" alt="bigGoods.png"/>
-                            </div>
-                            <div class="ProductCard-picts"><a class="ProductCard-pict ProductCard-pict_ACTIVE"
-                                                              href="/assets/img/content/home/bigGoods.png"><img
-                                        src="/assets/img/content/home/bigGoods.png" alt="bigGoods.png"/></a><a
-                                    class="ProductCard-pict" href="/assets/img/content/home/slider.png"><img
-                                        src="/assets/img/content/home/slider.png" alt="slider.png"/></a><a
-                                    class="ProductCard-pict" href="/assets/img/content/home/videoca.png"><img
-                                        src="/assets/img/content/home/videoca.png" alt="videoca.png"/></a>
+                                <img src="{{ $product->image_url }}" alt=""/>
                             </div>
                         </div>
                         <div class="ProductCard-desc">
@@ -125,7 +117,7 @@
                                 &#32;sociis natoque penatibus et magnis dis parturient montesti, nascetur
                                 ridiculus mus. Donec quam felis, ultricies nec, pellentesque eutu, pretiumem.
                             </p>
-                            <img class="pict pict_right" src="/assets/img/content/home/bigGoods.png" alt="bigGoods.png" />
+                            <img class="pict pict_right" src="{{$product->image_url}}"/>
                             <ul>
                                 <li>Lorem ipsum dolor sit amet, consectetuer
                                 </li>

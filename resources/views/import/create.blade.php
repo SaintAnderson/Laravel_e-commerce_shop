@@ -27,6 +27,7 @@
                         &nbsp;&#9;"old_price": null,<br/>
                         &nbsp;&#9;"is_active": 1,<br/>
                         &nbsp;&#9;"is_limited_edition": 0<br/>
+                        &nbsp;&#9;"image_url": "https://via.placeholder.com/300x300.png/0022ee?text=product+quaerat"<br/>
                         &nbsp;},<br/>
                         ]
                     </code>

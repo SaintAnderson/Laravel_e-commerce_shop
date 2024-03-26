@@ -7,22 +7,22 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * @return void
      */
     public function up(): void
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->boolean('is_pinned')->default(false)->after('order');
+        Schema::table('products', function (Blueprint $table) {
+            $table->text('image_url')->nullable();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * @return void
      */
     public function down(): void
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('is_pinned');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('image_url');
         });
     }
 };

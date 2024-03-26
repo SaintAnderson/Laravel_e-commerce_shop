@@ -26,6 +26,8 @@ Route::group([
     Route::crud('seller', 'SellerCrudController');
     Route::crud('setting', 'SettingCrudController');
     Route::crud('user', 'UserCrudController');
+    Route::crud('article', 'ArticleCrudController');
+    Route::crud('advantage', 'AdvantageCrudController');
     Route::crud('specification', 'SpecificationCrudController');
     Route::get('import', 'ImportController@index')->name('import');
     Route::get('import_create', 'ImportController@create')->name('import.create');

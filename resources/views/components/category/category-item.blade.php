@@ -1,5 +1,5 @@
 <div class="CategoriesButton-link">
-    <a href="#">
+    <a href="{{ route('catalog.category', $category)}}">
         <span class="CategoriesButton-text">{{ $category->name }}</span>
     </a>
     @if ($category->childCategories->isNotEmpty() && !$category->parent_id)

@@ -8,7 +8,7 @@
                     <h1 class="Middle-title">{{$shopTitle}}
                     </h1>
                     <ul class="breadcrumbs Middle-breadcrumbs">
-                        <li class="breadcrumbs-item"><a href="index.html">home</a>
+                        <li class="breadcrumbs-item"><a href="index.html">Главная</a>
                         </li>
                         <li class="breadcrumbs-item breadcrumbs-item_current"><span>Контакты</span>
                         </li>
@@ -19,76 +19,7 @@
         <div class="Section Section_column Section_columnRight Section_columnWide">
             <div class="wrap">
                 <div class="Section-column">
-                    <div class="Section-columnSection Section-columnSection_mark">
-                        <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/shipping.svg" alt="shipping.svg"/>
-                            </div>
-                            <div class="media-content">
-                                <strong class="media-title">Shipping & Returns
-                                </strong>
-                                <p class="media-text">World wide shipping
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Section-columnSection Section-columnSection_mark">
-                        <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/moneyBack.svg" alt="moneyBack.svg"/>
-                            </div>
-                            <div class="media-content">
-                                <strong class="media-title">Money Back
-                                </strong>
-                                <p class="media-text">Guaranted payments
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Section-columnSection Section-columnSection_mark">
-                        <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/support.svg" alt="support.svg"/>
-                            </div>
-                            <div class="media-content">
-                                <strong class="media-title">Support Policy
-                                </strong>
-                                <p class="media-text">Fast support team
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Section-columnSection Section-columnSection_mark">
-                        <div class="media media_advantage">
-                            <div class="media-image"><img src="assets/img/icons/advantages/quality.svg" alt="quality.svg"/>
-                            </div>
-                            <div class="media-content">
-                                <strong class="media-title">Quality Guarantee
-                                </strong>
-                                <p class="media-text">Best guaranted items
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Section-columnSection">
-                        <header class="Section-header">
-                            <strong class="Section-title">Follow Us
-                            </strong>
-                        </header>
-                        <div class="Section-columnContent">
-                            <div class="Footer-payments Footer-payments_column">
-                                <div><img src="assets/img/icons/socialContent/fb.png" alt="fb.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/tw.png" alt="tw.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/gg.png" alt="gg.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/in.png" alt="in.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/pt.png" alt="pt.png"/>
-                                </div>
-                                <div><img src="assets/img/icons/socialContent/ml.png" alt="ml.png"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @include('components.advantages')
                 </div>
                 <div class="Section-content">
                     <div class="Map">
@@ -121,30 +52,6 @@
                             </div>
                         </div>
                     </div>
-                    <header class="Section-header Section-header_sm">
-                        <h2 class="Section-title">Contact Form
-                        </h2>
-                    </header>
-                    <form class="form form_contacts" action="#" method="post">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="row-block">
-                                    <input class="form-input" id="name" name="name" type="text" placeholder="Name"/>
-                                </div>
-                                <div class="row-block">
-                                    <input class="form-input" id="mail" name="mail" type="text" placeholder="Email"/>
-                                </div>
-                                <div class="row-block">
-                                    <input class="form-input" id="site" name="site" type="text" placeholder="Website"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-textarea" name="message" id="message" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group"><a class="btn btn_muted form-btn" href="#">Send Message</a>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

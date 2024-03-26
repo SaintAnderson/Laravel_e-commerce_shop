@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('slug');
             $table->boolean('is_active')->default(0);
             $table->integer('order')->nullable();
+            $table->boolean('is_pinned')->default(false);
             $table->timestamps();
         });
     }

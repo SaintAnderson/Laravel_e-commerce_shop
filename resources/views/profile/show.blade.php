@@ -6,18 +6,8 @@
     <div class="Account">
         <div class="Account-group">
             <div class="Account-column">
-                <div class="Account-avatar"><img src="#"
-                        alt="avatar" />
-                </div>
-            </div>
-            <div class="Account-column">
                 <div class="Account-name">{{ $user->first_name }} {{ $user->last_name }} {{ $user->middle_name }}
                 </div><a class="Account-editLink" href="{{ route('profile.edit') }}">Редактировать профиль</a>
-            </div>
-        </div>
-        <div class="Account-group">
-            <div class="Account-column Account-column_full">
-                <x-order-info id="1" date="20.07.2020" delivery="Обычная доставка" payment="Онлайн картой" oldprice="110" price="100" status="Оплачен" :links="[]"></x-order-info>
             </div>
         </div>
         <div class="Account-group">

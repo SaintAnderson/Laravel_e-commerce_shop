@@ -4,7 +4,5 @@
     <div class="Card-content">
         <strong class="Card-title"><a href="{{route('articles.show', $article)}}">{{$article->title}}</a>
         </strong>
-        <div class="Card-description">{{$article->description}}
-        </div>
     </div>
 </div>

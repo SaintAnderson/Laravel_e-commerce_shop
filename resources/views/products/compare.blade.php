@@ -8,7 +8,7 @@
                     <h1 class="Middle-title">Сравнение товаров
                     </h1>
                     <ul class="breadcrumbs Middle-breadcrumbs">
-                        <li class="breadcrumbs-item"><a href="index.html">home</a>
+                        <li class="breadcrumbs-item"><a href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="breadcrumbs-item breadcrumbs-item_current"><span>Сравнение товаров</span>
                         </li>
@@ -18,13 +18,13 @@
         </div>
         <div class="Section">
             <div class="wrap">
-                <article class="Article">
-                    <p>Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности обеспечивает
-                        широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствует
-                        насущным потребностям. Идейные соображения высшего порядка, а также консультация с широким
-                        активом требуют определения и уточнения соответствующий условий активизации.
-                    </p>
-                </article>
+                @if($productByCategory->isEmpty())
+                    <article class="Article">
+                        <p>
+                            Нет товаров в сравнении
+                        </p>
+                    </article>
+                @endif
                 @foreach($productByCategory as $category_id => $products)
                     <div class="Compare">
                         <div class="Compare-header">
@@ -66,20 +66,20 @@
                         </div>
                         @foreach($specifications->get($category_id) as $specification)
                             <div class="Compare-row">
-                                    <div class="Compare-title">{{ $specification->name }}</div>
-                                    @foreach($products as $product)
-                                        <div class="Compare-products">
-                                            <div class="Compare-product">
-                                                <div class="Compare-nameProduct">{{ $product->title }}</div>
-                                                <div class="Compare-feature">
-                                                    {{
-                                                        $specification->products->where('id', $product->id)->first()?->pivot->value
-                                                        ? sprintf('%s %s', $specification->products->where('id', $product->id)->first()?->pivot->value, $specification->measure)
-                                                        : '-'
-                                                    }}
-                                                </div>
+                                <div class="Compare-title">{{ $specification->name }}</div>
+                                @foreach($products as $product)
+                                    <div class="Compare-products">
+                                        <div class="Compare-product">
+                                            <div class="Compare-nameProduct">{{ $product->title }}</div>
+                                            <div class="Compare-feature">
+                                                {{
+                                                    $specification->products->where('id', $product->id)->first()?->pivot->value
+                                                    ? sprintf('%s %s', $specification->products->where('id', $product->id)->first()?->pivot->value, $specification->measure)
+                                                    : '-'
+                                                }}
                                             </div>
                                         </div>
+                                    </div>
                                 @endforeach
                             </div>
                         @endforeach

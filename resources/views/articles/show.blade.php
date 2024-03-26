@@ -32,17 +32,15 @@
             <div class="Section-content">
                 <article class="Article">
                     <div class="Article-section">
-                        <div class="row row_verticalCenter row_maxHalf">
+                        <div class="row row_maxHalf">
                             <div class="row-block">
-                                <h2>{{$article->title}}
-                                </h2>
-                                <p>{{$article->description}}
-                                </p>
-                                <div><a class="btn btn_primary" href="{{ url()->previous() }}">Закрыть</a>
+                                <div class="pict"><img src="{{$article->image_url}}" alt="slider.png">
                                 </div>
                             </div>
                             <div class="row-block">
-                                <div class="pict"><img src="{{$article->image_url}}" alt="slider.png">
+                                <h2>{{$article->title}}
+                                </h2>
+                                <div>{{$article->description}}
                                 </div>
                             </div>
                         </div>

@@ -29,7 +29,7 @@ class ProductCrudController extends CrudController
     {
         CRUD::setModel(Product::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/product');
-        CRUD::setEntityNameStrings('product', 'products');
+        CRUD::setEntityNameStrings('товар', 'Товары');
     }
 
     /**
@@ -40,16 +40,16 @@ class ProductCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-     CRUD::column('title')->type('text')->label('Название продукта');
-     CRUD::column('seller_id')->type('number')->label('ID продавца');
-     CRUD::column('category_id')->type('number')->label('ID категории');
-     CRUD::column('article')->type('text')->label('Артикл');
-     CRUD::column('description')->type('text')->label('Описание');
-     CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
-     CRUD::column('count')->type('number')->label('Количество');
-     CRUD::column('price')->type('number')->label('Цена');
-     CRUD::column('is_active')->type('checkbox')->label('Активный');
-     CRUD::column('is_limited_edition')->type('checkbox')->label('Лимитированный');
+        CRUD::column('title')->type('text')->label('Название продукта');
+        CRUD::column('seller_id')->type('select')->entity('seller')->name('seller_id')->label('Продавец');
+        CRUD::column('category_id')->type('select')->entity('category')->name('category_id')->label('Категория');
+//        CRUD::column('article')->type('text')->label('Артикул');
+//        CRUD::column('description')->type('text')->label('Описание');
+//        CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
+//        CRUD::column('count')->type('number')->label('Количество');
+//        CRUD::column('price')->type('number')->label('Цена');
+//        CRUD::column('is_active')->type('checkbox')->label('Активный');
+//        CRUD::column('is_limited_edition')->type('checkbox')->label('Лимитированный');
     }
 
     /**
@@ -61,16 +61,33 @@ class ProductCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(ProductRequest::class);
-        CRUD::field('title')->type('text')->label('Название продукта')->attributes(['required'=>'required']);
-        CRUD::field('seller_id')->type('number')->label('ID продавца');
-        CRUD::field('category_id')->type('number')->label('ID категории');
-        CRUD::field('article')->type('text')->label('Артикл');
+        CRUD::field('title')->type('text')->label('Название продукта')->attributes(['required' => 'required']);
+        CRUD::field([
+            'label' => "Продавец",
+            'type' => 'select',
+            'name' => 'seller', // the method that defines the relationship in your Model
+            'entity' => 'seller', // the method that defines the relationship in your Model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
+        ]);
+//        CRUD::field('seller_id')->type('number')->label('ID продавца');
+        CRUD::field([
+            'label' => "Категория",
+            'type' => 'select',
+            'name' => 'category', // the method that defines the relationship in your Model
+            'entity' => 'category', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
+        ]);
+//        CRUD::field('category_id')->type('number')->label('ID категории');
+        CRUD::field('article')->type('text')->label('Артикул');
         CRUD::field('description')->type('text')->label('Описание');
         CRUD::field('image_url')->type('text')->label('Ссылка на картинку');
         CRUD::field('count')->type('number')->label('Количество');
         CRUD::field('price')->type('number')->label('Цена');
         CRUD::field('is_active')->type('checkbox')->label('Активный');
         CRUD::field('is_limited_edition')->type('checkbox')->label('Лимитированный');
+
     }
 
     /**

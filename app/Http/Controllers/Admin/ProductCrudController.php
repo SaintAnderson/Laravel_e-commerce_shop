@@ -44,7 +44,7 @@ class ProductCrudController extends CrudController
      CRUD::column('title')->type('text')->label('Название продукта');
      CRUD::column('seller_id')->type('select')->entity('seller')->name('title')->label('ID продавца');
 //     CRUD::column('seller_id')->type('number')->label('ID продавца');
-      CRUD::column('category_id')->type('select')->entity('parentCategory')->name('parent_id')->label('ID категории');
+      CRUD::column('category_id')->type('select')->entity('category')->name('id')->label('ID категории');
 //        CRUD::column('category_id')->type('number')->label('ID категории');
      CRUD::column('article')->type('text')->label('Артикл');
      CRUD::column('description')->type('text')->label('Описание');
@@ -77,8 +77,8 @@ class ProductCrudController extends CrudController
         CRUD::field([
             'label' => "ID категории",
             'type' => 'select',
-            'name' => 'parentCategory', // the method that defines the relationship in your Model
-            'entity' => 'parentCategory', // the method that defines the relationship in your Model
+            'name' => 'category', // the method that defines the relationship in your Model
+            'entity' => 'category', // the method that defines the relationship in your Model
             'attribute' => 'name', // foreign key attribute that is shown to user
             'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
         ]);

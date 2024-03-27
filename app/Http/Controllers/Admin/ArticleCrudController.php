@@ -29,7 +29,7 @@ class ArticleCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Article::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
-        CRUD::setEntityNameStrings('артикул', 'Артикулы');
+        CRUD::setEntityNameStrings('статью', 'Статьи');
     }
 
     /**
@@ -41,8 +41,10 @@ class ArticleCrudController extends CrudController
     protected function setupListOperation(): void
     {
         CRUD::column('title')->type('text')->label('Название');
+        CRUD::column('slug')->type('text')->label('Краткое название');
         CRUD::column('description')->type('text')->label('Описание');
         CRUD::column('image_url')->type('text')->label('Картинка');
+        CRUD::column('is_active')->type('checkbox')->label('Активна');
     }
 
     /**
@@ -53,10 +55,11 @@ class ArticleCrudController extends CrudController
      */
     protected function setupCreateOperation(): void
     {
-        CRUD::setValidation(ArticleRequest::class);
-        CRUD::field('title')->type('text')->label('Название')->attributes(['required' => 'required']);
+        CRUD::field('title')->type('text')->label('Название');
+        CRUD::field('slug')->type('text')->label('Краткое название');
         CRUD::field('description')->type('text')->label('Описание');
-        CRUD::field('image_url')->type('text')->label('Ссылка на картинку');
+        CRUD::field('image_url')->type('text')->label('Картинка');
+        CRUD::field('is_active')->type('checkbox')->label('Активна');
     }
 
     /**

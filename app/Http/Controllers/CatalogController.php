@@ -7,6 +7,8 @@ use App\Models\Seller;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use App\Models\Category;
+use App\Models\Seller;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class CatalogController extends Controller
@@ -57,5 +59,16 @@ class CatalogController extends Controller
                 'allFoundProducts'
             )
         );
+    }
+
+     /**
+     * @param string $slug
+     * @return View
+     */
+    public function indexByCategory(string $slug): View
+    {
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $products = $this->productService->getPaginatedCatalogCategoryProducts($category);
+        return view('catalog.category', compact('products', 'category'));
     }
 }

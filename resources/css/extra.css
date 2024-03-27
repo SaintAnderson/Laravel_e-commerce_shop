@@ -2198,7 +2198,6 @@ a.Cart-title {
 .Comment-header {
   margin-bottom: 1.5rem;
   display: flex;
-  justify-content: space-between;
 }
 @media screen and (max-width: 480px) {
   .Comment-header {
@@ -3331,7 +3330,7 @@ a.Cart-title {
   }
 }
 .ProductCard-look {
-  width: 51%;
+  width: 40%;
   position: relative;
 }
 @media screen and (max-width: 990px) {
@@ -3341,7 +3340,7 @@ a.Cart-title {
   }
 }
 .ProductCard-desc {
-  width: 49%;
+  width: 60%;
   padding: 0;
   padding-left: 46px;
 }
@@ -3471,10 +3470,7 @@ a.Cart-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 600px;
   height: 100%;
-  border: 1px solid #e0e0e0;
-  padding: 30px;
 }
 .ProductCard-photo img {
   max-width: 100%;

@@ -3,29 +3,6 @@
         <div class="wrap">
             <div class="row ControlPanel-row">
                 <div class="row-block">
-                    <div class="row ControlPanel-rowSplit">
-                        <div class="row-block"><a class="ControlPanel-title" href="#">Free Delivery</a>
-                        </div>
-                        <div class="row-block hide_700"><span class="ControlPanel-title">Follow Us</span>
-                            <ul class="menu menu_img menu_smallImg ControlPanel-menu">
-                                <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="{{ asset('assets/img/icons/socialHeader/fb.svg') }}" alt="fb.svg"/></a>
-                                </li>
-                                <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="{{ asset('assets/img/icons/socialHeader/tw.svg') }}" alt="tw.svg"/></a>
-                                </li>
-                                <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="{{ asset('assets/img/icons/socialHeader/in.svg') }}" alt="in.svg"/></a>
-                                </li>
-                                <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="{{ asset('assets/img/icons/socialHeader/pt.svg') }}" alt="pt.svg"/></a>
-                                </li>
-                                <li class="menu-item"><a class="menu-link" href="#"><img
-                                            src="{{ asset('assets/img/icons/socialHeader/mail.svg') }}" alt="mail.svg"/></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <nav class="row-block">
                     <div class="row ControlPanel-rowSplit">
@@ -45,60 +22,64 @@
                                 </div>
                                 @else
                                     <div class="row-block"><a class="ControlPanel-title" href="{{ route('login') }}">Войти</a>
+                                        <div class="row-block"></div>
+                                        <div class="row-block"><a class="ControlPanel-title"
+                                                                  href="{{ route('register') }}">Зарегистрироваться</a>
+                                            @endauth
+                                        </div>
                                     </div>
-                                    <div class="row-block"></div>
-                                    <div class="row-block"><a class="ControlPanel-title" href="{{ route('register') }}">Зарегистрироваться</a>
-                                    </div>
-                                @endauth
-                            </div>
-                    </div>
                 </nav>
             </div>
         </div>
     </div>
     <div class="wrap">
         <div class="row Header-rowMain">
-            {{--            <div class="row-block Header-logo">--}}
-            {{--                <a class="logo" href="{{ route('home') }}">--}}
-            {{--                    <img class="logo-image" src="/assets/img/logo.png" alt="logo.png"/>--}}
-            {{--                </a>--}}
-            {{--            </div>--}}
             <div class="row-block Header-logo">
-                <a class="logo" href="{{ route('home') }}">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="logo.png"/>
-                </a>
+                <a class="logo" href="{{ route('home') }}"><img class="logo-image" src="/assets/img/logo.png" alt="logo.png"/></a>
             </div>
             <nav class="row-block row-block_right Header-menu">
                 <div class="menuModal" id="navigate">
                     <ul class="menu menu_main">
-                        <li class="menu-item"><a class="menu-link" href="{{ route('home') }}">Главная</a>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="menu-item">
-                            <span class="menu-label menu-label_danger">New</span>
-                            <a class="menu-link" href="shop.html">Shop</a>
-                            {{--                            <a class="menu-link" href="{{ asset('assets/img/icons/socialHeader/fb.svg') }}">Shop</a>--}}
+                            <a class="menu-link" href="{{route('contacts')}}">Контакты</a>
                         </li>
-                        <li class="menu-item"><a class="menu-link" href="sale.html">Blog</a>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
                         </li>
-                        <li class="menu-item"><span class="menu-label menu-label_success">Hot</span><a
-                                class="menu-link" href="product.html">Gallery</a>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('about') }}">О нас</a>
                         </li>
-                        <li class="menu-item"><a class="menu-link" href="contacts.html">Contacts</a>
-                        </li>
-                        <li class="menu-item"><a class="menu-link" href="{{ route('catalog') }}">Каталог</a>
+                        <li class="menu-item">
+                            <a class="menu-link" href="{{ route('articles.index') }}">Блог</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <div class="row-block">
-                <div class="CartBlock"><a class="CartBlock-block" href="compare.html">
-                        <img class="CartBlock-img" src="{{ asset('assets/img/icons/exchange.svg') }}" alt="exchange.svg"/>
-                        <span class="CartBlock-amount">4</span></a><a class="CartBlock-block" href="cart.html">
-                        <img class="CartBlock-img" src="{{ asset('assets/img/icons/cart.svg') }}" alt="cart.svg"/>
-                        <span class="CartBlock-amount">0</span>
+                <div class="CartBlock">
+                    <a class="CartBlock-block" href="{{ url('compare') }}">
+                        <img class="CartBlock-img" src="/assets/img/icons/exchange.svg" alt="exchange.svg"/>
+                        <span class="CartBlock-amount">{{ session()->get('products_in_comparison') ? count(session()->get('products_in_comparison')) : 0 }}</span>
+                    </a>
+                    <a class="CartBlock-block" href="{{ route('cart') }}">
+                        <img class="CartBlock-img" src="/assets/img/icons/cart.svg" alt="cart.svg"/>
+                        @auth
+                            <span
+                                class="CartBlock-amount">{{\Cart::session(auth()->user()->id)->getTotalQuantity()}}</span>
+                        @else
+                            <span
+                                class="CartBlock-amount">{{\Cart::session(Session::getId())->getTotalQuantity()}}</span>
+                        @endauth
                     </a>
                     <div class="CartBlock-block">
-                        <span class="CartBlock-price">0.00$</span>
+                        @auth
+                            <span class="CartBlock-price">{{\Cart::session(auth()->user()->id)->getSubTotal()}}$</span>
+                        @else
+                            <span class="CartBlock-price">{{\Cart::session(Session::getId())->getSubTotal()}}$</span>
+                        @endauth
                     </div>
                 </div>
             </div>

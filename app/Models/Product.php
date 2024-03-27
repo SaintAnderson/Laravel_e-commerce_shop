@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\{Builder, Model, Relations\HasMany};
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\{Builder, Model, Relations\BelongsToMany, Relations\HasMany};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
@@ -10,10 +11,12 @@ use Spatie\QueryBuilder\AllowedFilter;
 
 /**
  * @method static limited()
+ * @method static where(string $string, string $slug)
+ * @method static whereIn()
  */
 class Product extends Model
 {
-    use HasFactory, HasSlug;
+    use HasFactory, HasSlug, CrudTrait;
 
     protected $fillable = [
         'title',
@@ -27,6 +30,7 @@ class Product extends Model
         'is_active',
         'is_limited_edition',
         'old_price',
+        'image_url',
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -62,6 +66,21 @@ class Product extends Model
     public function productViews(): HasMany
     {
         return $this->hasMany(ProductView::class);
+    }
+    public function parentId(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'id');
+    }
+    public function parentCategory(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+    /**
+     * @return BelongsToMany
+     */
+    public function specifications(): BelongsToMany
+    {
+        return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
     }
 
     /**

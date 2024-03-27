@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductView;
+use App\Models\Specification;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -46,5 +48,21 @@ class ProductService
             ->orderBy('order')
             ->limit(8)
             ->get();
+    }
+
+    /**
+     * @param Product $product
+     * @param Specification $specification
+     * @return void
+     */
+    public function addSpecification(Product $product, Specification $specification): void
+    {
+        $product->specifications()->attach($specification);
+    }
+
+    public function getPaginatedCatalogCategoryProducts(Category $category)
+    {
+       
+        return Product::where('is_active', true)->where('category_id', $category->id)->where('count', '>', 0)->paginate(8);
     }
 }

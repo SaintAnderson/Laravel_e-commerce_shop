@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ImportUploadRequest;
 use App\Jobs\ImportProducts;
 use App\Models\Import;
+use App\Services\ImportService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class ImportController extends Controller
 {
@@ -21,6 +22,7 @@ class ImportController extends Controller
                 $find = 1;
             }
         }
+
         return view('import.index', compact('title', 'rows', 'find'));
     }
 
@@ -30,33 +32,10 @@ class ImportController extends Controller
         return view('import.create', compact('title'));
     }
 
-    public function upload(Request $request): RedirectResponse
+    public function upload(ImportUploadRequest $request, ImportService $service): RedirectResponse
     {
-        $validated = $request->validate([
-            'file' => 'required',
-        ]);
-
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            if ($file->getClientOriginalExtension() == "json") {
-
-                $path = storage_path() . '/import/';
-                //$filename = $file->getClientOriginalName();
-                $filename = 'import_' . time() . '.' . $file->getClientOriginalExtension();
-                $request->file->move($path, $filename);
-
-                $import = new Import();
-                $import->user_id = backpack_user()->id;
-                $import->filename = $filename;
-                $import->status = 'new';
-                $import->save();
-
-                ImportProducts::dispatch($import);
-                return redirect('admin/import');
-            }
-
-            $error = "Некорректный формат файла";
-            return back()->withErrors(['error' => $error]);
+        if ($service->handleImportFromRequest($request)) {
+            return redirect('admin/import');
         }
         $error = "Ошибка загрузки файла";
         return back()->withErrors(['error' => $error]);

@@ -4,7 +4,12 @@
 /**  @var $sellers */
 /**  @var $foundProductsMinPrice */
 /**  @var $foundProductsMaxPrice */
-/**  @var $allFoundProducts */
+
+//echo '<pre>$request->filter[price_from_to][0]: ';
+//var_dump($request->filter['price_from_to'][0] ?? '--null--' );
+//echo '<hr>$foundProductsMinPrice: ';
+//var_dump($foundProductsMinPrice ?? '--null--' );
+//echo '</pre>';
 ?>
 @extends('layouts.default')
 
@@ -38,11 +43,11 @@
                                     <label for="price_from">Цена от:</label>
                                     <input type="number" id="price_from" name="filter[price_from_to][]"
                                            class="price"
-                                           value="{{$request->filter['price_from_to'][0] ?? $foundProductsMinPrice }}">
+                                           value="{{(($request->filter['price_from_to'][0] ?? 0) > $foundProductsMinPrice) ? $request->filter['price_from_to'][0] : $foundProductsMinPrice }}">
                                     <label for="price_to">и до:</label>
                                     <input type="number" id="price_to" name="filter[price_from_to][]"
                                            class="price"
-                                           value="{{$request->filter['price_from_to'][1] ?? $foundProductsMaxPrice }}">
+                                           value="{{(($request->filter['price_from_to'][1] ?? $foundProductsMaxPrice) < $foundProductsMaxPrice) ? $request->filter['price_from_to'][1] : $foundProductsMaxPrice}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Название: </label>
@@ -108,40 +113,16 @@
                         <div class="Sort-variants row">
                             <div class="col-sm-6 col-md-3">
                                 <b>По цене</b>
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?sort=price
-                                    <?= isset($request->filter['price_from_to'][0]) ? ("&filter[price_from_to][]=" . $request->filter['price_from_to'][0]) : ''?>
-                                    <?= isset($request->filter['price_from_to'][1]) ? ("&filter[price_from_to][]=" . $request->filter['price_from_to'][1]) : ''?>
-                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
-                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
-                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
-                                    ">
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?@include('components.filter')sort=price">
                                 </a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?sort=-price
-                                    <?= isset($request->filter['price_from_to'][0]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][0] : ''?>
-                                    <?= isset($request->filter['price_from_to'][1]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][1] : ''?>
-                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
-                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
-                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
-                                    ">
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?@include('components.filter')sort=-price">
                                 </a>
                             </div>
                             <div class="col-sm-6 col-md-3">
                                 <b>По новизне</b>
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?sort=updated_at
-                                <?= isset($request->filter['price_from_to'][0]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][0] : ''?>
-                                    <?= isset($request->filter['price_from_to'][1]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][1] : ''?>
-                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
-                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
-                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
-                                    ">
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?@include('components.filter')sort=updated_at">
                                 </a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?sort=-updated_at
-                                <?= isset($request->filter['price_from_to'][0]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][0] : ''?>
-                                    <?= isset($request->filter['price_from_to'][1]) ? "&filter[price_from_to][]=" . $request->filter['price_from_to'][1] : ''?>
-                                    <?= isset($request->filter['title']) ? "&filter[title]=" . $request->filter['title'] : ''?>
-                                    <?= isset($request->filter['seller_id']) ? "&filter[seller_id]=" . $request->filter['seller_id'] : ''?>
-                                    <?= isset($request->filter['products_in_stock']) ? "&filter[products_in_stock]=" . $request->filter['products_in_stock'] : ''?>
-                                    ">
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?@include('components.filter')sort=-updated_at">
                                 </a>
                             </div>
                             <div class="col-sm-6 col-md-3">

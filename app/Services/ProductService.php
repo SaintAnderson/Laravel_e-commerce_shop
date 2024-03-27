@@ -20,7 +20,7 @@ class ProductService
         return QueryBuilder::for(Product::class)
             ->allowedFilters(Product::getAllowedFilters())
             ->allowedSorts(Product::getAllowedSorts())
-            ->paginate(8);
+            ->paginate(8)->appends(request()->except('page'));
 //        return Product::where('is_active', true)->where('count', '>', 0)->paginate(8); // Old
     }
 
@@ -62,7 +62,7 @@ class ProductService
 
     public function getPaginatedCatalogCategoryProducts(Category $category)
     {
-       
+
         return Product::where('is_active', true)->where('category_id', $category->id)->where('count', '>', 0)->paginate(8);
     }
 }

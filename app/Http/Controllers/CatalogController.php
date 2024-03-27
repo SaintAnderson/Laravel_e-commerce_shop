@@ -8,7 +8,6 @@ use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Models\Category;
-use App\Models\Seller;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class CatalogController extends Controller
@@ -31,18 +30,17 @@ class CatalogController extends Controller
     public function index(Request $request): View
     {
         $sellers = Seller::all();
+        $products = $this->productService->getPaginatedCatalogProducts();
+
         $allProducts = Product::all();
         $allProductsPrices = [];
         foreach ($allProducts as $product) {
             $allProductsPrices[] = $product->price;
         }
-        $products = $this->productService->getPaginatedCatalogProducts();
-
         $allFoundProducts = QueryBuilder::for(Product::class)
             ->allowedFilters(Product::getAllowedFilters())
             ->allowedSorts(Product::getAllowedSorts())
             ->get();
-
         $foundProductsPrices = [];
         foreach ($allFoundProducts as $product) {
             $foundProductsPrices[] = $product->price;
@@ -50,18 +48,18 @@ class CatalogController extends Controller
         $foundProductsMaxPrice = $foundProductsPrices ? max($foundProductsPrices) : max($allProductsPrices);
         $foundProductsMinPrice = $foundProductsPrices ? min($foundProductsPrices) : min($allProductsPrices);
 
-        return view('catalog.index', compact(
+        return view('catalog.index',
+            compact(
                 'products',
                 'sellers',
                 'foundProductsMaxPrice',
                 'foundProductsMinPrice',
-                'request',
-                'allFoundProducts'
+                'request'
             )
         );
     }
 
-     /**
+    /**
      * @param string $slug
      * @return View
      */

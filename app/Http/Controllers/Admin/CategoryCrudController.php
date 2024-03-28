@@ -19,14 +19,14 @@ class CategoryCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
 
-    public function setup()
+    public function setup(): void
     {
         CRUD::setModel(Category::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/category');
-        CRUD::setEntityNameStrings('Категория', 'Категории');
+        CRUD::setEntityNameStrings('категорию', 'Категории');
     }
 
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
         CRUD::column('id')->type('number')->label('ID');
         CRUD::column('parent_id')->type('select')->entity('parentCategory')->name('parent_id')->label('Родительская категория');
@@ -43,21 +43,12 @@ class CategoryCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
         CRUD::setValidation([
             'name' => 'required|min:2',
         ]);
-
-        CRUD::field([
-            'label' => "Родительская категория",
-            'type' => 'select',
-            'name' => 'parentCategory', // the method that defines the relationship in your Model
-            'entity' => 'parentCategory', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
-        ]);
-
+        CRUD::field('parent_id')->type('select')->entity('parentCategory')->name('parent_id')->label('Родительская категория');
         CRUD::field('name')->type('text')->label('Название')->attributes(['required' => 'required']);
         CRUD::field('image_url')->type('text')->label('Ссылка на картинку');
         CRUD::field('order')->type('number')->label('Позиция');
@@ -65,8 +56,19 @@ class CategoryCrudController extends CrudController
         CRUD::field('is_pinned')->type('checkbox')->label('Закрепить');
     }
 
-    protected function setupUpdateOperation()
+    /**
+     * @return void
+     */
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
+    }
+
+    /**
+     * @return void
+     */
+    protected function setupShowOperation(): void
+    {
+        $this->setupListOperation();
     }
 }

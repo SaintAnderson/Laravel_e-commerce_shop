@@ -53,7 +53,7 @@
                                         @endif
                                     </div>
                                     <div class="ProductCard-compare">
-                                        <a class="btn btn_default" href="#">
+                                        <a class="btn btn_default change" href="#" data-id="{{ $product->id }}">
                                             <img class="btn-icon" src="/assets/img/icons/card/change.svg"
                                                  alt="change.svg"/>
                                         </a>

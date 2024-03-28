@@ -21,57 +21,61 @@ class SellerCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
-    public function setup()
+    public function setup(): void
     {
         CRUD::setModel(\App\Models\Seller::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/seller');
-        CRUD::setEntityNameStrings('seller', 'sellers');
+        CRUD::setEntityNameStrings('продавца', 'Продавцы');
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
-        CRUD::setFromDb(); // set columns from db columns.
-
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        CRUD::column('title')->type('text')->label('Название');
+        CRUD::column('description')->type('text')->label('Описание');
+        CRUD::column('phone')->type('int')->label('Телефон');
+        CRUD::column('email')->type('text')->label('Email');
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
         CRUD::setValidation(SellerRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
-
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field('title')->type('text')->label('Название');
+        CRUD::field('description')->type('text')->label('Описание');
+        CRUD::field('phone')->type('int')->label('Телефон');
+        CRUD::field('email')->type('text')->label('Email');
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
+    }
+
+    /**
+     * @return void
+     */
+    protected function setupShowOperation(): void
+    {
+        $this->setupListOperation();
     }
 }

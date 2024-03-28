@@ -16,9 +16,9 @@
                     <x-responsive-nav-link :href="route('password.edit')" :active="request()->routeIs('password.edit')">
                         Сброс пароля
                     </x-responsive-nav-link>
-                    {{-- <x-responsive-nav-link :href="route('profile.historyorder')" :active="request()->routeIs('profile.historyorder')">
+                    <x-responsive-nav-link :href="route('profile.history-list-orders')" :active="request()->routeIs('profile.history-list-orders')">
                         История заказов
-                    </x-responsive-nav-link>--}}
+                    </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('profile.viewed-products')" :active="request()->routeIs('profile.viewed-products')">
                         История просмотра
                     </x-responsive-nav-link>

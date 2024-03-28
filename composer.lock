@@ -82,30 +82,29 @@
         },
         {
             "name": "backpack/crud",
-            "version": "6.6.6",
+            "version": "6.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "b29a3a0da2fb7fa78e48c8a366001db93a3029d0"
+                "reference": "d81b4d775d83a595d0ceacc4248f9308149fb030"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/b29a3a0da2fb7fa78e48c8a366001db93a3029d0",
-                "reference": "b29a3a0da2fb7fa78e48c8a366001db93a3029d0",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/d81b4d775d83a595d0ceacc4248f9308149fb030",
+                "reference": "d81b4d775d83a595d0ceacc4248f9308149fb030",
                 "shasum": ""
             },
             "require": {
-                "backpack/basset": "^1.1.1",
+                "backpack/basset": "^1.1.1|^1.3",
                 "creativeorange/gravatar": "~1.0",
-                "doctrine/dbal": "^3.0",
+                "doctrine/dbal": "^3.0|^4.0",
                 "guzzlehttp/guzzle": "^7.0",
-                "laravel/framework": "^10.0",
+                "laravel/framework": "^10.0|^11.0",
                 "prologue/alerts": "^1.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^8.0",
-                "phpunit/phpunit": "~10.0|~9.0",
-                "scrutinizer/ocular": "~1.7",
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^10.0|^9.0",
                 "spatie/laravel-translatable": "^6.0"
             },
             "suggest": {
@@ -171,9 +170,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.6.6"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.7.0"
             },
-            "time": "2024-03-07T15:16:33+00:00"
+            "time": "2024-03-14T19:46:57+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -2037,16 +2036,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.48.2",
+            "version": "v10.48.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "32a8bb151d748b579c3794dea53b56bd40dfbbd3"
+                "reference": "5791c052b41c6b593556adc687076bfbdd13c501"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/32a8bb151d748b579c3794dea53b56bd40dfbbd3",
-                "reference": "32a8bb151d748b579c3794dea53b56bd40dfbbd3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5791c052b41c6b593556adc687076bfbdd13c501",
+                "reference": "5791c052b41c6b593556adc687076bfbdd13c501",
                 "shasum": ""
             },
             "require": {
@@ -2240,7 +2239,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-03-12T16:35:43+00:00"
+            "time": "2024-03-15T10:17:07+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -3992,16 +3991,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.0",
+            "version": "v0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "750bf031a48fd07c673dbe3f11f72362ea306d0d"
+                "reference": "39621c73e0754328252f032c6997b983afc50431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/750bf031a48fd07c673dbe3f11f72362ea306d0d",
-                "reference": "750bf031a48fd07c673dbe3f11f72362ea306d0d",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/39621c73e0754328252f032c6997b983afc50431",
+                "reference": "39621c73e0754328252f032c6997b983afc50431",
                 "shasum": ""
             },
             "require": {
@@ -4065,9 +4064,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.0"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.1"
             },
-            "time": "2023-12-20T15:28:09+00:00"
+            "time": "2024-03-15T03:22:57+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -9497,5 +9496,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

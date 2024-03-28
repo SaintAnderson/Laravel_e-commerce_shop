@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Импорт товар 1",
+        "seller_id": 7,
+        "category_id": 3,
+        "article": "45646421325456444",
+        "description": "Импорт товар 1 Импорт товар 1 Импорт товар 1 Импорт товар 1 Импорт товар 1 Импорт товар 1 Импорт товар 1",
+        "count": 14,
+        "order": null,
+        "price": 25.5,
+        "old_price": null,
+        "is_active": 1,
+        "is_limited_edition": 0,
+        "image_url": "https://via.placeholder.com/300x300.png/0022ee?text=product+quaerat"
+    },
+    {
+        "title": "Импорт товар 2",
+        "seller_id": 10,
+        "category_id": 4,
+        "article": "11122245464654564",
+        "description": "Импорт товар 2 Импорт товар 2 Импорт товар 2 Импорт товар 2 Импорт товар 2 Импорт товар 2 Импорт товар 2 Импорт товар 2",
+        "count": 14,
+        "order": null,
+        "price": 24.4,
+        "old_price": null,
+        "is_active": 1,
+        "is_limited_edition": 0,
+        "image_url": "https://via.placeholder.com/300x300.png/0022ee?text=product+quaerat"
+    },
+    {
+        "title": "Импорт товар 3",
+        "seller_id": 9,
+        "category_id": 2,
+        "article": "123121645464564",
+        "description": "Импорт товар 3 Импорт товар 3 Импорт товар 3 Импорт товар 3 Импорт товар 3 Импорт товар 3 Импорт товар 3 Импорт товар 3",
+        "count": 61,
+        "order": null,
+        "price": 28.8,
+        "old_price": null,
+        "is_active": 1,
+        "is_limited_edition": 0,
+        "image_url": "https://via.placeholder.com/300x300.png/0022ee?text=product+quaerat"
+    }
+]

@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 class AppSeedDefaultAdvantages extends Command
 {
 
-    protected $signature = 'app:app-seed-default-advantages';
+    protected $signature = 'app:seed-default-advantages';
 
     protected $description = 'Add Advanateges in block';
 

@@ -24,11 +24,11 @@ class AdvantageCrudController extends CrudController
      *
      * @return void
      */
-    public function setup()
+    public function setup(): void
     {
         CRUD::setModel(\App\Models\Advantage::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/advantage');
-        CRUD::setEntityNameStrings('Преимущество', 'Преимущества');
+        CRUD::setEntityNameStrings('преимущество', 'Преимущества');
     }
 
     /**
@@ -37,14 +37,11 @@ class AdvantageCrudController extends CrudController
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
-        CRUD::setFromDb(); // set columns from db columns.
-
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        CRUD::column('title')->type('text')->label('Название');
+        CRUD::column('description')->type('textarea')->label('Описание');
+        CRUD::column('image_url')->type('text')->label('Картинка');
     }
 
     /**
@@ -53,15 +50,20 @@ class AdvantageCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
         CRUD::setValidation(AdvantageRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
+        CRUD::field('title')->type('text')->label('Название');
+        CRUD::field('description')->type('textarea')->label('Описание');
+        CRUD::field('image_url')->type('text')->label('Картинка');
+    }
 
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+    /**
+     * @return void
+     */
+    protected function setupShowOperation(): void
+    {
+        $this->setupListOperation();
     }
 
     /**
@@ -70,7 +72,7 @@ class AdvantageCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
     }

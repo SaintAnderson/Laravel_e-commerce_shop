@@ -2569,3 +2569,8 @@ button.link {
 .wrap-content {
   margin: 0 auto;
 }
+
+
+.form-payment {
+    margin-top: 20px;
+}

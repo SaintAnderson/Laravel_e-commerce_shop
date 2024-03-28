@@ -21,57 +21,57 @@ class SettingCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
-    public function setup()
+    public function setup(): void
     {
         CRUD::setModel(\App\Models\Setting::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/setting');
-        CRUD::setEntityNameStrings('setting', 'settings');
+        CRUD::setEntityNameStrings('настройку', 'настройки');
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
-        CRUD::setFromDb(); // set columns from db columns.
-
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        CRUD::column('key')->type('text')->label('Зоголовок');
+        CRUD::column('value')->type('text')->label('Описание');
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
-        CRUD::setValidation(SettingRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
-
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field('key')->type('text')->label('Зоголовок');
+        CRUD::field('value')->type('text')->label('Описание');
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
     }
+
+    /**
+     * @return void
+     */
+    protected function setupShowOperation(): void
+    {
+        $this->setupListOperation();
+    }
 }
+//todo выводится только с помощью команд, поэтому надо либо меня реализацию, либо убрать это поле

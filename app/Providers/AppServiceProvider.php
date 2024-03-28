@@ -40,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable('categories')) {
             view()->share('categoryMenuItems', app(CategoryService::class)->getActiveCategoriesWithActiveChildren());
         }
+
         if (Schema::hasTable('settings')) {
             view()->share([
                 'shopPhone' => app(SettingService::class)->get('shop_phone'),

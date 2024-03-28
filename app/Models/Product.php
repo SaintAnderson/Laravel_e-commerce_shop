@@ -12,6 +12,7 @@ use Spatie\Sluggable\{HasSlug, SlugOptions};
  * @method static limited()
  * @method static where(string $string, string $slug)
  * @method static whereIn()
+ * @method static inRandomOrder()
  */
 class Product extends Model
 {
@@ -80,5 +81,13 @@ class Product extends Model
     public function specifications(): BelongsToMany
     {
         return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class, 'product_orders')->withPivot('price');
     }
 }

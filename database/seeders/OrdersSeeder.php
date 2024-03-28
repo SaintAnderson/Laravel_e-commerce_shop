@@ -11,9 +11,9 @@ class OrdersSeeder extends Seeder
 {
     public function run(): void
     {
-        Order::factory(10)->create()->each(function ($order) {
-            $products = Product::inRandomOrder()->take(rand(1, 5))->pluck('id');
-            $order->products()->attach($products, ['price' => 200]);
-        });
+//        Order::factory(10)->create()->each(function ($order) {
+//            $products = Product::inRandomOrder()->take(rand(1, 5))->pluck('id');
+//            $order->products()->attach($products, ['price' => 200]);
+//        });
     }
 }

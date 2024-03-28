@@ -29,7 +29,7 @@ class Category extends Model
      * @param $query
      * @return mixed
      */
-    public function scopePinned($query)
+    public function scopePinned($query): mixed
     {
         return $query->where('is_pinned', true);
     }
@@ -51,7 +51,7 @@ class Category extends Model
     }
 
     /**
-     * @return array
+     * @return SlugOptions
      */
     public function getSlugOptions(): SlugOptions
     {
@@ -60,6 +60,9 @@ class Category extends Model
             ->saveSlugsTo('slug');
     }
 
+    /**
+     * @return string
+     */
     public function getRouteKeyName(): string
     {
         return 'slug';

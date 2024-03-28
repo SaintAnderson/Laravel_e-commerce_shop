@@ -29,14 +29,17 @@ class CatalogController extends Controller
      */
     public function index(Request $request): View
     {
+        $url = 'catalog';
         $sellers = Seller::all();
-        $products = $this->productService->getPaginatedCatalogProducts();
 
         $allProducts = Product::all();
         $allProductsPrices = [];
         foreach ($allProducts as $product) {
             $allProductsPrices[] = $product->price;
         }
+
+        $products = $this->productService->getPaginatedCatalogProducts();
+
         $allFoundProducts = QueryBuilder::for(Product::class)
             ->allowedFilters(Product::getAllowedFilters())
             ->allowedSorts(Product::getAllowedSorts())
@@ -54,7 +57,8 @@ class CatalogController extends Controller
                 'sellers',
                 'foundProductsMaxPrice',
                 'foundProductsMinPrice',
-                'request'
+                'request',
+                'url'
             )
         );
     }

@@ -77,7 +77,7 @@ class ProductSeeder extends Seeder
                 'price' => 150,
                 'article' => '67890',
                 'is_active' => true,
-                'is_limited_edition' => false,
+                'is_limited_edition' => true,
                 'image_url' => 'https://ivan-chohol.ua/image/cachewebp/catalog/december22/90639-1000x1000.webp',
             ],
             [
@@ -120,7 +120,7 @@ class ProductSeeder extends Seeder
                 'image_url' => 'https://stm.in.ua/wp-content/uploads/2019/06/naklejka-na-telefon-23-400x225.jpg',
             ],
             [
-                'title' => 'Смарт часы',
+                'title' => 'Смарт часы 1',
                 'category_id' => 1,
                 'seller_id' => 1,
                 'slug' => 'smart-chasi',
@@ -133,7 +133,7 @@ class ProductSeeder extends Seeder
                 'image_url' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU5iZ__OqOLhXR2G-6HBdYngA10yMuAhiS5eicRv59wA&s',
             ],
             [
-                'title' => 'Смарт часы',
+                'title' => 'Смарт часы 2',
                 'category_id' => 1,
                 'seller_id' => 1,
                 'slug' => 'smart-chasi',
@@ -142,7 +142,7 @@ class ProductSeeder extends Seeder
                 'price' => 150,
                 'article' => '67890',
                 'is_active' => true,
-                'is_limited_edition' => false,
+                'is_limited_edition' => true,
                 'image_url' => 'https://xiaomiexclusive.ru/files/thumb/item/00-00060979-6-515Wx515H.png?s=400,400,400,400',
             ],
             [
@@ -181,7 +181,7 @@ class ProductSeeder extends Seeder
                 'price' => 150,
                 'article' => '67890',
                 'is_active' => true,
-                'is_limited_edition' => false,
+                'is_limited_edition' => true,
                 'image_url' => 'https://mideakz.com/wp-content/uploads/2021/08/mdrb632fgf46_2.jpg',
             ],
             [

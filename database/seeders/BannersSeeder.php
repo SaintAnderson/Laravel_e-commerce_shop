@@ -23,7 +23,7 @@ class BannersSeeder extends Seeder
                 'title' => 'Обзоры на товары!',
                 'description' => 'С нашими обзорами на товары вы можете ознакомиться в блоге',
                 'image_url' => 'https://mysina.ru/wp-content/uploads/2018/12/kak-vesti-blog-v-instagram.jpg',
-                'url' => '/blog',
+                'url' => '/articles',
             ]
         ];
         foreach ($banners as $banner) {

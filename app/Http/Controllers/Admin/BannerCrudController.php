@@ -40,7 +40,6 @@ class BannerCrudController extends CrudController
     {
         CRUD::column('title')->type('text')->label('Название');
         CRUD::column('description')->type('textarea')->label('Описание');
-        CRUD::column('price')->type('number')->label('Цена');
         CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
         CRUD::column('url')->type('text')->label('Любой URL');
     }

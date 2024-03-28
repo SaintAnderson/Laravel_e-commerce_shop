@@ -43,7 +43,6 @@ class UserCrudController extends CrudController
         CRUD::column('last_name')->type('text')->label('Фамилия');
         CRUD::column('middle_name')->type('text')->label('Отчество');
         CRUD::column('email')->type('text')->label('Email');
-        CRUD::column('password')->type('text')->label('Пароль');
         CRUD::column('role_id')->type('select')->label('Роль');
         //todo роль не реализована
     }
@@ -61,7 +60,6 @@ class UserCrudController extends CrudController
         CRUD::field('last_name')->type('text')->label('Фамилия');
         CRUD::field('middle_name')->type('text')->label('Отчество');
         CRUD::field('email')->type('text')->label('Email');
-        CRUD::field('password')->type('text')->label('Пароль');
         CRUD::field('role_id')->type('select')->label('Роль');
         //todo роль не реализована
     }

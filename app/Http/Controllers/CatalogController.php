@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Seller;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Models\Category;
-use App\Models\Seller;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class CatalogController extends Controller
 {
@@ -27,18 +29,48 @@ class CatalogController extends Controller
      */
     public function index(Request $request): View
     {
+        $url = 'catalog';
+        $sellers = Seller::all();
+        $minPrice = $this->productService->getMinPriceOfAllProducts();
+        $maxPrice = $this->productService->getMaxPriceOfAllProducts();
         $products = $this->productService->getPaginatedCatalogProducts();
-        return view('catalog.index', compact('products'));
+
+        return view(
+            'catalog.index',
+            compact(
+                'products',
+                'sellers',
+                'minPrice',
+                'maxPrice',
+                'request',
+                'url'
+            )
+        );
     }
 
-     /**
+    /**
      * @param string $slug
      * @return View
      */
-    public function indexByCategory(string $slug): View
+    public function indexByCategory(string $slug, Request $request): View
     {
+        $url = "catalog/{$slug}";
         $category = Category::where('slug', $slug)->firstOrFail();
+        $sellers = Seller::all();
+        $minPrice = $this->productService->getMinPriceOfAllProducts();
+        $maxPrice = $this->productService->getMaxPriceOfAllProducts();
         $products = $this->productService->getPaginatedCatalogCategoryProducts($category);
-        return view('catalog.category', compact('products', 'category'));
+        return view(
+            'catalog.category',
+            compact(
+                'products',
+                'category',
+                'sellers',
+                'minPrice',
+                'maxPrice',
+                'request',
+                'url'
+            )
+        );
     }
 }

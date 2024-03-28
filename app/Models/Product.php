@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\{Builder, Model, Relations\BelongsToMany, Relat
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\{HasSlug, SlugOptions};
+use Spatie\QueryBuilder\AllowedFilter;
 
 /**
  * @method static limited()
@@ -89,5 +90,53 @@ class Product extends Model
     public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class, 'product_orders')->withPivot('price');
+    }
+
+    /**
+     * Список полей для получения отсортированных данных по запросу GET /products?sort=price или /products?sort=updated_at
+     * или в обратном порядке GET /products?sort=-price или /products?sort=-updated_at
+     * @return string[]
+     */
+    public static function getAllowedSorts(): array
+    {
+        return [
+            'price',
+            'updated_at'
+        ];
+    }
+
+    /**
+     * Список полей для фильтрации по диапазону цены, названию и продавцу.
+     * Пример запрос: GET /products?filter[price_from_to]=8,26&filter[title]=smartphone&filter[seller]=dns
+     * @return array
+     */
+    public static function getAllowedFilters(): array
+    {
+        return [
+            'title',
+            AllowedFilter::scope('price_from_to'),
+            AllowedFilter::scope('products_in_stock'),
+            AllowedFilter::exact('seller_id'),
+        ];
+    }
+
+    /**
+     * @param Builder $builder
+     * @param $from
+     * @param $to
+     * @return Builder
+     */
+    public function scopePriceFromTo(Builder $builder, $from, $to): Builder
+    {
+        return $builder->whereBetween('price', [$from, $to]);
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeProductsInStock(Builder $query): Builder
+    {
+        return $query->where('count', '>', 0);
     }
 }

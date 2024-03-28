@@ -88,6 +88,9 @@
                         <a class="Tabs-link_ACTIVE Tabs-link" href="#description">
                             <span>Описание</span>
                         </a>
+                        <a class="Tabs-link" href="{{asset("/sellers/$product->seller_id")}}" target="_blank">
+                            <strong>Продавец - {{$product->seller->title}}</strong>
+                        </a>
                         <a class="Tabs-link" href="#reviews">
                             <span>Отзывы ({{ $reviewCount }})</span>
                         </a>

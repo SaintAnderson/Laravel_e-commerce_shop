@@ -10,7 +10,8 @@ use App\Http\Controllers\{CartController,
     AboutController,
     ArticleController,
     ReviewController,
-    CompareController};
+    CompareController,
+    SellerController};
 use App\Http\Controllers\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,8 @@ Route::get('/catalog/{slug}', [CatalogController::class, 'indexByCategory'])->na
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+
+Route::get('/sellers/{id}', [SellerController::class, 'show']);//->name('sellers.list'); // Страница продавца!!!
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -25,7 +25,7 @@ class ProductCrudController extends CrudController
      *
      * @return void
      */
-    public function setup()
+    public function setup(): void
     {
         CRUD::setModel(Product::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/product');
@@ -38,18 +38,19 @@ class ProductCrudController extends CrudController
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
-        CRUD::column('title')->type('text')->label('Название продукта');
+        CRUD::column('title')->type('text')->label('Название');
+        CRUD::column('slug')->type('text')->label('Короткое название');
         CRUD::column('seller_id')->type('select')->entity('seller')->name('seller_id')->label('Продавец');
         CRUD::column('category_id')->type('select')->entity('category')->name('category_id')->label('Категория');
-//        CRUD::column('article')->type('text')->label('Артикул');
-//        CRUD::column('description')->type('text')->label('Описание');
-//        CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
-//        CRUD::column('count')->type('number')->label('Количество');
-//        CRUD::column('price')->type('number')->label('Цена');
-//        CRUD::column('is_active')->type('checkbox')->label('Активный');
-//        CRUD::column('is_limited_edition')->type('checkbox')->label('Лимитированный');
+        CRUD::column('article')->type('text')->label('Артикул');
+        CRUD::column('description')->type('text')->label('Описание');
+        CRUD::column('image_url')->type('text')->label('Ссылка на картинку');
+        CRUD::column('count')->type('number')->label('Количество');
+        CRUD::column('price')->type('number')->label('Цена');
+        CRUD::column('is_active')->type('checkbox')->label('Активный');
+        CRUD::column('is_limited_edition')->type('checkbox')->label('Лимитированный');
     }
 
     /**
@@ -58,28 +59,12 @@ class ProductCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
-        CRUD::setValidation(ProductRequest::class);
-        CRUD::field('title')->type('text')->label('Название продукта')->attributes(['required' => 'required']);
-        CRUD::field([
-            'label' => "Продавец",
-            'type' => 'select',
-            'name' => 'seller', // the method that defines the relationship in your Model
-            'entity' => 'seller', // the method that defines the relationship in your Model
-            'attribute' => 'title', // foreign key attribute that is shown to user
-            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
-        ]);
-//        CRUD::field('seller_id')->type('number')->label('ID продавца');
-        CRUD::field([
-            'label' => "Категория",
-            'type' => 'select',
-            'name' => 'category', // the method that defines the relationship in your Model
-            'entity' => 'category', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
-        ]);
-//        CRUD::field('category_id')->type('number')->label('ID категории');
+        CRUD::field('title')->type('text')->label('Название');
+        CRUD::field('slug')->type('text')->label('Короткое название');
+        CRUD::field('seller_id')->type('select')->entity('seller')->name('seller_id')->label('Продавец');
+        CRUD::field('category_id')->type('select')->entity('category')->name('category_id')->label('Категория');
         CRUD::field('article')->type('text')->label('Артикул');
         CRUD::field('description')->type('text')->label('Описание');
         CRUD::field('image_url')->type('text')->label('Ссылка на картинку');
@@ -87,7 +72,6 @@ class ProductCrudController extends CrudController
         CRUD::field('price')->type('number')->label('Цена');
         CRUD::field('is_active')->type('checkbox')->label('Активный');
         CRUD::field('is_limited_edition')->type('checkbox')->label('Лимитированный');
-
     }
 
     /**
@@ -96,8 +80,16 @@ class ProductCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
+    }
+
+    /**
+     * @return void
+     */
+    protected function setupShowOperation(): void
+    {
+        $this->setupListOperation();
     }
 }

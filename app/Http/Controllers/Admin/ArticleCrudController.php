@@ -22,51 +22,59 @@ class ArticleCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
-    public function setup()
+    public function setup(): void
     {
         CRUD::setModel(\App\Models\Article::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
-        CRUD::setEntityNameStrings('article', 'articles');
+        CRUD::setEntityNameStrings('статью', 'Статьи');
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
-    protected function setupListOperation()
+    protected function setupListOperation(): void
     {
-        CRUD::setFromDb(); // set columns from db columns.
         CRUD::column('title')->type('text')->label('Название');
-        CRUD::column('description')->type('textarea')->label('Описание');
+        CRUD::column('slug')->type('text')->label('Краткое название');
+        CRUD::column('description')->type('text')->label('Описание');
+        CRUD::column('image_url')->type('text')->label('Картинка');
+        CRUD::column('is_active')->type('checkbox')->label('Активна');
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
-    protected function setupCreateOperation()
+    protected function setupCreateOperation(): void
     {
-        CRUD::setValidation(ArticleRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
-        CRUD::field('title')->type('text')->label('Название')->attributes(['required' => 'required']);
-        CRUD::field('description')->type('textarea')->label('Описание');
+        CRUD::field('title')->type('text')->label('Название');
+        CRUD::field('slug')->type('text')->label('Краткое название');
+        CRUD::field('description')->type('text')->label('Описание');
+        CRUD::field('image_url')->type('text')->label('Картинка');
+        CRUD::field('is_active')->type('checkbox')->label('Активна');
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
-    protected function setupUpdateOperation()
+    protected function setupUpdateOperation(): void
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation(): void
+    {
+        $this->setupListOperation();
     }
 }

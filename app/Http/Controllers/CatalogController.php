@@ -31,32 +31,17 @@ class CatalogController extends Controller
     {
         $url = 'catalog';
         $sellers = Seller::all();
-
-        $allProducts = Product::all();
-        $allProductsPrices = [];
-        foreach ($allProducts as $product) {
-            $allProductsPrices[] = $product->price;
-        }
-
+        $minPrice = $this->productService->getMinPriceOfAllProducts();
+        $maxPrice = $this->productService->getMaxPriceOfAllProducts();
         $products = $this->productService->getPaginatedCatalogProducts();
 
-        $allFoundProducts = QueryBuilder::for(Product::class)
-            ->allowedFilters(Product::getAllowedFilters())
-            ->allowedSorts(Product::getAllowedSorts())
-            ->get();
-        $foundProductsPrices = [];
-        foreach ($allFoundProducts as $product) {
-            $foundProductsPrices[] = $product->price;
-        }
-        $foundProductsMaxPrice = $foundProductsPrices ? max($foundProductsPrices) : max($allProductsPrices);
-        $foundProductsMinPrice = $foundProductsPrices ? min($foundProductsPrices) : min($allProductsPrices);
-
-        return view('catalog.index',
+        return view(
+            'catalog.index',
             compact(
                 'products',
                 'sellers',
-                'foundProductsMaxPrice',
-                'foundProductsMinPrice',
+                'minPrice',
+                'maxPrice',
                 'request',
                 'url'
             )
@@ -67,10 +52,25 @@ class CatalogController extends Controller
      * @param string $slug
      * @return View
      */
-    public function indexByCategory(string $slug): View
+    public function indexByCategory(string $slug, Request $request): View
     {
+        $url = "catalog/{$slug}";
         $category = Category::where('slug', $slug)->firstOrFail();
+        $sellers = Seller::all();
+        $minPrice = $this->productService->getMinPriceOfAllProducts();
+        $maxPrice = $this->productService->getMaxPriceOfAllProducts();
         $products = $this->productService->getPaginatedCatalogCategoryProducts($category);
-        return view('catalog.category', compact('products', 'category'));
+        return view(
+            'catalog.category',
+            compact(
+                'products',
+                'category',
+                'sellers',
+                'minPrice',
+                'maxPrice',
+                'request',
+                'url'
+            )
+        );
     }
 }

@@ -12,11 +12,11 @@
                             <label for="price_from">Цена от:</label>
                             <input type="number" id="price_from" name="filter[price_from_to][]"
                                    class="price"
-                                   value="{{(($request->filter['price_from_to'][0] ?? 0) > $foundProductsMinPrice) ? $request->filter['price_from_to'][0] : $foundProductsMinPrice }}">
+                                   value="{{(($request->filter['price_from_to'][0] ?? 0) > $minPrice) ? $request->filter['price_from_to'][0] : $minPrice }}">
                             <label for="price_to">и до:</label>
                             <input type="number" id="price_to" name="filter[price_from_to][]"
                                    class="price"
-                                   value="{{(($request->filter['price_from_to'][1] ?? $foundProductsMaxPrice) < $foundProductsMaxPrice) ? $request->filter['price_from_to'][1] : $foundProductsMaxPrice}}">
+                                   value="{{(($request->filter['price_from_to'][1] ?? $maxPrice) < $maxPrice) ? $request->filter['price_from_to'][1] : $maxPrice}}">
                         </div>
                         <div class="form-group">
                             <label for="title">Название: </label>
@@ -26,7 +26,6 @@
                         <div class="form-section">
                             <label for="genre">Продавец:
                                 <select class="form-select" name="filter[seller_id]" id="seller">
-{{--                                    <option value="">--Выберите продавца--</option>--}}
                                     @if(count($sellers) > 1)
                                         <option value="">--Выберите продавца--</option>
                                     @endif
@@ -40,33 +39,6 @@
                                     @endforeach
                                 </select>
                             </label>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="form-section col-6">
-                                <label for="products_in_stock">
-                                    <input type="checkbox" name="filter[products_in_stock]" value="1"
-                                           id="products_in_stock"
-                                           @if($request->filter['products_in_stock'] ?? 0)
-                                               checked
-                                        @endif
-                                    ><span class="toggle-box"></span>
-                                    <span class="toggle-text"> Только товары в наличии. </span>
-                                </label>
-                            </div>
-                            <div class="form-section col-6">
-                                {{--                                        <label for="free_delivery">--}}
-                                {{--                                            <input type="checkbox"--}}
-                                {{--                                                   disabled--}}
-                                {{--                               name="filter[free_delivery]"--}}
-                                {{--                               value="1"--}}
-                                {{--                                @if($request->filter['free_delivery'] ?? 0)--}}
-                                {{--                                   checked--}}
-                                {{--                                @endif--}}
-                                {{--                                            ><span class="toggle-box"></span>--}}
-                                {{--                                            <span class="toggle-text"> С бесплатной доставкой. </span>--}}
-                                {{--                                        </label>--}}
-                            </div>
                         </div>
                         <br>
                         <button type="submit" class="btn btn_square btn_blue btn_narrow">Найти</button>
@@ -98,14 +70,8 @@
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
-                        {{--                                <b>По популярности</b>--}}
-                        {{--                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?"></a>--}}
-                        {{--                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}"></a>--}}
                     </div>
                     <div class="col-sm-6 col-md-3">
-                        {{--                                <b>По отзывам</b>--}}
-                        {{--                                <a class="Sort-sortBy Sort-sortBy_dec" href="{{route('catalog')}}?"></a>--}}
-                        {{--                                <a class="Sort-sortBy Sort-sortBy_inc" href="{{route('catalog')}}?"></a>--}}
                     </div>
                 </div>
             </div>

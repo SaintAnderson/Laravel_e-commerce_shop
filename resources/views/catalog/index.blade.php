@@ -1,15 +1,4 @@
 <?php
-/**  @var $products */
-/**  @var $request */
-/**  @var $sellers */
-/**  @var $foundProductsMinPrice */
-/**  @var $foundProductsMaxPrice */
-
-//echo '<pre>$request->filter[price_from_to][0]: ';
-//var_dump($request->filter['price_from_to'][0] ?? '--null--' );
-//echo '<hr>$foundProductsMinPrice: ';
-//var_dump($foundProductsMinPrice ?? '--null--' );
-//echo '</pre>';
 ?>
 @extends('layouts.default')
 

@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ProductView::class);
     }
+
+    public function import(): BelongsTo
+    {
+        return $this->belongsTo(Import::class);
+    }
 }

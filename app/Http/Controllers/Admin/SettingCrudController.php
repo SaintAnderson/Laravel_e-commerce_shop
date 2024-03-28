@@ -39,7 +39,7 @@ class SettingCrudController extends CrudController
      */
     protected function setupListOperation(): void
     {
-        CRUD::column('key')->type('text')->label('Зоголовок');
+        CRUD::column('key')->type('text')->label('Заголовок');
         CRUD::column('value')->type('text')->label('Описание');
     }
 
@@ -51,7 +51,7 @@ class SettingCrudController extends CrudController
      */
     protected function setupCreateOperation(): void
     {
-        CRUD::field('key')->type('text')->label('Зоголовок');
+        CRUD::field('key')->type('text')->label('Заголовок');
         CRUD::field('value')->type('text')->label('Описание');
     }
 
@@ -74,4 +74,3 @@ class SettingCrudController extends CrudController
         $this->setupListOperation();
     }
 }
-//todo выводится только с помощью команд, поэтому надо либо меня реализацию, либо убрать это поле

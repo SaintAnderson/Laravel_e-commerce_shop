@@ -32,4 +32,5 @@ Route::group([
     Route::get('import', 'ImportController@index')->name('import');
     Route::get('import_create', 'ImportController@create')->name('import.create');
     Route::post('import_upload', 'ImportController@upload')->name('import.upload');
+    Route::crud('coupon', 'CouponCrudController');
 }); // this should be the absolute last line of this file

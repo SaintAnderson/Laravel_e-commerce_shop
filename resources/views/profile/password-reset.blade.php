@@ -5,7 +5,7 @@
 @section('account-content')
 
     <div class="Profile">
-        <form class="form Profile-form" method="POST">
+        <form class="form Profile-form" method="POST" action="{{ route('password.update') }}">
             @csrf
             @method('PUT')
             <div class="row">

@@ -21,19 +21,19 @@ class CouponCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
     {
         CRUD::setModel(\App\Models\Coupon::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/coupon');
-        CRUD::setEntityNameStrings('coupon', 'coupons');
+        CRUD::setEntityNameStrings('купон', 'Купоны');
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
@@ -41,8 +41,8 @@ class CouponCrudController extends CrudController
     {
         CRUD::column('type')->type('text')->label('Тип купона');
         CRUD::column('is_active')->type('boolean')->label('Активен');
-        CRUD::column('code')->type('text')->label('Купон');        
-        CRUD::column('amount')->type('text')->label('Скидка');        
+        CRUD::column('code')->type('text')->label('Купон');
+        CRUD::column('amount')->type('text')->label('Сумма скидки');
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -52,7 +52,7 @@ class CouponCrudController extends CrudController
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -67,13 +67,13 @@ class CouponCrudController extends CrudController
          */
         CRUD::field('type')->type('select_from_array')->label('Тип купона')->options(['sum' => 'Сумма', 'precent' => 'Процент']);
         CRUD::field('is_active')->type('boolean')->label('Активен');
-        CRUD::field('code')->type('text')->label('Купон');        
-        CRUD::field('amount')->type('text')->label('Скидка');    
+        CRUD::field('code')->type('text')->label('Купон');
+        CRUD::field('amount')->type('text')->label('Сумма скидки');
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

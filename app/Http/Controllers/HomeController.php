@@ -20,13 +20,10 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        $popularProducts = $this->productService->getPopular();
-        $banners = Banner::inRandomOrder()->take(3)->get();
-        $pinnedCategories = $this->categoryService->getPinnedCategories();
         return view('index', [
-            'banners' => $banners,
-            'pinnedCategories' => $pinnedCategories,
-            'popularProducts' => $popularProducts,
+            'banners' => Banner::inRandomOrder()->take(3)->get(),
+            'pinnedCategories' => $this->categoryService->getPinnedCategories(),
+            'popularProducts' => $this->productService->getPopular(),
             'limitedEditionProducts' => $this->productService->getLimitedEditionProducts(),
         ]);
     }

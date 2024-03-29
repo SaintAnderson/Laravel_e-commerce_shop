@@ -11,7 +11,7 @@ class ReviewController extends Controller
     /**
      * @var ReviewService
      */
-    private $reviewService;
+    private ReviewService $reviewService;
 
     /**
      * @param ReviewService $reviewService

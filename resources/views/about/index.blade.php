@@ -9,7 +9,7 @@
                     <h1 class="Middle-title">О нас
                     </h1>
                     <ul class="breadcrumbs Middle-breadcrumbs">
-                        <li class="breadcrumbs-item"><a href="index.html">Главная</a>
+                        <li class="breadcrumbs-item"><a href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="breadcrumbs-item breadcrumbs-item_current"><span>О нас</span>
                         </li>
@@ -27,9 +27,9 @@
                         <div class="Article-section">
                             <div class="row row_verticalCenter row_maxHalf">
                                 <div class="row-block">
-                                    <h2>{{ $title }}
+                                    <h2>{{ $shopTitle }}
                                     </h2>
-                                    <p>{{ $description }}
+                                    <p>{{ $shopDescription }}
                                     </p>
                                 </div>
                             </div>

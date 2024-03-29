@@ -14,3 +14,5 @@
 <x-backpack::menu-item title="Пользователи" icon="las la-user" :link="backpack_url('user')" />
 <x-backpack::menu-item title="Блог" icon="la la-list-alt" :link="backpack_url('article')" />
 <x-backpack::menu-item title="Характеристики" icon="la la-cogs" :link="backpack_url('specification')" />
+
+<x-backpack::menu-item title="Купоны" icon="la la-question" :link="backpack_url('coupon')" />

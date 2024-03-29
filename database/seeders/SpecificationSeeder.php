@@ -10,6 +10,17 @@ class SpecificationSeeder extends Seeder
 {
     public function run(): void
     {
-        Specification::factory(10)->create();
+        $specifications = [
+            ['name' =>  'объем памяти', 'measure' => 'Гб'],
+            ['name' =>  'объем оперативной памяти', 'measure' => 'Гб'],
+            ['name' =>  'материал корпуса', 'measure' => ''],
+            ['name' =>  'материал', 'measure' => ''],
+            ['name' =>  'ширина', 'measure' => 'см'],
+            ['name' =>  'длина', 'measure' => 'см'],
+        ];
+        foreach ($specifications as $specification)
+        {
+            Specification::create($specification);
+        }
     }
 }

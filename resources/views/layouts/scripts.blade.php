@@ -9,19 +9,17 @@
 
 <script type="application/javascript">
     $(function() {
-        $(document).on('click', '.change', function () {
+        $(document).on('click', '.change', async function () {
             let id = $(this).data('id');
             let url = '/compare/add/';
-            ajaxRequest(url, id);
-
+            await $.post(url, {id: id})
             location.reload();
         });
 
-        $(document).on('click', '.delete', function () {
+        $(document).on('click', '.delete', async function () {
             let id = $(this).data('id');
             let url = '/compare/remove'
-            ajaxRequest(url, id);
-
+            await $.post(url, {id: id})
             location.reload();
         });
     });
